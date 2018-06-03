@@ -1,0 +1,99 @@
+removal_homepage:
+    path:     /
+    defaults: { _controller: RemovalBundle:Home:read }
+
+removal_joueur_create:
+    path:     /joueur/create
+    defaults: { _controller: RemovalBundle:Joueur:create }
+
+removal_joueur_read:
+    path:     /joueur
+    defaults: { _controller: RemovalBundle:Joueur:read }
+
+removal_joueur_delete:
+    path:     /joueur/delete/{joueurID}
+    defaults: { _controller: RemovalBundle:Joueur:delete }
+
+removal_joueur_update:
+    path:     /joueur/update/{joueurID}
+    defaults: { _controller: RemovalBundle:Joueur:update }
+
+removal_joueur_read_all:
+    path:     /joueur/{joueurID}
+    defaults: { _controller: RemovalBundle:Joueur:readAll }
+
+
+removal_participation_create:
+    path:     /participation/create
+    defaults: { _controller: RemovalBundle:Participation:create }
+
+removal_participation_read:
+    path:     /participation
+    defaults: { _controller: RemovalBundle:Participation:read }
+
+removal_participation_update:
+    path:     /participation/update/{participationID}
+    defaults: { _controller: RemovalBundle:Participation:update }
+
+removal_participation_delete:
+    path:     /participation/delete/{participationID}
+    defaults: { _controller: RemovalBundle:Participation:delete }
+
+
+
+
+removal_admin_read_all_users:
+    path:     /admin/read/users
+    defaults: { _controller: RemovalBundle:Admin:readAllUsers }
+
+removal_admin_edit_user:
+    path:     /admin/edit/{userID}
+    defaults: { _controller: RemovalBundle:Admin:update }
+
+removal_admin_delete_status:
+    path:     /admin/delete
+    defaults: { _controller: RemovalBundle:Admin:deleteAll }
+
+removal_admin_delete_one_status:
+    path:     /admin/delete/{userID}
+    defaults: { _controller: RemovalBundle:Admin:deleteOne }
+
+removal_admin_confirm_one_status:
+    path:     /admin/confirm/{statusID}
+    defaults: { _controller: RemovalBundle:Admin:confirmationParticipation }
+
+
+
+
+removal_gestion_read:
+    path:     /gestion
+    defaults: { _controller: RemovalBundle:Gestion:read }
+
+removal_gestion_status:
+    path:     /gestion/status
+    defaults: { _controller: RemovalBundle:Gestion:validationStatus }
+
+
+
+removal_hotel_read:
+    path:     /hotel
+    defaults: { _controller: RemovalBundle:Api:returnApi }
+
+removal_hotel_read_kaiserdh:
+    path:     /hotel/kaiserdh
+    defaults: { _controller: RemovalBundle:Api:kaiserdh }
+
+
+
+
+removal_roster_read:
+    path:     /roster
+    defaults: { _controller: RemovalBundle:Roster:read }
+
+removal_candidature_read:
+    path:     /candidature
+    defaults: { _controller: RemovalBundle:Candidature:read }
+
+removal_candidature_create:
+    path:     /candidature/create
+    defaults: { _controller: RemovalBundle:Candidature:create }

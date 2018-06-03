@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+      <header>
+        <div class="removalBanner"></div>
+        <div class="menu">
+            <a href="{{ path('removal_homepage') }}">Accueil</a>
+            <a href="{{ path('removal_roster_read') }}">Roster</a>
+            <a href="{{ path('removal_candidature_create') }}">Postuler</a>
+            {% if is_granted('ROLE_GUILDE') %}
+                <a href="{{ path('removal_joueur_read') }}">Les personnages</a>
+                <a href="{{ path('removal_gestion_read') }}">Gestions</a>
+            {% endif %}
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">Se connecter</a>
+                <a href="{{ path('fos_user_registration_register') }}">Se créer un compte</a>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
+                <a href="{{ path('removal_candidature_read') }}">voir les candidatures</a>
+            {% endif %}
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('removal_participation_read') }}">Participations</a>
+                <a href="{{ path('removal_admin_read_all_users') }}">Admin</a>
+                <a href="{{ path('removal_hotel_read') }}">Hotel</a>
+            {% endif %}
+        </div>
+      </header>
+
+
+      {% block body %}{% endblock %}
+
+      <footer></footer>
+
+      {% block javascripts %}{% endblock %}
+
+    </body>
+</html>

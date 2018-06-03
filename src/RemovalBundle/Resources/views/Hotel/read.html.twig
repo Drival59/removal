@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {% set break = 0 %}
+    {#{% set gold = 0 %}#}
+    {#{% set pregold = 0 %}#}
+    {% if count != 0 %}
+        <p>Objet en vente : {{ count }}</p>
+    {% endif %}
+    <table class="table">
+        <tr>
+            <th>Nom de l'objet</th>
+            <th>Icône</th>
+            <th>Quantité</th>
+            <th>Prix en pièce d'or</th>
+            <th>Vendeur</th>
+            <th>Temps restant</th>
+        </tr>
+        {% for auction in auctions.auctions %}
+            {% if auction.owner == "Kaiserdh" %}
+                <tr>
+                    <td>
+                        {% for item in items %}
+                            {% if auction.item == item.id %}
+                                {% if break == 0 %}
+                                    {{ item.name }}
+                                    {% set break = 1 %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {% set break = 0 %}
+                    </td>
+                    <td>
+                        {% for item in items %}
+                            {% if auction.item == item.id %}
+                                {% if break == 0 %}
+                                    <img src="http://wow.zamimg.com/images/wow/icons/large/{{ item.icon }}.jpg" alt="">
+                                    {% set break = 1 %}
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                        {% set break = 0 %}
+                    </td>
+                    <td>{{ auction.quantity }}</td>
+                    <td>{{ auction.buyout[:-4] }} Pièces d'or</td>
+                    <td>{{ auction.owner }}</td>
+                    <td>{{ auction.timeLeft }}</td>
+                </tr>
+            {% endif %}
+            {#{% set pregold = auction.buyout[:-4] %}#}
+            {#{% set gold = gold + pregold|number_format %}#}
+        {% endfor %}
+    </table><br><br>
+    {#<p>Si tout les objets sont vendu vous obtiendrez : {{ gold }}</p>#}
+{% endblock %}

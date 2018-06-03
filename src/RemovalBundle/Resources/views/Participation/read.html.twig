@@ -1,0 +1,150 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2>Liste des participations normales : </h2><br>
+<table class="table">
+    <tr>
+        <th>Nom Participation</th>
+        <th>Niveau d'importance</th>
+        <th>Date Début</th>
+        <th>Date Fin</th>
+        <th>Compo 1</th>
+        <th>Nbr</th>
+        <th>Compo 2</th>
+        <th>Nbr</th>
+        <th>Compo 3</th>
+        <th>Nbr</th>
+        <th>Compo 4</th>
+        <th>Nbr</th>
+        <th>Modification</th>
+    </tr>
+    {% for participation in participation %}
+        {% if participation.importance == "Normal" and participation.importance != null %}
+        <tr>
+            <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
+            <td>{{ participation.importance }}</td>
+            <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
+            <td>{{ participation.dateFin|date('d-m-Y') }}</td>
+            <td>{{ participation.nomCompo1 }}</td>
+            <td>{{ participation.nbrCompo1 }}</td>
+            <td>{{ participation.nomCompo2 }}</td>
+            <td>{{ participation.nbrCompo2 }}</td>
+            <td>{{ participation.nomCompo3 }}</td>
+            <td>{{ participation.nbrCompo3 }}</td>
+            <td>{{ participation.nomCompo4 }}</td>
+            <td>{{ participation.nbrCompo4 }}</td>
+            <td>
+            {% if is_granted('ROLE_ADMIN') %}
+                <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
+                <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer"></span></a>
+            {% endif %}
+            </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+</table><br><br>
+
+
+
+    <h2>Liste des participations courantes : </h2><br>
+    <table class="table">
+        <tr>
+            <th>Nom Participation</th>
+            <th>Niveau d'importance</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>Compo 1</th>
+            <th>Nbr</th>
+            <th>Compo 2</th>
+            <th>Nbr</th>
+            <th>Compo 3</th>
+            <th>Nbr</th>
+            <th>Compo 4</th>
+            <th>Nbr</th>
+            <th>Modification</th>
+        </tr>
+        {% for participation in participation %}
+            {% if participation.importance == "Courant" and participation.importance != null %}
+            <tr>
+                <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
+                <td>{{ participation.importance }}</td>
+                <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
+                <td>{{ participation.dateFin|date('d-m-Y') }}</td>
+                <td>{{ participation.nomCompo1 }}</td>
+                <td>{{ participation.nbrCompo1 }}</td>
+                <td>{{ participation.nomCompo2 }}</td>
+                <td>{{ participation.nbrCompo2 }}</td>
+                <td>{{ participation.nomCompo3 }}</td>
+                <td>{{ participation.nbrCompo3 }}</td>
+                <td>{{ participation.nomCompo4 }}</td>
+                <td>{{ participation.nbrCompo4 }}</td>
+                <td>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
+                        <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer"></span></a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table><br>
+
+
+
+    <h2>Liste des participations urgentes : </h2><br>
+    <table class="table">
+        <tr>
+            <th>Nom Participation</th>
+            <th>Niveau d'importance</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>Compo 1</th>
+            <th>Nbr</th>
+            <th>Compo 2</th>
+            <th>Nbr</th>
+            <th>Compo 3</th>
+            <th>Nbr</th>
+            <th>Compo 4</th>
+            <th>Nbr</th>
+            <th>Modification</th>
+        </tr>
+        {% for participation in participation %}
+            {% if participation.importance == "Urgent" and participation.importance != null %}
+                <tr>
+                    <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
+                    <td>{{ participation.importance }}</td>
+                    <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
+                    <td>{{ participation.dateFin|date('d-m-Y') }}</td>
+                    <td>{{ participation.nomCompo1 }}</td>
+                    <td>{{ participation.nbrCompo1 }}</td>
+                    <td>{{ participation.nomCompo2 }}</td>
+                    <td>{{ participation.nbrCompo2 }}</td>
+                    <td>{{ participation.nomCompo3 }}</td>
+                    <td>{{ participation.nbrCompo3 }}</td>
+                    <td>{{ participation.nomCompo4 }}</td>
+                    <td>{{ participation.nbrCompo4 }}</td>
+                    <td>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
+                            <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer"></span></a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+
+
+
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('removal_participation_create') }}"> <span><button>Créer une participation</button></span></a>
+    {% endif %}
+{% endblock %}
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h2>Liste des personnages</h2><br>
+    <table class="table">
+    <tr>
+        <th>Pseudo</th>
+        <th>Classe</th>
+        <th>Spécialisation</th>
+        <th>Appartient à</th>
+        {% if is_granted('ROLE_ADMIN') %}
+        <th>Modification</th>
+        {% endif %}
+    </tr>
+    {% for joueur in joueur %}
+        <tr>
+            <td><span class="glyphicon glyphicon-arrow-right"></span> {{ joueur.pseudo }}</td>
+            <td>{{ joueur.classe }}</td>
+            <td>{{ joueur.specialisation }}</td>
+            <td><a href="{{ path('removal_joueur_read_all', {'joueurID' : joueur.utilisateur.id}) }}">{{ joueur.utilisateur }}</a></td>
+            <td>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('removal_joueur_update', {'joueurID' : joueur.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
+                    <a href="{{ path('removal_joueur_delete', {'joueurID' : joueur.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="{{ path('removal_joueur_create') }}"> <span><button>Créer un joueur</button></span></a>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        function myFunction() {
+            confirm("Voulez vous vraiment supprimer ?");
+        }
+    </script>
+{% endblock %}

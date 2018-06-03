@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table">
+        <tr>
+            <th>nom</th>
+            <th>Avatar</th>
+            <th>Spécialisation</th>
+            <th>Rôle</th>
+        </tr>
+        {% for membre in membres.members %}
+            {% if membre.rank <= "2" %}
+                <tr>
+                    <td>{{ membre.character.name }}</td>
+                    <td><img src="https://render-eu.worldofwarcraft.com/character/{{ membre.character.thumbnail }}" alt=""></td>
+                    <td>{{ membre.character.spec.name }}</td>
+                    <td>{{ membre.character.spec.role }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}

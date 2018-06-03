@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <h2>Création d'un joueur en cours</h2><br>
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+    {{ form_label(form.pseudo) }}
+    {{ form_widget(form.pseudo) }}
+    </div>
+    <div class="form-group">
+    {{ form_label(form.classe) }}
+    {{ form_widget(form.classe) }}
+    </div>
+    <div class="form-group">
+    {{ form_label(form.specialisation) }}
+    {{ form_widget(form.specialisation) }}
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+    </div>
+{% endblock %}
