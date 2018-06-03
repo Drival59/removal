@@ -66,11 +66,11 @@ removal_admin_confirm_one_status:
 
 
 removal_gestion_read:
-    path:     /gestion
+    path:     /guilde/gestion
     defaults: { _controller: RemovalBundle:Gestion:read }
 
 removal_gestion_status:
-    path:     /gestion/status
+    path:     /guilde/gestion/status
     defaults: { _controller: RemovalBundle:Gestion:validationStatus }
 
 
@@ -91,7 +91,7 @@ removal_roster_read:
     defaults: { _controller: RemovalBundle:Roster:read }
 
 removal_candidature_read:
-    path:     /admin/candidature
+    path:     /sb/candidature
     defaults: { _controller: RemovalBundle:Candidature:read }
 
 removal_candidature_create:
