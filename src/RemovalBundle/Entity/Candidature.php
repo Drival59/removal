@@ -86,7 +86,7 @@ class Candidature
 
     /**
      * @var
-     * @ORM\OneToOne(targetEntity="RemovalBundle\Entity\User", inversedBy="candidature")
+     * @ORM\ManyToOne(targetEntity="RemovalBundle\Entity\User", inversedBy="candidature")
      * @ORM\JoinColumn(nullable=false)
      */
     private $utilisateur;

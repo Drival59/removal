@@ -53,8 +53,8 @@ class User extends BaseUser
     private $status;
 
     /**
-     * @var
-     * @ORM\OneToOne(targetEntity="RemovalBundle\Entity\Candidature", mappedBy="utilisateur")
+     * @var ArrayCollection
+     * @ORM\OneToMany(targetEntity="RemovalBundle\Entity\Candidature", mappedBy="utilisateur")
      */
     private $candidature;
 
@@ -67,11 +67,11 @@ class User extends BaseUser
     }
 
     /**
-     * @param mixed $candidature
+     * @param Candidature $candidature
      */
-    public function setCandidature($candidature)
+    public function addCandidature(Candidature $candidature)
     {
-        $this->candidature = $candidature;
+        $this->candidature[] = $candidature;
     }
 
     /**
@@ -115,6 +115,7 @@ class User extends BaseUser
 
         $this->joueurs = new ArrayCollection();
         $this->participations = new ArrayCollection();
+        $this->candidature = new ArrayCollection();
     }
 
     /**
