@@ -3,40 +3,40 @@ removal_homepage:
     defaults: { _controller: RemovalBundle:Home:read }
 
 removal_joueur_create:
-    path:     /joueur/create
+    path:     /guilde/joueur/create
     defaults: { _controller: RemovalBundle:Joueur:create }
 
 removal_joueur_read:
-    path:     /joueur
+    path:     /guilde/joueur
     defaults: { _controller: RemovalBundle:Joueur:read }
 
 removal_joueur_delete:
-    path:     /joueur/delete/{joueurID}
+    path:     /guilde/joueur/delete/{joueurID}
     defaults: { _controller: RemovalBundle:Joueur:delete }
 
 removal_joueur_update:
-    path:     /joueur/update/{joueurID}
+    path:     /guilde/joueur/update/{joueurID}
     defaults: { _controller: RemovalBundle:Joueur:update }
 
 removal_joueur_read_all:
-    path:     /joueur/{joueurID}
+    path:     /guilde/joueur/{joueurID}
     defaults: { _controller: RemovalBundle:Joueur:readAll }
 
 
 removal_participation_create:
-    path:     /participation/create
+    path:     /admin/participation/create
     defaults: { _controller: RemovalBundle:Participation:create }
 
 removal_participation_read:
-    path:     /participation
+    path:     /admin/participation
     defaults: { _controller: RemovalBundle:Participation:read }
 
 removal_participation_update:
-    path:     /participation/update/{participationID}
+    path:     /admin/participation/update/{participationID}
     defaults: { _controller: RemovalBundle:Participation:update }
 
 removal_participation_delete:
-    path:     /participation/delete/{participationID}
+    path:     /admin/participation/delete/{participationID}
     defaults: { _controller: RemovalBundle:Participation:delete }
 
 
@@ -76,11 +76,11 @@ removal_gestion_status:
 
 
 removal_hotel_read:
-    path:     /hotel
+    path:     /admin/hotel
     defaults: { _controller: RemovalBundle:Api:returnApi }
 
 removal_hotel_read_kaiserdh:
-    path:     /hotel/kaiserdh
+    path:     /admin/hotel/kaiserdh
     defaults: { _controller: RemovalBundle:Api:kaiserdh }
 
 
@@ -91,7 +91,7 @@ removal_roster_read:
     defaults: { _controller: RemovalBundle:Roster:read }
 
 removal_candidature_read:
-    path:     /candidature
+    path:     /admin/candidature
     defaults: { _controller: RemovalBundle:Candidature:read }
 
 removal_candidature_create:
