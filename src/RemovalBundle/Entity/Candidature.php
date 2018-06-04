@@ -334,4 +334,3 @@ class Candidature
         return $this->description;
     }
 }
-

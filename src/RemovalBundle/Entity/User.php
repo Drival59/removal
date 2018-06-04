@@ -133,5 +133,62 @@ class User extends BaseUser
     {
         return $this->joueurs;
     }
-}
 
+    /**
+     * Add joueur
+     *
+     * @param \RemovalBundle\Entity\Joueur $joueur
+     *
+     * @return User
+     */
+    public function addJoueur(\RemovalBundle\Entity\Joueur $joueur)
+    {
+        $this->joueurs[] = $joueur;
+
+        return $this;
+    }
+
+    /**
+     * Remove joueur
+     *
+     * @param \RemovalBundle\Entity\Joueur $joueur
+     */
+    public function removeJoueur(\RemovalBundle\Entity\Joueur $joueur)
+    {
+        $this->joueurs->removeElement($joueur);
+    }
+
+    /**
+     * Add participation
+     *
+     * @param \RemovalBundle\Entity\Participation $participation
+     *
+     * @return User
+     */
+    public function addParticipation(\RemovalBundle\Entity\Participation $participation)
+    {
+        $this->participations[] = $participation;
+
+        return $this;
+    }
+
+    /**
+     * Remove participation
+     *
+     * @param \RemovalBundle\Entity\Participation $participation
+     */
+    public function removeParticipation(\RemovalBundle\Entity\Participation $participation)
+    {
+        $this->participations->removeElement($participation);
+    }
+
+    /**
+     * Remove candidature
+     *
+     * @param \RemovalBundle\Entity\Candidature $candidature
+     */
+    public function removeCandidature(\RemovalBundle\Entity\Candidature $candidature)
+    {
+        $this->candidature->removeElement($candidature);
+    }
+}

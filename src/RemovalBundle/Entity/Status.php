@@ -108,4 +108,3 @@ class Status
         return $this->status;
     }
 }
-

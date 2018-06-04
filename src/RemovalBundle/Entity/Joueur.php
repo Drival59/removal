@@ -149,4 +149,3 @@ class Joueur
         return $this->specialisation;
     }
 }
-

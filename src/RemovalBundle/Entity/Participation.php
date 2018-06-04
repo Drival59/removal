@@ -807,5 +807,14 @@ class Participation
     {
         return $this->dateFin;
     }
-}
 
+    /**
+     * Remove utilisateur
+     *
+     * @param \RemovalBundle\Entity\User $utilisateur
+     */
+    public function removeUtilisateur(\RemovalBundle\Entity\User $utilisateur)
+    {
+        $this->utilisateur->removeElement($utilisateur);
+    }
+}
