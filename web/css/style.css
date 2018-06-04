@@ -64,10 +64,15 @@ header
 .removalNews
 {
   margin-top: 50px;
-  height: 150px;
+  min-height: 150px;
   border: 1px solid black;
+  display: flex;
 }
-
+.removalNewsImg
+{
+  margin: 10px;
+  border: 1px solid green;
+}
 footer
 {
   margin-top: 50px;

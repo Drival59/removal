@@ -47,10 +47,17 @@
       </div>
     </div>
 
-    <div class="removalNews">Contenu de la news</div>
-    <div class="removalNews">Contenu de la news</div>
-    <div class="removalNews">Contenu de la news</div>
-    <div class="removalNews">Contenu de la news</div>
-    <div class="removalNews">Contenu de la news</div>
+    {% for new in news %}
+      <div class="removalNews">
+        <div class="removalNewsImg">
+          <img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="320px" height="180px"/>
+        </div>
+        <div class="removalNewsContent">
+          <h3>{{ new.title }}</h3>
+          <i>Écrit par {{ new.utilisateur.username }} le {{ new.dateNews|date('d/m/Y à H:i') }}</i>
+          <p>{{ new.content|raw }}</p>
+        </div>
+      </div>
+    {% endfor %}
   </div>
 {% endblock %}

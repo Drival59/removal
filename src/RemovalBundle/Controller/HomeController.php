@@ -13,6 +13,11 @@ class HomeController extends MasterController
 {
     public function readAction()
     {
-        return $this->render('@Removal/Home/index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $news = $em->getRepository('RemovalBundle:News')->findAll();
+
+        return $this->render('@Removal/Home/index.html.twig', array(
+          'news' => $news,
+        ));
     }
 }

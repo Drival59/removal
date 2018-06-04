@@ -67,7 +67,7 @@ class News
      * @ORM\ManyToOne(targetEntity="RemovalBundle\Entity\User")
      * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
-    private $users;
+    private $utilisateur;
 
 
     /**
@@ -201,26 +201,26 @@ class News
     }
 
     /**
-     * Set users
+     * Set utilisateur
      *
-     * @param \RemovalBundle\Entity\User $users
+     * @param \RemovalBundle\Entity\User $utilisateur
      *
      * @return News
      */
-    public function setUsers(\RemovalBundle\Entity\User $users)
+    public function setUtilisateur(\RemovalBundle\Entity\User $utilisateur)
     {
-        $this->users = $users;
+        $this->utilisateur = $utilisateur;
 
         return $this;
     }
 
     /**
-     * Get users
+     * Get utilisateur
      *
      * @return \RemovalBundle\Entity\User
      */
-    public function getUsers()
+    public function getUtilisateur()
     {
-        return $this->users;
+        return $this->utilisateur;
     }
 }
