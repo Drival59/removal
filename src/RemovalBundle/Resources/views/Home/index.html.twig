@@ -43,7 +43,19 @@
       </div>
 
       <div id="removalDown">
-        <h3>Avancement des boss</h3>
+        <table>
+          <tr>
+            <th></th>
+            <th>nm</th>
+            <th>hm</th>
+            <th>mm</th>
+          </tr>
+          {% for bossdown in bossdowns %}
+            <tr>
+              <td><img src="{{ asset('images/boss/' ~ bossdown.imageUrl) }}" alt="{{ bossdown.name }}" width="100px" height="50px"/></td>
+            </tr>
+          {% endfor %}
+        </table>
       </div>
     </div>
 
@@ -59,5 +71,6 @@
         </div>
       </div>
     {% endfor %}
+
   </div>
 {% endblock %}
