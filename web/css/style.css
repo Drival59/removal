@@ -1,13 +1,18 @@
 th, td{
     width: 200px;
 }
-
+body
+{
+  margin: 0;
+  padding: 0;
+}
 .menu{
     display: flex;
     width: 100%;
     height: 60px;
     background: linear-gradient(to right,#090909,#0F0F0F);
     align-items: center;
+    justify-content: center;
 }
 
 .menu a{
@@ -37,40 +42,29 @@ header
   width: 100%;
   height: 300px;
   background-color: #282c34;
-}
-.container
-{
-  border: 1px solid red;
-}
-
-#removalCarouselDown
-{
-  border: 1px solid green;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.removal_sb
+{
+  width: 8%;
+  height: 70%;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
-#myCarousel
+.removal_logo
 {
-  margin-top: 50px;
-  border: 1px solid blue;
-  margin: 0;
-}
-#removalDown
-{
-  width: 500px;
-  border: 1px solid black;
-}
-.removalNews
-{
-  margin-top: 50px;
-  min-height: 150px;
-  border: 1px solid black;
+  width: 30%;
+  height: 100%;
   display: flex;
-}
-.removalNewsImg
-{
-  margin: 10px;
-  border: 1px solid green;
+  justify-content: center;
+  align-items: center;
+  font-size: 5em;
+  color: white;
 }
 footer
 {
