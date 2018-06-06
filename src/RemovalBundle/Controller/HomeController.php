@@ -15,7 +15,7 @@ class HomeController extends MasterController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $news = $em->getRepository('RemovalBundle:News')->findAll();
+        $news = $em->getRepository('RemovalBundle:News')->myFindAll();
         $raidsInProgress = $em->getRepository('RemovalBundle:Raid')->findByInProgress(1);
         $bossdowns = $em->getRepository('RemovalBundle:Bossdown')->findByRaid($raidsInProgress);
         return $this->render('@Removal/Home/index.html.twig', array(

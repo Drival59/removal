@@ -10,4 +10,13 @@ namespace RemovalBundle\Repository;
  */
 class NewsRepository extends \Doctrine\ORM\EntityRepository
 {
+  public function myFindAll()
+  {
+    $qb = $this->createQueryBuilder('n');
+    $qb->orderBy('n.dateNews', 'DESC');
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
 }

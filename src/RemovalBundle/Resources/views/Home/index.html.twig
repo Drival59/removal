@@ -82,8 +82,13 @@
         </a>
       </div>
 
+
       {% for new in news %}
-        <div class="removalNews">
+        {% if loop.index > 5 %}
+          <div class="removalNews hidden">
+        {% else %}
+          <div class="removalNews">
+        {% endif %}
           <div class="removalNewsImg">
             <img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="320px" height="160px"/>
           </div>
@@ -94,6 +99,8 @@
           </div>
         </div>
       {% endfor %}
+      <br />
+      <button id="moreNews" type="button" class="btn btn-dark btn-lg">Afficher plus d'actualités</button>
 
     </div>
 
@@ -111,4 +118,8 @@
       </div>
     </div>
   </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script src="{{ asset('js/removal-home.js')}}"></script>
 {% endblock %}

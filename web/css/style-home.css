@@ -31,6 +31,10 @@
   border: 1px solid black;
   display: flex;
 }
+.hidden
+{
+  display: none;
+}
 .removalNewsImg
 {
   margin: 10px;
