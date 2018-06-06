@@ -92,12 +92,23 @@
           <div class="removalNewsImg">
             <img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="320px" height="160px"/>
           </div>
+
           <div class="removalNewsContent">
             <h3>{{ new.title }}</h3>
             <i>Écrit par {{ new.utilisateur.username }} le {{ new.dateNews|date('d/m/Y à H:i') }}</i><br /><br />
             <p>{{ new.content|slice(0,255) ~ '...' }}</p>
           </div>
+          <i class="fas fa-comments">
+            {% set countComment = 0 %}
+            {% for comment in comments %}
+              {% if comment.news.id == new.id %}
+                {% set countComment = countComment + 1 %}
+              {% endif %}  
+            {% endfor %}
+            {{ countComment }}
+          </i>
         </div>
+
       {% endfor %}
       <br />
       <button id="moreNews" type="button" class="btn btn-dark btn-lg">Afficher plus d'actualités</button>
@@ -118,6 +129,8 @@
       </div>
     </div>
   </div>
+
+  {{dump(comments)}}
 {% endblock %}
 
 {% block javascripts %}
