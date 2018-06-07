@@ -11,13 +11,13 @@
         </tr>
         {% for joueur in joueur %}
             <tr>
-                <td><span class="glyphicon glyphicon-arrow-right"></span> {{ joueur.pseudo }}</td>
+                <td><span class="fas fa-arrow-right"></span> {{ joueur.pseudo }}</td>
                 <td>{{ joueur.classe }}</td>
                 <td>{{ joueur.specialisation }}</td>
                 <td>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('removal_joueur_update', {'joueurID' : joueur.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
-                        <a href="{{ path('removal_joueur_delete', {'joueurID' : joueur.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                        <a href="{{ path('removal_joueur_update', {'joueurID' : joueur.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                        <a href="{{ path('removal_joueur_delete', {'joueurID' : joueur.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
                     {% endif %}
                 </td>
             </tr>
