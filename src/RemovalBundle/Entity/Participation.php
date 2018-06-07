@@ -190,37 +190,36 @@ class Participation
      */
     private $dateFin;
 
+
     /**
      * @var
-     * @ORM\ManyToMany(targetEntity="RemovalBundle\Entity\User", mappedBy="participations")
-     * @ORM\JoinTable(name="Participations_Users")
+     * @ORM\OneToMany(targetEntity="RemovalBundle\Entity\Status", mappedBy="participation")
      */
-    private $utilisateur;
+    private $status;
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param mixed $status
+     */
+    public function addStatus(Status $status)
+    {
+        $this->status[] = $status;
+    }
 
     /**
      * Participation constructor.
      */
     public function __construct()
     {
-        $this->utilisateur = new ArrayCollection();
+        $this->status = new ArrayCollection();
     }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getUtilisateur()
-    {
-        return $this->utilisateur;
-    }
-
-    /**
-     * @param Joueur $utilisateur
-     */
-    public function addUtilisateur(Joueur $utilisateur)
-    {
-        $this->utilisateur[] = $utilisateur;
-    }
-
 
     /**
      * Get id

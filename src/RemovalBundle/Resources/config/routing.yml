@@ -55,7 +55,7 @@ removal_admin_delete_status:
     defaults: { _controller: RemovalBundle:Admin:deleteAll }
 
 removal_admin_delete_one_status:
-    path:     /admin/delete/{userID}
+    path:     /admin/delete/{statusID}
     defaults: { _controller: RemovalBundle:Admin:deleteOne }
 
 removal_admin_confirm_one_status:
@@ -70,8 +70,12 @@ removal_gestion_read:
     defaults: { _controller: RemovalBundle:Gestion:read }
 
 removal_gestion_status:
-    path:     /guilde/gestion/status
+    path:     /guilde/gestion/status/{participationID}
     defaults: { _controller: RemovalBundle:Gestion:validationStatus }
+
+removal_gestion_status_create:
+    path:     /admin/status/create
+    defaults: { _controller: RemovalBundle:Admin:newStatus }
 
 
 

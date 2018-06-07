@@ -9,7 +9,9 @@
 namespace RemovalBundle\Controller;
 
 
+use RemovalBundle\Entity\Status;
 use RemovalBundle\Form\AdminEditUserType;
+use RemovalBundle\Form\StatusType;
 use Symfony\Component\HttpFoundation\Request;
 
 class AdminController extends MasterController
@@ -19,8 +21,11 @@ class AdminController extends MasterController
         $em = $this->getDoctrine()->getManager();
         $users = $em->getRepository('RemovalBundle:User')->findAll();
 
+        $status = $em->getRepository('RemovalBundle:Status')->findAll();
+
         return $this->render('@Removal/Admin/readAllUsers.html.twig', [
-            'users' => $users
+            'users' => $users,
+            'status' => $status
         ]);
     }
 
@@ -46,7 +51,34 @@ class AdminController extends MasterController
         }
 
         return $this->render('@Removal/Admin/adminEditUser.html.twig', array(
-            'form' => $form->createView()));
+            'form' => $form->createView()
+        ));
+
+    }
+
+    public function newStatusAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $status = new Status();
+
+        $users = $em->getRepository('RemovalBundle:User')->findAll();
+        $participations = $em->getRepository('RemovalBundle:Participation')->findAll();
+
+        $form = $this->createForm(StatusType::class, $status);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em->persist($status);
+            $em->flush();
+
+            return $this->redirectToRoute('removal_admin_read_all_users');
+        }
+
+        return $this->render('@Removal/Status/create.html.twig', [
+            'form' => $form->createView(), 'participations' => $participations, 'users' => $users
+        ]);
 
     }
 
@@ -66,11 +98,11 @@ class AdminController extends MasterController
         return $this->redirectToRoute('removal_admin_read_all_users');
     }
 
-    public function deleteOneAction($userID)
+    public function deleteOneAction($statusID)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $status = $em->getRepository('RemovalBundle:Status')->find($userID);
+        $status = $em->getRepository('RemovalBundle:Status')->find($statusID);
 
         $em->remove($status);
         $em->flush();
@@ -86,7 +118,6 @@ class AdminController extends MasterController
 
         $status->setConfirmation("Participation confirmée");
 
-//        $em->persist($status);
         $em->flush();
 
         return $this->redirectToRoute('removal_admin_read_all_users');

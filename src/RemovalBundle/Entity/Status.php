@@ -30,10 +30,33 @@ class Status
 
     /**
      * @var
-     * @ORM\OneToOne(targetEntity="RemovalBundle\Entity\User", inversedBy="status")
+     * @ORM\ManyToOne(targetEntity="RemovalBundle\Entity\User", inversedBy="status")
      * @ORM\JoinColumn(nullable=false)
      */
     private $utilisateur;
+
+    /**
+     * @var
+     * @ORM\ManyToOne(targetEntity="RemovalBundle\Entity\Participation", inversedBy="status")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $participation;
+
+    /**
+     * @return mixed
+     */
+    public function getParticipation()
+    {
+        return $this->participation;
+    }
+
+    /**
+     * @param mixed $participation
+     */
+    public function setParticipation($participation)
+    {
+        $this->participation = $participation;
+    }
 
     /**
      * @var

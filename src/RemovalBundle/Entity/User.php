@@ -41,14 +41,8 @@ class User extends BaseUser
     private $joueurs;
 
     /**
-     * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="RemovalBundle\Entity\Participation", inversedBy="utilisateur")
-     */
-    private $participations;
-
-    /**
      * @var
-     * @ORM\OneToOne(targetEntity="RemovalBundle\Entity\Status", mappedBy="utilisateur")
+     * @ORM\OneToMany(targetEntity="RemovalBundle\Entity\Status", mappedBy="utilisateur")
      */
     private $status;
 
@@ -85,25 +79,9 @@ class User extends BaseUser
     /**
      * @param mixed $status
      */
-    public function setStatus($status)
+    public function addStatus(Status $status)
     {
-        $this->status = $status;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getParticipations()
-    {
-        return $this->participations;
-    }
-
-    /**
-     * @param Participation $participations
-     */
-    public function addParticipations(Participation $participations)
-    {
-        $this->participations[] = $participations;
+        $this->status[] = $status;
     }
 
     /**
@@ -114,8 +92,8 @@ class User extends BaseUser
         parent::__construct();
 
         $this->joueurs = new ArrayCollection();
-        $this->participations = new ArrayCollection();
         $this->candidature = new ArrayCollection();
+        $this->status = new ArrayCollection();
     }
 
     /**

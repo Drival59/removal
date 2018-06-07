@@ -21,7 +21,7 @@
     {% for participation in participation %}
         {% if participation.importance == "Normal" and participation.importance != null %}
         <tr>
-            <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
+            <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
             <td>{{ participation.importance }}</td>
             <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
             <td>{{ participation.dateFin|date('d-m-Y') }}</td>
@@ -35,8 +35,8 @@
             <td>{{ participation.nbrCompo4 }}</td>
             <td>
             {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
-                <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer"></span></a>
+                <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
             {% endif %}
             </td>
         </tr>
@@ -66,7 +66,7 @@
         {% for participation in participation %}
             {% if participation.importance == "Courant" and participation.importance != null %}
             <tr>
-                <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
+                <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
                 <td>{{ participation.importance }}</td>
                 <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
                 <td>{{ participation.dateFin|date('d-m-Y') }}</td>
@@ -80,8 +80,8 @@
                 <td>{{ participation.nbrCompo4 }}</td>
                 <td>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
-                        <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer"></span></a>
+                        <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                        <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
                     {% endif %}
                 </td>
             </tr>
@@ -111,7 +111,7 @@
         {% for participation in participation %}
             {% if participation.importance == "Urgent" and participation.importance != null %}
                 <tr>
-                    <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
+                    <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
                     <td>{{ participation.importance }}</td>
                     <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
                     <td>{{ participation.dateFin|date('d-m-Y') }}</td>
@@ -125,8 +125,8 @@
                     <td>{{ participation.nbrCompo4 }}</td>
                     <td>
                         {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
-                            <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer"></span></a>
+                            <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                            <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
                         {% endif %}
                     </td>
                 </tr>

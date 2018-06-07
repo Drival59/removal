@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h2>Vos personnages : <a href="{{ path('removal_joueur_create') }}"> <span class="glyphicon glyphicon-plus" data-toggle="tooltip" title="Créer un nouveau joueur"></span></a></h2><br>
+    <h2>Vos personnages : <a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau joueur"></span></a></h2><br>
     <table class="table">
         <tr>
             <th>Pseudo</th>
@@ -11,13 +11,13 @@
         </tr>
         {% for personnage in personnages %}
             <tr>
-                <td><span class="glyphicon glyphicon-arrow-right"></span> {{ personnage.pseudo }}</td>
+                <td><span class="fas fa-arrow-right"></span> {{ personnage.pseudo }}</td>
                 <td>{{ personnage.classe }}</td>
                 <td>{{ personnage.specialisation }}</td>
                 <td>
                     {% if is_granted('ROLE_GUILDE') %}
-                        <a href="{{ path('removal_joueur_update', {'joueurID' : personnage.id}) }}"> <span class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Édition"></span></a>
-                        <a href="{{ path('removal_joueur_delete', {'joueurID' : personnage.id}) }}"> <span class="glyphicon glyphicon-remove" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                        <a href="{{ path('removal_joueur_update', {'joueurID' : personnage.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                        <a href="{{ path('removal_joueur_delete', {'joueurID' : personnage.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
                     {% endif %}
                 </td>
             </tr>
@@ -26,82 +26,83 @@
 
     <h2>Participation normale : </h2><br>
     <table class="table">
-    <tr>
-        <th>Nom Participation</th>
-        <th>Importance</th>
-        <th>Date Début</th>
-        <th>Date Fin</th>
-        <th>Compo 1</th>
-        <th>Nbr</th>
-        <th>Compo 2</th>
-        <th>Nbr</th>
-        <th>Compo 3</th>
-        <th>Nbr</th>
-        <th>Compo 4</th>
-        <th>Nbr</th>
-        <th>Envoyée ?</th>
-    </tr>
-    {% for participation in user.participations %}
-        {% if participation.importance == "Normal" and participation.importance != null %}
         <tr>
-            <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
-            <td>{{ participation.importance }}</td>
-            <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
-            <td>{{ participation.dateFin|date('d-m-Y') }}</td>
-            <td>{{ participation.nomCompo1 }}</td>
-            <td>{{ participation.nbrCompo1 }}</td>
-            <td>{{ participation.nomCompo2 }}</td>
-            <td>{{ participation.nbrCompo2 }}</td>
-            <td>{{ participation.nomCompo3 }}</td>
-            <td>{{ participation.nbrCompo3 }}</td>
-            <td>{{ participation.nomCompo4 }}</td>
-            <td>{{ participation.nbrCompo4 }}</td>
-            {% if user.status == false and user.status == null %}
-            <td><a href="{{ path('removal_gestion_status') }}"> <span class="glyphicon glyphicon-ok" data-toggle="tooltip" title="Édition"></span></a></td>
-                {% else %}
-                <td>Confimation demandée</td>
-            {% endif %}
-            {% if user.status != null and user.status.confirmation != null %}
-                <td>Confirmation validée !</td>
-                {% endif %}
+            <th>Nom Participation</th>
+            <th>Importance</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>Compo 1</th>
+            <th>Nbr</th>
+            <th>Compo 2</th>
+            <th>Nbr</th>
+            <th>Compo 3</th>
+            <th>Nbr</th>
+            <th>Compo 4</th>
+            <th>Nbr</th>
+            <th>Envoyée ?</th>
         </tr>
-        {% endif %}
-    {% endfor %}
+        {% for participation in status %}
+            {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
+                <tr>
+                    <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
+                    <td>{{ participation.participation.importance }}</td>
+                    <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
+                    <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
+                    <td>{{ participation.participation.nomCompo1 }}</td>
+                    <td>{{ participation.participation.nbrCompo1 }}</td>
+                    <td>{{ participation.participation.nomCompo2 }}</td>
+                    <td>{{ participation.participation.nbrCompo2 }}</td>
+                    <td>{{ participation.participation.nomCompo3 }}</td>
+                    <td>{{ participation.participation.nbrCompo3 }}</td>
+                    <td>{{ participation.participation.nomCompo4 }}</td>
+                    <td>{{ participation.participation.nbrCompo4 }}</td>
+                    {% if participation.confirmation == "Pas envoyé" %}
+                        <td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>
+                    {% elseif participation.confirmation == "Confirmation demandée" %}
+                        <td>{{ participation.confirmation }}</td>
+                    {% else %}
+                        <td>{{ participation.confirmation }}</td>
+                    {% endif %}
+                </tr>
+            {% endif %}
+        {% endfor %}
     </table><br><br>
+
+
     <h2>Participation courante :</h2><br>
     <table class="table">
-    <tr>
-        <th>Nom Participation</th>
-        <th>Importance</th>
-        <th>Date Début</th>
-        <th>Date Fin</th>
-        <th>Compo 1</th>
-        <th>Nbr</th>
-        <th>Compo 2</th>
-        <th>Nbr</th>
-        <th>Compo 3</th>
-        <th>Nbr</th>
-        <th>Compo 4</th>
-        <th>Nbr</th>
-    </tr>
-    {% for participation in user.participations %}
-    {% if participation.importance == "Courant" and participation.importance != null %}
-    <tr>
-    <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
-    <td>{{ participation.importance }}</td>
-    <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
-    <td>{{ participation.dateFin|date('d-m-Y') }}</td>
-    <td>{{ participation.nomCompo1 }}</td>
-    <td>{{ participation.nbrCompo1 }}</td>
-    <td>{{ participation.nomCompo2 }}</td>
-    <td>{{ participation.nbrCompo2 }}</td>
-    <td>{{ participation.nomCompo3 }}</td>
-    <td>{{ participation.nbrCompo3 }}</td>
-    <td>{{ participation.nomCompo4 }}</td>
-    <td>{{ participation.nbrCompo4 }}</td>
-    </tr>
-        {% endif %}
-    {% endfor %}
+        <tr>
+            <th>Nom Participation</th>
+            <th>Importance</th>
+            <th>Date Début</th>
+            <th>Date Fin</th>
+            <th>Compo 1</th>
+            <th>Nbr</th>
+            <th>Compo 2</th>
+            <th>Nbr</th>
+            <th>Compo 3</th>
+            <th>Nbr</th>
+            <th>Compo 4</th>
+            <th>Nbr</th>
+        </tr>
+        {% for participation in status %}
+            {% if participation.participation.importance == "Courant" and participation.participation.importance != null %}
+                <tr>
+                    <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
+                    <td>{{ participation.participation.importance }}</td>
+                    <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
+                    <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
+                    <td>{{ participation.participation.nomCompo1 }}</td>
+                    <td>{{ participation.participation.nbrCompo1 }}</td>
+                    <td>{{ participation.participation.nomCompo2 }}</td>
+                    <td>{{ participation.participation.nbrCompo2 }}</td>
+                    <td>{{ participation.participation.nomCompo3 }}</td>
+                    <td>{{ participation.participation.nbrCompo3 }}</td>
+                    <td>{{ participation.participation.nomCompo4 }}</td>
+                    <td>{{ participation.participation.nbrCompo4 }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
     </table><br><br>
     <h2>Participation urgente :</h2><br>
     <table class="table">
@@ -119,21 +120,21 @@
             <th>Compo 4</th>
             <th>Nbr</th>
         </tr>
-        {% for participation in user.participations %}
-            {% if participation.importance == "Urgent" and participation.importance != null %}
+        {% for participation in status %}
+            {% if participation.participation.importance == "Urgent" and participation.participation.importance != null %}
                 <tr>
-                    <td><span class="glyphicon glyphicon-arrow-right"></span> {{ participation.nomParticipation }}</td>
-                    <td>{{ participation.importance }}</td>
-                    <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
-                    <td>{{ participation.dateFin|date('d-m-Y') }}</td>
-                    <td>{{ participation.nomCompo1 }}</td>
-                    <td>{{ participation.nbrCompo1 }}</td>
-                    <td>{{ participation.nomCompo2 }}</td>
-                    <td>{{ participation.nbrCompo2 }}</td>
-                    <td>{{ participation.nomCompo3 }}</td>
-                    <td>{{ participation.nbrCompo3 }}</td>
-                    <td>{{ participation.nomCompo4 }}</td>
-                    <td>{{ participation.nbrCompo4 }}</td>
+                    <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
+                    <td>{{ participation.participation.importance }}</td>
+                    <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
+                    <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
+                    <td>{{ participation.participation.nomCompo1 }}</td>
+                    <td>{{ participation.participation.nbrCompo1 }}</td>
+                    <td>{{ participation.participation.nomCompo2 }}</td>
+                    <td>{{ participation.participation.nbrCompo2 }}</td>
+                    <td>{{ participation.participation.nomCompo3 }}</td>
+                    <td>{{ participation.participation.nbrCompo3 }}</td>
+                    <td>{{ participation.participation.nomCompo4 }}</td>
+                    <td>{{ participation.participation.nbrCompo4 }}</td>
                 </tr>
             {% endif %}
         {% endfor %}

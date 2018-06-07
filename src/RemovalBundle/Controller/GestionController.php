@@ -11,34 +11,34 @@ namespace RemovalBundle\Controller;
 
 
 
-use RemovalBundle\Entity\Status;
+
 
 class GestionController extends MasterController
 {
     public function readAction()
     {
-        $user = $this->getUser();
+        $users = $this->getUser();
         $personnages = $this->getUser()->getJoueurs();
+        $status = $this->getUser()->getStatus();
 
         return $this->render('@Removal/Gestion/read.html.twig', [
-            'user' => $user,
-            'personnages' => $personnages
+            'users' => $users,
+            'personnages' => $personnages,
+            'status' => $status
         ]);
     }
 
-    public function validationStatusAction()
+    public function validationStatusAction($participationID)
     {
-        $status = new Status();
+        $em = $this->getDoctrine()->getManager();
 
-        $user = $this->getUser();
+        $status = $em->getRepository('RemovalBundle:Status')->find($participationID);
 
-        $status->setUtilisateur($user);
-        $status->setStatus(true);
+        $status->setConfirmation('Confirmation demandée');
 
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($status);
-            $em->flush();
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
 
-            return $this->redirectToRoute('removal_gestion_read');
+        return $this->redirectToRoute('removal_gestion_read');
     }
 }
