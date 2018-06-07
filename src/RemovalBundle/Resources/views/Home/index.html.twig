@@ -20,7 +20,7 @@
           {% for bossdown in bossdowns %}
             {% if bossdown.raid.id == raidInProgress.id %}
               <tr>
-                <td><img src="{{ asset('images/boss/' ~ bossdown.imageUrl) }}" alt="{{ bossdown.name }}" title="{{ bossdown.name }}" width="70px" height="35px"/></td>
+                <td><img src="{{ asset('images/boss/' ~ bossdown.imageUrl) }}" alt="{{ bossdown.name }}" title="{{ bossdown.name }}" width="60px" height="30px"/></td>
                 <td>
                   {% if bossdown.nm == 1 %}
                     <i class="fas fa-check"></i>
@@ -84,34 +84,40 @@
 
 
       {% for new in news %}
+
         {% if loop.index > 5 %}
           <div class="removalNews hidden">
         {% else %}
           <div class="removalNews">
         {% endif %}
           <div class="removalNewsImg">
-            <img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="320px" height="160px"/>
+            <a href="#"><img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="100%" height="100%"/></a>
           </div>
 
+          {% set countComment = 0 %}
+          {% for comment in comments %}
+            {% if comment.news.id == new.id %}
+              {% set countComment = countComment + 1 %}
+            {% endif %}
+          {% endfor %}
+
           <div class="removalNewsContent">
-            <h3>{{ new.title }}</h3>
-            <i>Écrit par {{ new.utilisateur.username }} le {{ new.dateNews|date('d/m/Y à H:i') }}</i><br /><br />
+            <h3>
+              <a href="#">{{ new.title }}</a>
+              <i class="far fa-comment-alt" style="float:right">
+              {{ countComment }}
+              </i>
+            </h3>
+
+            <i>Écrit par {{ new.utilisateur.username }} le {{ new.dateNews|date('d/m/Y à H:i') }}</i>
+            <hr />
             <p>{{ new.content|slice(0,255) ~ '...' }}</p>
           </div>
-          <i class="fas fa-comments">
-            {% set countComment = 0 %}
-            {% for comment in comments %}
-              {% if comment.news.id == new.id %}
-                {% set countComment = countComment + 1 %}
-              {% endif %}  
-            {% endfor %}
-            {{ countComment }}
-          </i>
         </div>
 
       {% endfor %}
-      <br />
-      <button id="moreNews" type="button" class="btn btn-dark btn-lg">Afficher plus d'actualités</button>
+
+      <button id="moreNews" type="button" class="btn btn-dark btn-lg" style="margin-top:50px;">Afficher plus d'actualités</button>
 
     </div>
 
@@ -129,8 +135,6 @@
       </div>
     </div>
   </div>
-
-  {{dump(comments)}}
 {% endblock %}
 
 {% block javascripts %}

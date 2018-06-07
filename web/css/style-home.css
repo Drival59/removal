@@ -1,13 +1,13 @@
 .container-fluid
 {
-  width: 100%;
+  width: 1500px;
   display: flex;
   justify-content: space-between;
 }
 #removalDown
 {
   width: 20%;
-  min-width: 300px;
+  font-size: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,14 +20,19 @@
 
 #removal-CarouselNews
 {
-  width: 50%;
+  width: 60%;
   margin-left: 50px;
   margin-right: 50px;
   margin-top: 37px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .removalNews
 {
   margin-top: 50px;
+  width: 100%;
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
@@ -39,17 +44,33 @@
 .removalNewsImg
 {
   margin: 10px;
+  width: 320px;
+  height: 180px;
 }
 .removalNewsContent
 {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
+  padding: 5px;
+}
+.removalNewsContent h3
+{
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+.removalNewsContent h3 i
+{
+  font-size: 0.8em;
+}
+.removalNewsContent hr
+{
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 .removal-widgets
 {
   width: 20%;
-  min-width: 300px;
   display: flex;
   flex-direction: column;
   align-items: center;
