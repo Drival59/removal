@@ -4,12 +4,14 @@ namespace RemovalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * News
  *
  * @ORM\Table(name="news")
  * @ORM\Entity(repositoryClass="RemovalBundle\Repository\NewsRepository")
+ * @UniqueEntity(fields="titre", message="Un article existe déjà avec ce titre.")
  */
 class News
 {
@@ -28,6 +30,20 @@ class News
      * @ORM\Column(name="title", type="string", length=255)
      */
     private $title;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=255, unique=true)
+     */
+    private $url;
 
     /**
      * @var string
@@ -222,5 +238,53 @@ class News
     public function getUtilisateur()
     {
         return $this->utilisateur;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return News
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     *
+     * @return News
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
     }
 }

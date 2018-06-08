@@ -38,6 +38,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        nb_news_load: 5
 
 # Doctrine Configuration
 doctrine:

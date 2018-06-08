@@ -169,4 +169,14 @@ class User extends BaseUser
     {
         $this->candidature->removeElement($candidature);
     }
+
+    /**
+     * Remove status
+     *
+     * @param \RemovalBundle\Entity\Status $status
+     */
+    public function removeStatus(\RemovalBundle\Entity\Status $status)
+    {
+        $this->status->removeElement($status);
+    }
 }

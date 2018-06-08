@@ -816,4 +816,14 @@ class Participation
     {
         $this->utilisateur->removeElement($utilisateur);
     }
+
+    /**
+     * Remove status
+     *
+     * @param \RemovalBundle\Entity\Status $status
+     */
+    public function removeStatus(\RemovalBundle\Entity\Status $status)
+    {
+        $this->status->removeElement($status);
+    }
 }

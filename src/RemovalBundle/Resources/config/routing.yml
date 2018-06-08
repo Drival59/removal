@@ -2,6 +2,10 @@ removal_homepage:
     path:     /
     defaults: { _controller: RemovalBundle:Home:read }
 
+removal_news_read:
+    path: /news/{newsUrl}
+    defaults: {_controller: RemovalBundle:New:read }
+
 removal_joueur_create:
     path:     /guilde/joueur/create
     defaults: { _controller: RemovalBundle:Joueur:create }

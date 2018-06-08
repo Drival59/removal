@@ -1,6 +1,6 @@
 .container-fluid
 {
-  width: 1800px;
+  width: 1900px;
   display: flex;
   justify-content: space-between;
 }
@@ -17,7 +17,6 @@
 {
   border: 1px solid #212529;
 }
-
 #removal-CarouselNews
 {
   width: 50%;
@@ -67,6 +66,15 @@
   width: 100%;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+#moreNews
+{
+  width: 300px;
+}
+.rotate
+{
+  transform: rotate(360deg);
+  transition: .5s;
 }
 .removal-widgets
 {
