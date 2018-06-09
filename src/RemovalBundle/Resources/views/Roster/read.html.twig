@@ -1,22 +1,50 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
-    <table class="table">
-        <tr>
-            <th>nom</th>
-            <th>Avatar</th>
-            <th>Spécialisation</th>
-            <th>Rôle</th>
-        </tr>
+    <h2 class="titre_gestion">Roster Removal</h2><br>
+    <h3 class="titre_gestion">Tank</h3><br>
+    <div class="allcontent">
         {% for membre in membres.members %}
-            {% if membre.rank <= "2" %}
-                <tr>
-                    <td>{{ membre.character.name }}</td>
-                    <td><img src="https://render-eu.worldofwarcraft.com/character/{{ membre.character.thumbnail }}" alt=""></td>
-                    <td>{{ membre.character.spec.name }}</td>
-                    <td>{{ membre.character.spec.role }}</td>
-                </tr>
+            {% if membre.rank <= "2" and membre.character.spec.role == "TANK" %}
+                <div class="personnage">
+                    <p class="pseudo">{{ membre.character.name }}</p>
+                    <p class="classe">{{ membre.character.spec.name }}</p>
+                    <p><img class="imgperso" src="https://render-eu.worldofwarcraft.com/character/{{ membre.character.thumbnail }}" alt="icone wow"></p>
+                    <p class="classe">{{ membre.character.spec.role }}</p>
+                </div>
             {% endif %}
         {% endfor %}
-    </table>
+    </div><br><br>
+
+    <h3 class="titre_gestion">Healer</h3><br>
+    <div class="allcontent">
+        {% for membre in membres.members %}
+            {% if membre.rank <= "2" and membre.character.spec.role == "HEALING" %}
+                <div class="personnage">
+                    <p class="pseudo">{{ membre.character.name }}</p>
+                    <p class="classe">{{ membre.character.spec.name }}</p>
+                    <p><img class="imgperso" src="https://render-eu.worldofwarcraft.com/character/{{ membre.character.thumbnail }}" alt="icone wow"></p>
+                    <p class="classe">{{ membre.character.spec.role }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div><br><br>
+
+    <h3 class="titre_gestion">DPS</h3><br>
+    <div class="allcontent">
+        {% for membre in membres.members %}
+            {% if membre.rank <= "2" and membre.character.spec.role == "DPS" %}
+                <div class="personnage">
+                    <p class="pseudo">{{ membre.character.name }}</p>
+                    <p class="classe">{{ membre.character.spec.name }}</p>
+                    <p><img class="imgperso" src="https://render-eu.worldofwarcraft.com/character/{{ membre.character.thumbnail }}" alt="icone wow"></p>
+                    <p class="classe">{{ membre.character.spec.role }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div><br><br>
 {% endblock %}
