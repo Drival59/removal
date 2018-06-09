@@ -105,3 +105,7 @@ removal_candidature_read:
 removal_candidature_create:
     path:     /candidature/create
     defaults: { _controller: RemovalBundle:Candidature:create }
+
+removal_candidature_update_status:
+    path:     /sb/candidature/status/{candidatureID}
+    defaults: { _controller: RemovalBundle:Candidature:update }

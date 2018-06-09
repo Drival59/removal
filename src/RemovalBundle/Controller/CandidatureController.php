@@ -22,6 +22,7 @@ class CandidatureController extends MasterController
         $user = $this->getUser();
 
         $candidature->setUtilisateur($user);
+        $candidature->setStatus("new");
 
         $form = $this->createForm(CandidatureType::class, $candidature);
         $form->handleRequest($request);
@@ -59,5 +60,18 @@ class CandidatureController extends MasterController
         return $this->render('@Removal/Candidature/read.html.twig', [
             'candidatures' => $candidatures
         ]);
+    }
+
+    public function updateAction($candidatureID)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $candidature = $em->getRepository('RemovalBundle:Candidature')->find($candidatureID);
+
+        $candidature->setStatus("Candidature archivée");
+
+        $em->flush();
+
+        return $this->redirectToRoute('removal_candidature_read');
     }
 }
