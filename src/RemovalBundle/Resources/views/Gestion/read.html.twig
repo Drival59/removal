@@ -22,7 +22,9 @@
     {% endfor %}
     </div><br><br>
 
-    <h2>Participation normale : </h2><br>
+    <h2 class="titre_gestion">Participation normale : </h2><br>
+    <div class="all_participation">
+    <div class="table_participation">
     <table class="table table-hover">
         <tr class="thead-light">
             <th>Participation</th>
@@ -88,10 +90,16 @@
                 {% endif %}
             {% endif %}
         {% endfor %}
-    </table><br><br>
+    </table>
+    </div>
+    </div>
+    <br><br>
 
 
-    <h2>Participation courante :</h2><br>
+
+    <h2 class="titre_gestion">Participation courante :</h2><br>
+    <div class="all_participation">
+    <div class="table_participation">
     <table class="table table-hover">
         <tr class="thead-light">
             <th>Participation</th>
@@ -125,8 +133,13 @@
                 </tr>
             {% endif %}
         {% endfor %}
-    </table><br><br>
-    <h2>Participation urgente :</h2><br>
+    </table>
+    </div>
+    </div>
+    <br><br>
+    <h2 class="titre_gestion">Participation urgente :</h2><br>
+    <div class="all_participation">
+    <div class="table_participation">
     <table class="table table-hover">
         <tr class="thead-light">
             <th>Participation</th>
@@ -161,6 +174,8 @@
             {% endif %}
         {% endfor %}
     </table>
+    </div>
+    </div>
 {% endblock %}
 
 

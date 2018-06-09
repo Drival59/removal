@@ -56,3 +56,19 @@
 .modif a{
     margin: 1%;
 }
+
+.table_participation{
+    width: 90%;
+}
+
+.all_participation{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titre_gestion{
+    margin-left: 5%;
+}

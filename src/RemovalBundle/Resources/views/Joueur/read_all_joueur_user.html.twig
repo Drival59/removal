@@ -1,28 +1,26 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
-    <h2>Liste des joueurs</h2><br>
-    <table class="table">
-        <tr>
-            <th>Pseudo</th>
-            <th>Classe</th>
-            <th>Spécialisation</th>
-            <th>Modification</th>
-        </tr>
+    <h2>Liste des personnages</h2><br>
+    <div class="allcontent">
         {% for joueur in joueur %}
-            <tr>
-                <td><span class="fas fa-arrow-right"></span> {{ joueur.pseudo }}</td>
-                <td>{{ joueur.classe }}</td>
-                <td>{{ joueur.specialisation }}</td>
-                <td>
+            <div class="personnage">
+            <p class="pseudo">{{ joueur.pseudo }}</p>
+            <p class="classe">{{ joueur.classe }}</p>
+            <p><a href="https://worldofwarcraft.com/fr-fr/character/kirin-tor/{{ joueur.pseudo }}" target="_blank"><img class="imgperso" src="{{ asset('images/iconewow.png') }}" alt="icone wow"></a></p>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('removal_joueur_update', {'joueurID' : joueur.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                        <a href="{{ path('removal_joueur_delete', {'joueurID' : joueur.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                       <div class="modif">
+                            <a href="{{ path('removal_joueur_update', {'joueurID' : joueur.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                            <a href="{{ path('removal_joueur_delete', {'joueurID' : joueur.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                       </div>
                     {% endif %}
-                </td>
-            </tr>
+            </div>
         {% endfor %}
-    </table>
+        </div><br><br>
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('removal_joueur_create') }}"> <span><button>Créer un joueur</button></span></a>
     {% endif %}

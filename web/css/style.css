@@ -50,3 +50,19 @@ footer
   height: 150px;
   background-color: #1b140a;
 }
+
+.tablelisteperso{
+    width: 60%;
+}
+
+.all_personnages{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titre_all_personnages{
+    margin-left: 20%;
+}
