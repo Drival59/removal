@@ -1,28 +1,26 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
     <h2>Vos personnages : <a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau joueur"></span></a></h2><br>
-    <table class="table">
-        <tr>
-            <th>Pseudo</th>
-            <th>Classe</th>
-            <th>Spécialisation</th>
-            <th>Modification</th>
-        </tr>
-        {% for personnage in personnages %}
-            <tr>
-                <td><span class="fas fa-arrow-right"></span> {{ personnage.pseudo }}</td>
-                <td>{{ personnage.classe }}</td>
-                <td>{{ personnage.specialisation }}</td>
-                <td>
-                    {% if is_granted('ROLE_GUILDE') %}
-                        <a href="{{ path('removal_joueur_update', {'joueurID' : personnage.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                        <a href="{{ path('removal_joueur_delete', {'joueurID' : personnage.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
-                    {% endif %}
-                </td>
-            </tr>
-        {% endfor %}
-    </table><br><br>
+    <div class="allcontent">
+    {% for personnage in personnages %}
+        <div class="personnage">
+            <p class="pseudo">{{ personnage.pseudo }}</p>
+            <p class="classe">{{ personnage.classe }}</p>
+            <p><a href="https://worldofwarcraft.com/fr-fr/character/kirin-tor/{{ personnage.pseudo }}" target="_blank"><img class="imgperso" src="{{ asset('images/iconewow.png') }}" alt="icone wow"></a></p>
+            {% if is_granted('ROLE_GUILDE') %}
+                <div class="modif">
+            <a href="{{ path('removal_joueur_update', {'joueurID' : personnage.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+            <a href="{{ path('removal_joueur_delete', {'joueurID' : personnage.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div><br><br>
 
     <h2>Participation normale : </h2><br>
     <table class="table">
