@@ -15,11 +15,12 @@
                     <td>{{ participation.utilisateur.username }}</td>
                     <td>{{ participation.participation.nomParticipation }}</td>
                     <td>{{ participation.confirmation }}</td>
-                    {% if participation.confirmation == "Confirmation demandée" %}
+                    {% if participation.confirmation == "En cours" %}
                         <td><a href="{{ path('removal_admin_confirm_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer"></span></a>
                             <a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
-                    {% elseif participation.confirmation == "Confirmation validée" %}
-                        <td>Confirmation déjà envoyée !</td>
+                    {% elseif participation.confirmation == "Validée" %}
+                        <td>Confirmation déjà envoyée !
+                            <a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
                     {% else %}
                         <td><a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
                     {% endif %}

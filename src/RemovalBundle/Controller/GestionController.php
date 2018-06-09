@@ -34,7 +34,7 @@ class GestionController extends MasterController
 
         $status = $em->getRepository('RemovalBundle:Status')->find($participationID);
 
-        $status->setConfirmation('Confirmation demandée');
+        $status->setConfirmation('En cours');
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();

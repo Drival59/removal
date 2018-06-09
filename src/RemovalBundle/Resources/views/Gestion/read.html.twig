@@ -57,7 +57,7 @@
                         <td>{{ participation.participation.nbrCompo4 }}</td>
                         {% if participation.confirmation == "Pas envoyé" %}
                             <td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>
-                        {% elseif participation.confirmation == "Confirmation demandée" %}
+                        {% elseif participation.confirmation == "En cours" %}
                             <td>{{ participation.confirmation }}</td>
                         {% else %}
                             <td>{{ participation.confirmation }}</td>
@@ -79,7 +79,7 @@
                             <td>{{ participation.participation.nbrCompo4 }}</td>
                             {% if participation.confirmation == "Pas envoyé" %}
                                 <td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>
-                            {% elseif participation.confirmation == "Confirmation demandée" %}
+                            {% elseif participation.confirmation == "En cours" %}
                                 <td>{{ participation.confirmation }}</td>
                             {% else %}
                                 <td>{{ participation.confirmation }}</td>
