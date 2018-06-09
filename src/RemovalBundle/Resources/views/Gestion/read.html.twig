@@ -23,8 +23,8 @@
     </div><br><br>
 
     <h2>Participation normale : </h2><br>
-    <table class="table">
-        <tr>
+    <table class="table table-hover">
+        <tr class="thead-light">
             <th>Nom Participation</th>
             <th>Importance</th>
             <th>Date Début</th>
@@ -41,35 +41,59 @@
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
-                <tr>
-                    <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
-                    <td>{{ participation.participation.importance }}</td>
-                    <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
-                    <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
-                    <td>{{ participation.participation.nomCompo1 }}</td>
-                    <td>{{ participation.participation.nbrCompo1 }}</td>
-                    <td>{{ participation.participation.nomCompo2 }}</td>
-                    <td>{{ participation.participation.nbrCompo2 }}</td>
-                    <td>{{ participation.participation.nomCompo3 }}</td>
-                    <td>{{ participation.participation.nbrCompo3 }}</td>
-                    <td>{{ participation.participation.nomCompo4 }}</td>
-                    <td>{{ participation.participation.nbrCompo4 }}</td>
-                    {% if participation.confirmation == "Pas envoyé" %}
-                        <td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>
-                    {% elseif participation.confirmation == "Confirmation demandée" %}
-                        <td>{{ participation.confirmation }}</td>
+                {% if participation.confirmation == "Participation confirmée" %}
+                    <tr class="table-success">
+                        <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
+                        <td>{{ participation.participation.importance }}</td>
+                        <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
+                        <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
+                        <td>{{ participation.participation.nomCompo1 }}</td>
+                        <td>{{ participation.participation.nbrCompo1 }}</td>
+                        <td>{{ participation.participation.nomCompo2 }}</td>
+                        <td>{{ participation.participation.nbrCompo2 }}</td>
+                        <td>{{ participation.participation.nomCompo3 }}</td>
+                        <td>{{ participation.participation.nbrCompo3 }}</td>
+                        <td>{{ participation.participation.nomCompo4 }}</td>
+                        <td>{{ participation.participation.nbrCompo4 }}</td>
+                        {% if participation.confirmation == "Pas envoyé" %}
+                            <td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>
+                        {% elseif participation.confirmation == "Confirmation demandée" %}
+                            <td>{{ participation.confirmation }}</td>
+                        {% else %}
+                            <td>{{ participation.confirmation }}</td>
+                        {% endif %}
+                    </tr>
                     {% else %}
-                        <td>{{ participation.confirmation }}</td>
-                    {% endif %}
-                </tr>
+                        <tr class="table-danger">
+                            <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }} <span class="badge badge-info">Nouveau</span></td>
+                            <td>{{ participation.participation.importance }}</td>
+                            <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
+                            <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
+                            <td>{{ participation.participation.nomCompo1 }}</td>
+                            <td>{{ participation.participation.nbrCompo1 }}</td>
+                            <td>{{ participation.participation.nomCompo2 }}</td>
+                            <td>{{ participation.participation.nbrCompo2 }}</td>
+                            <td>{{ participation.participation.nomCompo3 }}</td>
+                            <td>{{ participation.participation.nbrCompo3 }}</td>
+                            <td>{{ participation.participation.nomCompo4 }}</td>
+                            <td>{{ participation.participation.nbrCompo4 }}</td>
+                            {% if participation.confirmation == "Pas envoyé" %}
+                                <td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>
+                            {% elseif participation.confirmation == "Confirmation demandée" %}
+                                <td>{{ participation.confirmation }}</td>
+                            {% else %}
+                                <td>{{ participation.confirmation }}</td>
+                            {% endif %}
+                        </tr>
+                {% endif %}
             {% endif %}
         {% endfor %}
     </table><br><br>
 
 
     <h2>Participation courante :</h2><br>
-    <table class="table">
-        <tr>
+    <table class="table table-hover">
+        <tr class="thead-light">
             <th>Nom Participation</th>
             <th>Importance</th>
             <th>Date Début</th>
@@ -85,7 +109,7 @@
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Courant" and participation.participation.importance != null %}
-                <tr>
+                <tr class="table-warning">
                     <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
                     <td>{{ participation.participation.importance }}</td>
                     <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
@@ -103,8 +127,8 @@
         {% endfor %}
     </table><br><br>
     <h2>Participation urgente :</h2><br>
-    <table class="table">
-        <tr>
+    <table class="table table-hover">
+        <tr class="thead-light">
             <th>Nom Participation</th>
             <th>Importance</th>
             <th>Date Début</th>
@@ -120,7 +144,7 @@
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Urgent" and participation.participation.importance != null %}
-                <tr>
+                <tr class="table-warning">
                     <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
                     <td>{{ participation.participation.importance }}</td>
                     <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
