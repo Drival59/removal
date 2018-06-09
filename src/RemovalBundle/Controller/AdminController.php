@@ -116,7 +116,7 @@ class AdminController extends MasterController
 
         $status = $em->getRepository('RemovalBundle:Status')->find($statusID);
 
-        $status->setConfirmation("Participation confirmée");
+        $status->setConfirmation("Validée");
 
         $em->flush();
 

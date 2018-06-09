@@ -25,23 +25,23 @@
     <h2>Participation normale : </h2><br>
     <table class="table table-hover">
         <tr class="thead-light">
-            <th>Nom Participation</th>
+            <th>Participation</th>
             <th>Importance</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>Compo 1</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 2</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 3</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 4</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Envoyée ?</th>
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
-                {% if participation.confirmation == "Participation confirmée" %}
+                {% if participation.confirmation == "Validée" %}
                     <tr class="table-success">
                         <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
                         <td>{{ participation.participation.importance }}</td>
@@ -94,18 +94,18 @@
     <h2>Participation courante :</h2><br>
     <table class="table table-hover">
         <tr class="thead-light">
-            <th>Nom Participation</th>
+            <th>Participation</th>
             <th>Importance</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>Compo 1</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 2</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 3</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 4</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Courant" and participation.participation.importance != null %}
@@ -129,18 +129,18 @@
     <h2>Participation urgente :</h2><br>
     <table class="table table-hover">
         <tr class="thead-light">
-            <th>Nom Participation</th>
+            <th>Participation</th>
             <th>Importance</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>Compo 1</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 2</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 3</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
             <th>Compo 4</th>
-            <th>Nbr</th>
+            <th>Nombre</th>
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Urgent" and participation.participation.importance != null %}
