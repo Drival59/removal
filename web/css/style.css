@@ -66,3 +66,31 @@ footer
 .titre_all_personnages{
     margin-left: 20%;
 }
+
+.table_all_participation{
+    width: 90%;
+}
+
+.all_participation_read{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titre_all_participation{
+    margin-left: 5%;
+}
+
+.table_candidature{
+    width: 90%;
+}
+
+.all_table_candidature{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

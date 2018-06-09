@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Vos personnages : <a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau joueur"></span></a></h2><br>
+    <h2>Vos personnages : <a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau personnage ! ATTENTION de bien respecter l'orthographe du nom de votre personnage!"></span></a></h2><br>
     <div class="allcontent">
     {% for personnage in personnages %}
         <div class="personnage">

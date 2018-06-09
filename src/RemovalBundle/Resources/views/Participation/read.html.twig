@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h2>Liste des participations normales : </h2><br>
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ path('removal_participation_create') }}"> <span><button>Créer une participation</button></span></a>
+        <br><br>
+    {% endif %}
+
+<h2 class="titre_all_participation">Liste des participations normales : </h2><br>
+    <div class="all_participation_read">
+    <div class="table_all_participation">
 <table class="table">
-    <tr>
-        <th>Nom Participation</th>
-        <th>Niveau d'importance</th>
+    <tr class="thead-light">
+        <th>Participation</th>
+        <th>Importance</th>
         <th>Date Début</th>
         <th>Date Fin</th>
         <th>Compo 1</th>
@@ -42,15 +49,20 @@
         </tr>
         {% endif %}
     {% endfor %}
-</table><br><br>
+</table>
+    </div>
+    </div>
+<br><br>
 
 
 
-    <h2>Liste des participations courantes : </h2><br>
+    <h2 class="titre_all_participation">Liste des participations courantes : </h2><br>
+    <div class="all_participation_read">
+    <div class="table_all_participation">
     <table class="table">
-        <tr>
-            <th>Nom Participation</th>
-            <th>Niveau d'importance</th>
+        <tr class="thead-light">
+            <th>Participation</th>
+            <th>Importance</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>Compo 1</th>
@@ -87,15 +99,18 @@
             </tr>
             {% endif %}
         {% endfor %}
-    </table><br>
+    </table>
+    </div>
+    </div>
+    <br>
 
-
-
-    <h2>Liste des participations urgentes : </h2><br>
+    <h2 class="titre_all_participation">Liste des participations urgentes : </h2><br>
+    <div class="all_participation_read">
+    <div class="table_all_participation">
     <table class="table">
-        <tr>
-            <th>Nom Participation</th>
-            <th>Niveau d'importance</th>
+        <tr class="thead-light">
+            <th>Participation</th>
+            <th>Importance</th>
             <th>Date Début</th>
             <th>Date Fin</th>
             <th>Compo 1</th>
@@ -133,13 +148,8 @@
             {% endif %}
         {% endfor %}
     </table>
-
-
-
-
-    {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ path('removal_participation_create') }}"> <span><button>Créer une participation</button></span></a>
-    {% endif %}
+    </div>
+    </div>
 {% endblock %}
 {% block javascripts %}
     <script>
