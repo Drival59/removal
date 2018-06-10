@@ -61,7 +61,7 @@ class GestionController extends MasterController
 
         $status = $em->getRepository('RemovalBundle:Status')->find($participationID);
 
-        $status->setConfirmation('Archiver');
+        $status->setConfirmation('Archivée');
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();

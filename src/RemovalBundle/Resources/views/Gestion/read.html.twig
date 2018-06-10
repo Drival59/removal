@@ -25,7 +25,7 @@
     <h2 class="titre_gestion">Participation normale : </h2> <span><a class="archive" href="{{ path('removal_gestion_read_archive') }}">Vos archives</a></span>
     <br>
         {% for participation in status %}
-            {% if participation.confirmation != "Archiver" %}
+            {% if participation.confirmation != "Archivée" %}
             {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
             <div class="all_participation">
             <div class="table_participation_compo">

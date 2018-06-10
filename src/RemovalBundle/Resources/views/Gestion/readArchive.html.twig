@@ -8,7 +8,7 @@
     <h2 class="titre_gestion">Vos participations archivées : </h2>
     <br>
     {% for participation in status %}
-        {% if participation.confirmation == "Archiver" %}
+        {% if participation.confirmation == "Archivée" %}
             {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
                 <div class="all_participation">
                     <div class="table_participation_compo">
@@ -68,7 +68,7 @@
                         <a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a>
                     {% elseif participation.confirmation == "En cours" %}
                         {{ participation.confirmation }}
-                    {% elseif participation.confirmation == "Archiver" %}
+                    {% elseif participation.confirmation == "Archivée" %}
                         {{ participation.confirmation }}
                     {% endif %}
                 </span>
