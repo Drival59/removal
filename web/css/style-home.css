@@ -35,6 +35,7 @@
   border: 1px solid black;
   display: flex;
   justify-content: space-between;
+  background-color: #170e09;
 }
 .hidden
 {
@@ -50,6 +51,7 @@
 {
   width: 100%;
   padding: 5px;
+  color: white;
 }
 .removalNewsContent h3
 {
@@ -66,6 +68,13 @@
   width: 100%;
   margin-bottom: 5px;
   margin-top: 5px;
+}
+.removalNewsContent h3 a
+{
+  text-decoration: none;
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #moreNews
 {
