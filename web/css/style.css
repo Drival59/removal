@@ -41,6 +41,13 @@ header
   background: url('../images/banremoval.png') no-repeat center;
   background-color: #1b140a;
 }
+
+.removalfooter
+{
+    height: 283px;
+    background: url('../images/footer.png') no-repeat center;
+}
+
 .removalbody
 {
   background-color: #3a372f;
