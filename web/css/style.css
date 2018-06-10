@@ -33,13 +33,20 @@ th, td
 }
 header
 {
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
 }
 .removalBanner
 {
   height: 294px;
   background: url('../images/banremoval.png') no-repeat center;
   background-color: #1b140a;
+}
+
+.removalbackground
+{
+    width: 100%;
+    background: url('../images/background.png') no-repeat fixed center;
+    background-color: #1b140a;
 }
 
 .removalfooter
