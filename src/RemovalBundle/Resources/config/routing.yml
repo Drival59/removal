@@ -73,6 +73,10 @@ removal_gestion_read:
     path:     /guilde/gestion
     defaults: { _controller: RemovalBundle:Gestion:read }
 
+removal_gestion_read_archive:
+    path:     /guilde/gestion/archive
+    defaults: { _controller: RemovalBundle:Gestion:readArchive }
+
 removal_gestion_status:
     path:     /guilde/gestion/status/{participationID}
     defaults: { _controller: RemovalBundle:Gestion:validationStatus }
@@ -80,6 +84,10 @@ removal_gestion_status:
 removal_gestion_status_create:
     path:     /admin/status/create
     defaults: { _controller: RemovalBundle:Admin:newStatus }
+
+removal_gestion_status_archive:
+    path:     /guilde/status/archive/{participationID}
+    defaults: { _controller: RemovalBundle:Gestion:archiverParticipation }
 
 
 

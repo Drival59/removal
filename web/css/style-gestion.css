@@ -50,7 +50,6 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    /*background-color: #0088CC;*/
 }
 
 .modif a{
@@ -59,6 +58,7 @@
 
 .table_participation{
     width: 90%;
+    /*background-color: grey;*/
 }
 
 .all_participation{
@@ -71,4 +71,83 @@
 
 .titre_gestion{
     margin-left: 5%;
+}
+
+.date{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #e9ecef;
+    border-bottom: 1px solid black;
+    height: 40px;
+}
+
+.date p{
+    margin: 0;
+}
+
+.participation{
+    display: flex;
+}
+
+.content_participation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 2;
+    margin: 2%;
+}
+
+.participation_status{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.participation_status span{
+    font-size: 40px;
+}
+
+
+.compo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table_participation_compo{
+    width: 40%;
+    background-color: #170e09;
+}
+
+.table_participation_compo span{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.debut{
+    background-color: lightgreen;
+}
+
+.fin{
+    background-color: lightcoral;
+}
+
+.archive_span{
+    /*margin-left: 5%;*/
+}
+
+.archive{
+    text-decoration: none;
+    color: #fd9a31;
+    font-size: 20px;
+    margin-left: 5%;
+}
+
+.archive:hover{
+    text-decoration: none;
+    color: #0088CC;
 }

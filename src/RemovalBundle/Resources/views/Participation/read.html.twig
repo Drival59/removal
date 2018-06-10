@@ -23,6 +23,12 @@
         <th>Nbr</th>
         <th>Compo 4</th>
         <th>Nbr</th>
+        <th>Compo 5</th>
+        <th>Nbr</th>
+        <th>Compo 6</th>
+        <th>Nbr</th>
+        <th>Compo 7</th>
+        <th>Nbr</th>
         <th>Modification</th>
     </tr>
     {% for participation in participation %}
@@ -40,6 +46,12 @@
             <td>{{ participation.nbrCompo3 }}</td>
             <td>{{ participation.nomCompo4 }}</td>
             <td>{{ participation.nbrCompo4 }}</td>
+            <td>{{ participation.nomCompo5 }}</td>
+            <td>{{ participation.nbrCompo5 }}</td>
+            <td>{{ participation.nomCompo6 }}</td>
+            <td>{{ participation.nbrCompo6 }}</td>
+            <td>{{ participation.nomCompo7 }}</td>
+            <td>{{ participation.nbrCompo7 }}</td>
             <td>
             {% if is_granted('ROLE_ADMIN') %}
                 <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
