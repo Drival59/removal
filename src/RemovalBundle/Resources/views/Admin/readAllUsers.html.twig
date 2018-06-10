@@ -2,8 +2,10 @@
 {% block body %}
     <h2>Liste des utilisateurs au grade Guilde <span><a href="{{ path('removal_admin_delete_status') }}"> <span class="fas fa-exclamation-triangle" data-toggle="tooltip" title="TOUT Supprimer"></span></a></span></h2><br>
     <a href="{{ path('removal_gestion_status_create') }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Création nouveau status"></span></a>
+    <div class="all_table_candidature">
+    <div class="table_candidature">
     <table class="table">
-        <tr>
+        <tr class="thead-light">
             <th>Nom Utilisateur</th>
             <th>Participations</th>
             <th>Status Participation</th>
@@ -11,7 +13,7 @@
         </tr>
         {% for participation in status %}
             {% if participation.participation.importance == "Normal" %}
-                <tr>
+                <tr class="table-warning">
                     <td>{{ participation.utilisateur.username }}</td>
                     <td>{{ participation.participation.nomParticipation }}</td>
                     <td>{{ participation.confirmation }}</td>
@@ -24,21 +26,25 @@
                     {% else %}
                         <td><a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
                     {% endif %}
-                    <td></td>
                 </tr>
             {% endif %}
         {% endfor %}
-    </table><br><br>
+    </table>
+    </div>
+    </div>
+    <br><br>
     <h2>Liste des utilisateurs au grade User</h2><br>
+    <div class="all_table_candidature">
+    <div class="table_candidature">
     <table class="table">
-        <tr>
+        <tr class="thead-light">
             <th>Nom Utilisateur</th>
             <th>Role</th>
             <th>Modification</th>
         </tr>
         {% for users in users %}
-            {% if users.roles[0] == "ROLE_USER" %}
-                <tr>
+            {% if users.roles[0] != null %}
+                <tr class="table-warning">
                     <td>{{ users.username }}</td>
                     <td>
                         {% for role in users.roles %}
@@ -50,6 +56,8 @@
             {% endif %}
         {% endfor %}
     </table>
+    </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}

@@ -33,7 +33,7 @@
     </tr>
     {% for participation in participation %}
         {% if participation.importance == "Normal" and participation.importance != null %}
-        <tr>
+        <tr class="table-warning">
             <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
             <td>{{ participation.importance }}</td>
             <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
@@ -89,7 +89,7 @@
         </tr>
         {% for participation in participation %}
             {% if participation.importance == "Courant" and participation.importance != null %}
-            <tr>
+            <tr class="table-warning">
                 <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
                 <td>{{ participation.importance }}</td>
                 <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
@@ -137,7 +137,7 @@
         </tr>
         {% for participation in participation %}
             {% if participation.importance == "Urgent" and participation.importance != null %}
-                <tr>
+                <tr class="table-warning">
                     <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
                     <td>{{ participation.importance }}</td>
                     <td>{{ participation.dateDebut|date('d-m-Y') }}</td>

@@ -15,12 +15,6 @@ class AdminEditUserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('participations', EntityType::class,
-            array( 'class' => 'RemovalBundle\Entity\Participation',
-                'choice_label' => 'nomParticipation',
-                'multiple' => true,
-                'expanded' => true));
-
         $permissions = array(
             'Guilde' => 'ROLE_GUILDE',
             'SB' => 'ROLE_SB',
