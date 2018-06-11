@@ -4,6 +4,8 @@
   width: 1900px;
   display: flex;
   justify-content: space-between;
+  position: relative;
+  z-index: 1;
 }
 #removalDown
 {
