@@ -1,7 +1,11 @@
-body
+body, html
 {
   margin: 0;
   padding: 0;
+}
+html
+{
+  background-color: #231b16;
 }
 
 th, td
@@ -13,7 +17,7 @@ th, td
     display: flex;
     width: 100%;
     height: 60px;
-    background-color: #1b140a;
+    background-color: #231b16;
     align-items: center;
     justify-content: center;
 }
@@ -31,22 +35,19 @@ th, td
     color: #0088CC;
     margin-left: 2%;
 }
-header
-{
-  /*margin-bottom: 50px;*/
-}
+
 .removalBanner
 {
   height: 294px;
   background: url('../images/banremoval.png') no-repeat center;
-  background-color: #1b140a;
+  background-color: #231b16;
 }
 
 .removalbackground
 {
     width: 100%;
-    background: url('../images/background.png') no-repeat fixed center;
-    background-color: #1b140a;
+    background: url('../images/background.png') no-repeat fixed top;
+    background-size: cover;
 }
 
 .removalfooter
@@ -55,21 +56,16 @@ header
     background: url('../images/footer.png') no-repeat center;
 }
 
-.removalbody
+.btn-removal
 {
-  background-color: #3a372f;
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: #170e09;
 }
-footer
-{
-  margin-top: 50px;
-  height: 150px;
-  background-color: #1b140a;
-}
-
 .tablelisteperso{
     width: 60%;
 }
-
 .all_personnages{
     width: 100%;
     display: flex;
