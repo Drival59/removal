@@ -5,8 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <h2 class="titre_gestion">Roster Removal</h2><br>
-    <h3 class="titre_gestion">Tank</h3><br>
+    <br>
+    <div class="titre_h2_roster">
+    <h2 class="titre_gestion">Roster Removal</h2>
+    </div>
+    <br>
+    <h3 class="titre_roster">Tank</h3><br>
     <div class="allcontent">
         {% for membre in membres.members %}
             {% if membre.rank <= "2" and membre.character.spec.role == "TANK" %}
@@ -20,7 +24,7 @@
         {% endfor %}
     </div><br><br>
 
-    <h3 class="titre_gestion">Healer</h3><br>
+    <h3 class="titre_roster">Healer</h3><br>
     <div class="allcontent">
         {% for membre in membres.members %}
             {% if membre.rank <= "2" and membre.character.spec.role == "HEALING" %}
@@ -34,7 +38,7 @@
         {% endfor %}
     </div><br><br>
 
-    <h3 class="titre_gestion">DPS</h3><br>
+    <h3 class="titre_roster">DPS</h3><br>
     <div class="allcontent">
         {% for membre in membres.members %}
             {% if membre.rank <= "2" and membre.character.spec.role == "DPS" %}

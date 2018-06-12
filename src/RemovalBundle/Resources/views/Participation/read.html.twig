@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <br>
     {% if is_granted('ROLE_ADMIN') %}
         <a href="{{ path('removal_participation_create') }}"> <span><button>Créer une participation</button></span></a>
         <br><br>
     {% endif %}
-
+    <br>
 <h2 class="titre_all_participation">Liste des participations normales : </h2><br>
     <div class="all_participation_read">
     <div class="table_all_participation">

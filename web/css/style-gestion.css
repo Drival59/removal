@@ -70,7 +70,13 @@
 }
 
 .titre_gestion{
-    margin-left: 5%;
+    /*margin-left: 5%;*/
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
 }
 
 .date{
@@ -143,11 +149,73 @@
 .archive{
     text-decoration: none;
     color: #fd9a31;
-    font-size: 20px;
-    margin-left: 5%;
+    font-size: 30px;
+    /*margin-left: 5%;*/
 }
 
 .archive:hover{
     text-decoration: none;
     color: #0088CC;
+}
+
+.h2{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titre_gestion_personnage{
+    display: flex;
+}
+
+.titre_gestion_personnage a{
+    margin-left: 2%;
+    font-size: 30px;
+}
+
+.titre_gestion_participation_normal{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titre_gestion_participation_normal h2{
+
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.div_titre_gestion_participation_normal{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    background: rgba(35,27,22,0.9);
+}
+
+.titre_gestion_participation_courante{
+    width: 80%;
+    background: rgba(35,27,22,0.9);
+}
+
+.titre_h2_roster{
+    display: flex;
+    justify-content: center;
+}
+
+.titre_h2_roster h2{
+    font-size: 40px;
+}
+
+.all_titre_gestion{
+    display: flex;
+    justify-content: center;
+}
+
+.titre_roster{
+    margin-left: 5%;
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 30px;
 }

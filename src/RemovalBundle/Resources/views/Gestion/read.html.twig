@@ -5,7 +5,10 @@
 {% endblock %}
 
 {% block body %}
-    <h2>Vos personnages : <a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau personnage ! ATTENTION de bien respecter l'orthographe du nom de votre personnage!"></span></a></h2><br>
+    <br>
+    <div class="titre_gestion_personnage">
+    <h2 class="h2">Vos personnages</h2><a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau personnage ! ATTENTION de bien respecter l'orthographe du nom de votre personnage!"></span></a><br>
+    </div>
     <div class="allcontent">
     {% for personnage in personnages %}
         <div class="personnage">
@@ -21,8 +24,13 @@
         </div>
     {% endfor %}
     </div><br><br>
-
+    <div class="all_titre_gestion">
+    <div class="div_titre_gestion_participation_normal">
+    <div class="titre_gestion_participation_normal">
     <h2 class="titre_gestion">Participation normale : </h2> <span><a class="archive" href="{{ path('removal_gestion_read_archive') }}">Vos archives</a></span>
+    </div>
+    </div>
+    </div>
     <br>
         {% for participation in status %}
             {% if participation.confirmation != "Archivée" %}
@@ -98,95 +106,12 @@
             {% endif %}
             {% endfor %}
     <br><br>
-
-    {#<table class="table table-hover">#}
-        {#<tr class="thead-light">#}
-            {#<th>Participation</th>#}
-            {#<th>Importance</th>#}
-            {#<th>Date Début</th>#}
-            {#<th>Date Fin</th>#}
-            {#<th>Compo 1</th>#}
-            {#<th>Nombre</th>#}
-            {#<th>Compo 2</th>#}
-            {#<th>Nombre</th>#}
-            {#<th>Compo 3</th>#}
-            {#<th>Nombre</th>#}
-            {#<th>Compo 4</th>#}
-            {#<th>Nombre</th>#}
-            {#<th>Compo 5</th>#}
-            {#<th>Nbr</th>#}
-            {#<th>Compo 6</th>#}
-            {#<th>Nbr</th>#}
-            {#<th>Compo 7</th>#}
-            {#<th>Nbr</th>#}
-            {#<th>Envoyée ?</th>#}
-        {#</tr>#}
-        {#{% for participation in status %}#}
-            {#{% if participation.participation.importance == "Normal" and participation.participation.importance != null %}#}
-                {#{% if participation.confirmation == "Validée" %}#}
-                    {#<tr class="table-success">#}
-                        {#<td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>#}
-                        {#<td>{{ participation.participation.importance }}</td>#}
-                        {#<td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>#}
-                        {#<td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo1 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo1 }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo2 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo2 }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo3 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo3 }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo4 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo4 }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo5 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo5 }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo6 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo6 }}</td>#}
-                        {#<td>{{ participation.participation.nomCompo7 }}</td>#}
-                        {#<td>{{ participation.participation.nbrCompo7 }}</td>#}
-                        {#{% if participation.confirmation == "Pas envoyé" %}#}
-                            {#<td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>#}
-                        {#{% elseif participation.confirmation == "En cours" %}#}
-                            {#<td>{{ participation.confirmation }}</td>#}
-                        {#{% else %}#}
-                            {#<td>{{ participation.confirmation }}</td>#}
-                        {#{% endif %}#}
-                    {#</tr>#}
-                    {#{% else %}#}
-                        {#<tr class="table-danger">#}
-                            {#<td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }} <span class="badge badge-info">Nouveau</span></td>#}
-                            {#<td>{{ participation.participation.importance }}</td>#}
-                            {#<td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>#}
-                            {#<td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo1 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo1 }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo2 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo2 }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo3 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo3 }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo4 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo4 }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo5 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo5 }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo6 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo6 }}</td>#}
-                            {#<td>{{ participation.participation.nomCompo7 }}</td>#}
-                            {#<td>{{ participation.participation.nbrCompo7 }}</td>#}
-                            {#{% if participation.confirmation == "Pas envoyé" %}#}
-                                {#<td><a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a></td>#}
-                            {#{% elseif participation.confirmation == "En cours" %}#}
-                                {#<td>{{ participation.confirmation }}</td>#}
-                            {#{% else %}#}
-                                {#<td>{{ participation.confirmation }}</td>#}
-                            {#{% endif %}#}
-                        {#</tr>#}
-                {#{% endif %}#}
-            {#{% endif %}#}
-        {#{% endfor %}#}
-    {#</table>#}
-
-
-
-    <h2 class="titre_gestion">Participation courante :</h2><br>
+    <div class="all_titre_gestion">
+    <div class="titre_gestion_participation_courante">
+    <h2 class="titre_gestion">Participation courante :</h2>
+    </div>
+    </div>
+    <br>
     <div class="all_participation">
     <div class="table_participation">
     <table class="table table-hover">
@@ -226,7 +151,12 @@
     </div>
     </div>
     <br><br>
-    <h2 class="titre_gestion">Participation urgente :</h2><br>
+    <div class="all_titre_gestion">
+    <div class="titre_gestion_participation_courante">
+    <h2 class="titre_gestion">Participation urgente :</h2>
+    </div>
+    </div>
+    <br>
     <div class="all_participation">
     <div class="table_participation">
     <table class="table table-hover">
