@@ -8,8 +8,10 @@ class NewController extends MasterController
   {
     $em = $this->getDoctrine()->getManager();
     $new = $em->getRepository('RemovalBundle:News')->findOneByUrl($newsUrl);
+    $comments = $em->getRepository('RemovalBundle:Comment')->findByNews($new);
     return $this->render('@Removal/New/index.html.twig', array(
       'new' => $new,
+      'comments' => $comments,
     ));
   }
 }

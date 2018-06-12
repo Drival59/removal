@@ -1,5 +1,15 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/style-news.css') }}">
+{% endblock %}
+
 {% block body %}
-  {{ dump(new) }}
+  <div class="container">
+    <div class="newContent">
+      <h1>{{new.title}}</h1>
+      <i>Écrit par <a href="{{ path('removal_joueur_read_all', {'joueurID' : new.utilisateur.id}) }}">{{new.utilisateur.username}}</a> le {{ new.dateNews|date('d/m/Y à H:i') }}</i><hr />
+      {{ new.content }}
+    </div>
+  </div>
 {% endblock %}
