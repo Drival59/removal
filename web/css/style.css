@@ -152,3 +152,39 @@ th, td
     margin-left: 3%;
     font-size: 30px;
 }
+
+.all_form_candidature{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.form_candidature{
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.form-group{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+}
+
+.title_creation_personnage{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.compo_form{
+    color: white;
+}

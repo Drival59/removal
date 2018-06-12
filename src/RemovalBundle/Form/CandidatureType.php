@@ -129,7 +129,7 @@ class CandidatureType extends AbstractType
         ]);
 
         $builder->add('description', TextareaType::class, [
-            'label' => 'Avez vous quelque chose à rajouter ? (plus de précision pour l\' de rendez vous ?'
+            'label' => 'Commentaire libre (précision pour l\'heure de rendez vous ? Ou votre spé ?)'
         ]);
 
         $builder->add('save', SubmitType::class, [
