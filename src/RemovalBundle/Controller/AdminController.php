@@ -81,6 +81,7 @@ class AdminController extends MasterController
         ]);
 
     }
+    
 
     public function deleteAllAction()
     {
