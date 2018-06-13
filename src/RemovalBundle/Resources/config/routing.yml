@@ -110,6 +110,10 @@ removal_candidature_read:
     path:     /sb/candidature
     defaults: { _controller: RemovalBundle:Candidature:read }
 
+removal_candidature_read_archive:
+    path:     /sb/candidature/archives
+    defaults: { _controller: RemovalBundle:Candidature:readArchive }
+
 removal_candidature_create:
     path:     /candidature/create
     defaults: { _controller: RemovalBundle:Candidature:create }

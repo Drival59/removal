@@ -62,6 +62,16 @@ class CandidatureController extends MasterController
         ]);
     }
 
+    public function readArchiveAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $candidatures = $em->getRepository('RemovalBundle:Candidature')->findAll();
+
+        return $this->render('@Removal/Candidature/readArchive.html.twig', [
+            'candidatures' => $candidatures
+        ]);
+    }
+
     public function updateAction($candidatureID)
     {
         $em = $this->getDoctrine()->getManager();
