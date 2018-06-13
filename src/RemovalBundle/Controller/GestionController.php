@@ -13,6 +13,8 @@ namespace RemovalBundle\Controller;
 
 
 
+use Symfony\Component\Validator\Constraints\Date;
+
 class GestionController extends MasterController
 {
     public function readAction()
@@ -20,11 +22,13 @@ class GestionController extends MasterController
         $users = $this->getUser();
         $personnages = $this->getUser()->getJoueurs();
         $status = $this->getUser()->getStatus();
+        $date = new Date();
 
         return $this->render('@Removal/Gestion/read.html.twig', [
             'users' => $users,
             'personnages' => $personnages,
-            'status' => $status
+            'status' => $status,
+            'date' => $date
         ]);
     }
 

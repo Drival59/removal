@@ -189,14 +189,14 @@ th, td
     color: white;
 }
 
-.archive{
-    margin-left: 5%;
-    text-decoration: none;
-    font-size: 25px;
-    color: #fd9a31;
-}
-
-.archive:hover{
-    color: #0088CC;
-    text-decoration: none;
-}
+/*.archive{*/
+    /*margin-left: 5%;*/
+    /*text-decoration: none;*/
+    /*font-size: 25px;*/
+    /*color: #fd9a31;*/
+/*}*/
+/**/
+/*.archive:hover{*/
+    /*color: #0088CC;*/
+    /*text-decoration: none;*/
+/*}*/
