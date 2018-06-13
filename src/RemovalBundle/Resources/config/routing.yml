@@ -2,6 +2,10 @@ removal_homepage:
     path:     /
     defaults: { _controller: RemovalBundle:Home:read }
 
+removal_moreNews:
+    path: /moreNews/fn={fn}&ln={ln}
+    defaults: { _controller: RemovalBundle:New:more }
+
 removal_news_read:
     path: /news/{newsUrl}
     defaults: {_controller: RemovalBundle:New:read }

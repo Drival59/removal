@@ -1,25 +1,17 @@
-var nbNewsToLoad = 5; // Nombre de chapitres qui s'affichent lors du clic
-
-if ($(".hidden").length == 0 ) {
-  $("#moreNews").hide();
-}
+var firstNewsToLoad = 5;
 
 $( "#moreNews" ).click(function() {
   $('#moreNews').html('<i class="fas fa-spinner">');
   $('#moreNews').prop('disabled', true);
-  setTimeout(function() {
-    $('.fa-spinner').toggleClass('rotate');
-  }, 100);
-
-  setTimeout(function() {
-    for (var i = 0; i < nbNewsToLoad; i++) {
-      $(".hidden:eq( 0 )").removeClass('hidden');
-      if ($(".hidden").length == 0 ) {
-        $("#moreNews").hide();
-      }
-    }
-    $('#moreNews').text('Afficher plus d\'actualités');
-    $('#moreNews').prop('disabled', false);
-  }, 500);
-
+  LastNewsToLoad = firstNewsToLoad + 5;
+  $.ajax({
+            type: 'GET',
+            url: 'moreNews/fn=' + firstNewsToLoad + '&ln=' + LastNewsToLoad,
+            success: function(data) {
+              alert(data); },
+            error: function() {
+              alert('La requête n\'a pas abouti'); }
+          });
+  firstNewsToLoad = LastNewsToLoad;
+  $('#moreNews').prop('disabled', false);
 });
