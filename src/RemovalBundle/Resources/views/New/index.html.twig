@@ -9,7 +9,34 @@
     <div class="newContent">
       <h1>{{new.title}}</h1>
       <i>Écrit par <a href="{{ path('removal_joueur_read_all', {'joueurID' : new.utilisateur.id}) }}">{{new.utilisateur.username}}</a> le {{ new.dateNews|date('d/m/Y à H:i') }}</i><hr />
-      {{ new.content }}
+      {{ new.content|raw }}
+    </div>
+
+    <div class="writeComment" style="text-align:center">
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+    <form>
+      <div class="form-group">
+        <label>Laissez un commentaire :</label>
+        <textarea class="form-control" id="comments" required></textarea>
+        <small id="emailHelp" class="form-text text-muted">255 caractères maxi.</small>
+      </div>
+      <button type="submit" class="btn btn-removal">Envoyer</button>
+    </form>
+    {% else %}
+      Il faut être connecter pour écrire un commentaire.
+    {% endif %}
+    </div>
+    <div class="comments">
+      <h2>Commentaires ({{comments|length}})</h2>
+      {% for comment in comments %}
+        <div class="commentContent">
+          <div class="avatar"></div>
+          <div class="commentDescription">
+            <p>{{ comment.utilisateur.username }} à écrit ce commentaire le {{comment.dateComment|date('d/m/Y à H:i')}}</p><hr />
+            <p>{{comment.content}}</p>
+          </div>
+        </div>
+      {% endfor %}
     </div>
   </div>
 {% endblock %}

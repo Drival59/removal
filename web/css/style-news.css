@@ -3,8 +3,46 @@
   padding-top: 50px;
   color: white;
 }
-.newContent
+.newContent, .commentContent
 {
   background-color: #170e09;
   padding: 10px;
+  margin-bottom: 25px;
+}
+h1, h2
+{
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+hr
+{
+  background-color: white;
+}
+.writeComment
+{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+form
+{
+  width: 50%;
+}
+.commentContent
+{
+  display: flex;
+}
+.avatar
+{
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  margin-right: 20px;
+}
+.commentDescription
+{
+  width: 80%;
 }
