@@ -1,5 +1,189 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ form(form) }}
+    <br>
+    <table class="table">
+        <tr class="thead-light">
+            <th>Plantes</th>
+            <th>Minerais</th>
+            <th>Cuisines</th>
+            <th>Étoffes</th>
+            <th>Cuirs</th>
+        </tr>
+        <tr>
+            <td class="compo_form">Ancoracée</td>
+            <td class="compo_form">Minerai de monélite</td>
+            <td class="compo_form">Loche à caudale rouge</td>
+            <td class="compo_form">Lin battu par les marées</td>
+            <td class="compo_form">Cuir rêche</td>
+        </tr>
+        <tr>
+            <td class="compo_form">Bise-d'hiver</td>
+            <td class="compo_form">Minerai de foudrargent</td>
+            <td class="compo_form">Croc-pointu frénétique</td>
+            <td class="compo_form">Satin des abysses</td>
+            <td class="compo_form">Scintécaille</td>
+        </tr>
+        <tr>
+            <td class="compo_form">Brin-de-mer</td>
+            <td class="compo_form">Minerai de platine</td>
+            <td class="compo_form">Filets filandreux</td>
+            <td class="compo_form">Satin des abysses brodé</td>
+            <td class="compo_form">Os taché de sang</td>
+        </tr>
+        <tr>
+            <td class="compo_form">Mâche d'Akunda</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Cuissot charnu</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Peau des tempêtes</td>
+        </tr>
+        <tr>
+            <td class="compo_form">Mousse étoilée</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Saumon de minuit</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Brumécaille</td>
+        </tr>
+        <tr>
+            <td class="compo_form">Pollen de sirène</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Farine sauvage</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Os calcifié</td>
+        </tr>
+        <tr>
+            <td class="compo_form">Rivebulbe</td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Foosaka</td>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+        </tr>
+        <tr>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Huile de poisson aromatique</td>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+        </tr>
+        <tr>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Café mousseux du major</td>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+        </tr>
+        <tr>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+            <td class="compo_form">Sucre glace</td>
+            <td class="compo_form"></td>
+            <td class="compo_form"></td>
+        </tr>
+    </table><br><br>
+
+    <div class="all_form_candidature">
+        <div class="form_candidature">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.nomParticipation) }}
+                {{ form_widget(form.nomParticipation) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.importance) }}
+                {{ form_widget(form.importance) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.dateDebut) }}
+                {{ form_widget(form.dateDebut) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.dateFin) }}
+                {{ form_widget(form.dateFin) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo1) }}
+                {{ form_widget(form.nomCompo1) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo1) }}
+                {{ form_widget(form.nbrCompo1) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo2) }}
+                {{ form_widget(form.nomCompo2) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo2) }}
+                {{ form_widget(form.nbrCompo2) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo3) }}
+                {{ form_widget(form.nomCompo3) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo3) }}
+                {{ form_widget(form.nbrCompo3) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo4) }}
+                {{ form_widget(form.nomCompo4) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo4) }}
+                {{ form_widget(form.nbrCompo4) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo5) }}
+                {{ form_widget(form.nomCompo5) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo5) }}
+                {{ form_widget(form.nbrCompo5) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo6) }}
+                {{ form_widget(form.nomCompo6) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo6) }}
+                {{ form_widget(form.nbrCompo6) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo7) }}
+                {{ form_widget(form.nomCompo7) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo7) }}
+                {{ form_widget(form.nbrCompo7) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo8) }}
+                {{ form_widget(form.nomCompo8) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo8) }}
+                {{ form_widget(form.nbrCompo8) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo9) }}
+                {{ form_widget(form.nomCompo9) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo9) }}
+                {{ form_widget(form.nbrCompo9) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nomCompo10) }}
+                {{ form_widget(form.nomCompo10) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.nbrCompo10) }}
+                {{ form_widget(form.nbrCompo10) }}
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}
