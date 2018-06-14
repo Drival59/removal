@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-home.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="menu">
+        <a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a>
+        <a href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a>
+        <a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a>
+    </div>
+    <br>
+    <div id="removalDown">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>Classe</th>
+                    <th>Niveau</th>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <th>Modification</th>
+                    {% endif %}
+                </tr>
+                </thead>
+                {% for classe in recrutement %}
+                        <tr>
+                            <td>
+                                <img src="{{ classe.image }}" alt="">
+                                {{ classe.classe }}
+                            </td>
+                            <td>
+                                {{ classe.niveau }}
+                            </td>
+                            {% if is_granted('ROLE_ADMIN') %}
+                            <td>
+                                <a href="{{ path('removal_admin_update_recrutement', {'recrutementID' : classe.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                            </td>
+                            {% endif %}
+                        </tr>
+                {% endfor %}
+            </table>
+    </div>
+    <br>
+    <a href="{{ path('removal_admin_create_recrutement') }}"><button>Créer un status</button></a>
+{% endblock %}

@@ -74,6 +74,18 @@ removal_admin_confirm_one_status:
     path:     /admin/confirm/{statusID}
     defaults: { _controller: RemovalBundle:Admin:confirmationParticipation }
 
+removal_admin_create_recrutement:
+    path:     /admin/recrutement/create
+    defaults: { _controller: RemovalBundle:Recrutement:create }
+
+removal_admin_read_recrutement:
+    path:     /admin/recrutement
+    defaults: { _controller: RemovalBundle:Recrutement:read }
+
+removal_admin_update_recrutement:
+    path:     /admin/recrutement/{recrutementID}
+    defaults: { _controller: RemovalBundle:Recrutement:update }
+
 
 
 
