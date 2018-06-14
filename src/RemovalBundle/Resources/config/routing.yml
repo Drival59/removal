@@ -86,6 +86,10 @@ removal_admin_update_recrutement:
     path:     /admin/recrutement/{recrutementID}
     defaults: { _controller: RemovalBundle:Recrutement:update }
 
+removal_admin_delete_recrutement:
+    path:     /admin/recrutement/delete/{recrutementID}
+    defaults: { _controller: RemovalBundle:Recrutement:delete }
+
 
 
 

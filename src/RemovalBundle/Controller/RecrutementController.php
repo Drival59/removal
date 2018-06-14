@@ -67,4 +67,16 @@ class RecrutementController extends MasterController
         return $this->render('@Removal/Admin/updateRecrutement.html.twig', array(
             'form' => $form->createView()));
     }
+
+    public function deleteAction($recrutementID)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $recrutement = $em->getRepository('RemovalBundle:Recrutement')->find($recrutementID);
+
+        $em->remove($recrutement);
+        $em->flush();
+
+        return $this->redirectToRoute('removal_homepage');
+    }
 }
