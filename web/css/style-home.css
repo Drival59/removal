@@ -125,3 +125,10 @@
 #table_recrutement td{
   text-align: center;
 }
+.recrutement{
+  font-size: 30px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
