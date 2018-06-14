@@ -29,6 +29,19 @@ class AdminController extends MasterController
         ]);
     }
 
+    public function listeMembresAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $users = $em->getRepository('RemovalBundle:User')->findAll();
+
+        $status = $em->getRepository('RemovalBundle:Status')->findAll();
+
+        return $this->render('@Removal/Admin/listeMembres.html.twig', [
+            'users' => $users,
+            'status' => $status
+        ]);
+    }
+
     public function updateAction(Request $request, $userID)
     {
         $em = $this->getDoctrine()->getManager();

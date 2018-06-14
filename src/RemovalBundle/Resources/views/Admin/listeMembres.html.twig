@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="menu">
+        <a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"><span class="fas fa-pencil-alt"></span>Assigner participations</a>
+        <a href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a>
+    </div>
+    <br>
+<div class="admin_titre_and_btn">
+    <h2 class="all_titre_admin">Liste des utilisateurs au grade User</h2><br>
+</div>
+<div class="all_table_candidature">
+    <div class="table_candidature">
+        <table class="table">
+            <tr class="thead-light">
+                <th>Nom Utilisateur</th>
+                <th>Role</th>
+                <th>Modification</th>
+            </tr>
+            {% for users in users %}
+                {% if users.roles[0] != null %}
+                    <tr class="table-warning">
+                        <td>{{ users.username }}</td>
+                        <td>
+                            {% for role in users.roles %}
+                                <p>{{ role }}</p>
+                            {% endfor %}
+                        </td>
+                        <td><a href="{{ path('removal_admin_edit_user', {'userID' : users.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+{% endblock %}

@@ -54,6 +54,10 @@ removal_admin_read_all_users:
     path:     /admin/read/users
     defaults: { _controller: RemovalBundle:Admin:readAllUsers }
 
+removal_admin_liste_membre:
+    path:     /admin/membres
+    defaults: { _controller: RemovalBundle:Admin:listeMembres }
+
 removal_admin_edit_user:
     path:     /admin/edit/{userID}
     defaults: { _controller: RemovalBundle:Admin:update }
