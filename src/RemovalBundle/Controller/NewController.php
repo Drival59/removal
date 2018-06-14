@@ -17,12 +17,15 @@ class NewController extends MasterController
     ));
   }
 
-  public function moreAction($fn, $ln)
+  public function moreAction($fn)
   {
+    $em = $this->getDoctrine()->getManager();
+    $moreNews = $em->getRepository('RemovalBundle:News')->showMoreNews($fn);
+    $comments = $em->getRepository('RemovalBundle:Comment')->findAll();
     return $this->render('@Removal/New/moreNews.html.twig', array(
-      'fn' => $fn,
-      'ln' => $ln,
+      'moreNews' => $moreNews,
+      'comments' => $comments,
     ));
   }
-  
+
 }

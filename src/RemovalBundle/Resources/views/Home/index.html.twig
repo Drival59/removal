@@ -134,14 +134,10 @@
 
     {% for new in news %}
 
-      {% if loop.index > nb_news_load %}
-        <div class="removalNews hidden">
-      {% else %}
         <div class="removalNews">
-      {% endif %}
-        <div class="removalNewsImg">
-          <a href="{{ path('removal_news_read', {'newsUrl' : new.url})}}"><img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="100%" height="100%"/></a>
-        </div>
+          <div class="removalNewsImg">
+            <a href="{{ path('removal_news_read', {'newsUrl' : new.url})}}"><img src="{{ asset('images/news/' ~ new.imageUrl) }}" alt="lol" width="100%" height="100%"/></a>
+          </div>
 
         {% set countComment = 0 %}
         {% for comment in comments %}
@@ -164,10 +160,9 @@
       </div>
 
     {% endfor %}
-
     <button id="moreNews" type="button" class="btn btn-removal btn-lg" style="margin-top:50px;">Afficher plus d'actualités</button>
-
   </div>
+
 
   <div class="removal-widgets">
     <h4>Recrutement</h4>

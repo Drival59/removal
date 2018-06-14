@@ -25,7 +25,7 @@ class HomeController extends MasterController
           'raidsInProgress' => $raidsInProgress,
           'bossdowns' => $bossdowns,
           'comments' => $comments,
-            'recrutement' => $recrutement
+          'recrutement' => $recrutement,
         ));
     }
 

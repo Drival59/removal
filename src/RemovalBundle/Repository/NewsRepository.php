@@ -14,6 +14,18 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
   {
     $qb = $this->createQueryBuilder('n');
     $qb->orderBy('n.dateNews', 'DESC');
+    $qb->setMaxResults(5);
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
+  public function showMoreNews($fn)
+  {
+    $qb = $this->createQueryBuilder('n');
+    $qb->orderBy('n.dateNews', 'DESC');
+    $qb->setFirstResult($fn);
+    $qb->setMaxResults(5);
     return $qb
       ->getQuery()
       ->getResult()

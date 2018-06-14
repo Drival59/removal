@@ -3,7 +3,7 @@ removal_homepage:
     defaults: { _controller: RemovalBundle:Home:read }
 
 removal_moreNews:
-    path: /moreNews/fn={fn}&ln={ln}
+    path: /moreNews/fn={fn}
     defaults: { _controller: RemovalBundle:New:more }
 
 removal_news_read:

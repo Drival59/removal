@@ -1,2 +1,28 @@
-{{ fn }}
-{{ ln }}
+{% for moreNew in moreNews %}
+  <div class="removalNews">
+    <div class="removalNewsImg">
+      <a href="{{ path('removal_news_read', {'newsUrl' : moreNew.url})}}"><img src="{{ asset('images/news/' ~ moreNew.imageUrl) }}" alt="lol" width="100%" height="100%"/></a>
+    </div>
+
+    {% set countComment = 0 %}
+    {% for comment in comments %}
+      {% if comment.news.id == moreNew.id %}
+        {% set countComment = countComment + 1 %}
+      {% endif %}
+    {% endfor %}
+
+    <div class="removalNewsContent">
+      <h3>
+        <a href="{{ path('removal_news_read', {'newsUrl' : moreNew.url})}}">{{ moreNew.title }}</a>
+        <i class="far fa-comment-alt" style="float:right">
+        {{ countComment }}
+        </i>
+      </h3>
+      <i>Écrit par <a href="{{ path('removal_joueur_read_all', {'joueurID' : moreNew.utilisateur.id}) }}">{{ moreNew.utilisateur.username }}</a> le {{ moreNew.dateNews|date('d/m/Y à H:i') }}</i>
+      <hr />
+      <p>{{ moreNew.description }}</p>
+    </div>
+  </div>
+
+
+{% endfor %}
