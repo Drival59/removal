@@ -26,7 +26,9 @@ class RecrutementType extends AbstractType
                 'Voleur' => 'voleur.png',
                 'Druide' => 'druide.png',
                 'Paladin' => 'paladin.png',
-                'Mage' => 'mage.png'
+                'Mage' => 'mage.png',
+                'Chevalier de la mort' => 'chevalier.png',
+                'Prêtre' => 'pretre.png'
             )
         ]);
 
@@ -41,7 +43,9 @@ class RecrutementType extends AbstractType
                 'Voleur' => 'Voleur',
                 'Druide' => 'Druide',
                 'Paladin' => 'Paladin',
-                'Mage' => 'Mage'
+                'Mage' => 'Mage',
+                'Chevalier de la mort' => 'Chevalier de la mort',
+                'Prêtre' => 'Prêtre'
             )
         ]);
 

@@ -119,3 +119,9 @@
   padding: 10px;
   text-align: justify;
 }
+.icon_class{
+  width: 80%;
+}
+#table_recrutement td{
+  text-align: center;
+}

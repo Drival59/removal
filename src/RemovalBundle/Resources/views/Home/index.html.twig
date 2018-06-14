@@ -49,6 +49,52 @@
 
       </table>
     {% endfor %}
+    <br>
+      <table id="table_recrutement" class="table">
+        <thead class="thead-dark">
+        <tr>
+          <th>Icon</th>
+          <th>Classe</th>
+          <th>Niveau</th>
+            {% if is_granted('ROLE_ADMIN') %}
+              <th>Modification</th>
+            {% endif %}
+        </tr>
+        </thead>
+          {% for classe in recrutement %}
+            <tr>
+              <td class="align-middle">
+                <img class="icon_class" src="{{ asset('images/recrutement/' ~ classe.image) }}" alt="">
+              </td>
+              <td class="align-middle">
+                  {{ classe.classe }}
+              </td>
+                {% if classe.niveau == "Basse" %}
+                  <td style="color: aquamarine" class="align-middle">
+                      {{ classe.niveau }}
+                  </td>
+                    {% elseif classe.niveau == "Urgent" %}
+                      <td style="color: #C82829" class="align-middle">
+                          {{ classe.niveau }}
+                      </td>
+                    {% elseif classe.niveau == "Moyenne" %}
+                      <td style="color: #ffe400" class="align-middle">
+                          {{ classe.niveau }}
+                      </td>
+                    {% elseif classe.niveau == "Haute" %}
+                      <td style="color: #fc7904" class="align-middle">
+                          {{ classe.niveau }}
+                      </td>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                  <td>
+                    <a href="{{ path('removal_admin_update_recrutement', {'recrutementID' : classe.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                  </td>
+                {% endif %}
+            </tr>
+          {% endfor %}
+      </table>
+    <br>
   </div>
 
   <div id="removal-CarouselNews">
