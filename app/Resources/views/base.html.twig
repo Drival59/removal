@@ -44,12 +44,11 @@
         </div>
       </header>
 
+      <div class="removal-body">
+        {% block body %}{% endblock %}
 
-      {% block body %}{% endblock %}
-          
-      <footer class="removalfooter"></footer>
-      {#<footer class="removalfooter"></footer>#}
-
+        <footer class="removalfooter"></footer>
+      </div>
       {% block javascripts %}{% endblock %}
 
     </body>
