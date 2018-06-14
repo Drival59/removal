@@ -219,3 +219,9 @@
     -webkit-text-fill-color: transparent;
     font-size: 30px;
 }
+
+.personnage_joueur{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

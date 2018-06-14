@@ -1,5 +1,23 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form(form) }}
+    <div class="menu">
+        <a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"><span class="fas fa-pencil-alt"></span>Assigner participations</a>
+        <a href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a>
+    </div>
+    <br>
+    <div class="all_form_candidature">
+    <div class="form_candidature">
+    {{ form_start(form) }}
+    {{ form_errors(form) }}
+    <div class="form-group">
+        {{ form_label(form.roles) }}
+        {{ form_widget(form.roles) }}
+    </div>
+    <div class="form-group">
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+    </div>
+    </div>
+    </div>
 {% endblock %}

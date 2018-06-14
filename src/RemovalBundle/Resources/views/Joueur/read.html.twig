@@ -21,12 +21,12 @@
             <td>{{ joueur.classe }}</td>
             <td>{{ joueur.specialisation }}</td>
             <td><a href="{{ path('removal_joueur_read_all', {'joueurID' : joueur.utilisateur.id}) }}">{{ joueur.utilisateur }}</a></td>
+            {% if is_granted('ROLE_ADMIN') %}
             <td>
-                {% if is_granted('ROLE_ADMIN') %}
                     <a href="{{ path('removal_joueur_update', {'joueurID' : joueur.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
                     <a href="{{ path('removal_joueur_delete', {'joueurID' : joueur.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
-                {% endif %}
             </td>
+            {% endif %}
         </tr>
     {% endfor %}
     </table>
