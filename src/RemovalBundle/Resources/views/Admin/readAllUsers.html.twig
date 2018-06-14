@@ -9,7 +9,7 @@
 
     <br>
     <div class="admin_titre_and_btn">
-    <h2 class="all_titre_admin">Liste des utilisateurs au grade Guilde</h2><a href="{{ path('removal_admin_delete_status') }}"> <span class="fas fa-exclamation-triangle" data-toggle="tooltip" title="TOUT Supprimer"></span></a>
+    <h2 class="all_titre_admin">Liste participation des membres</h2><a href="{{ path('removal_admin_delete_status') }}"> <span class="fas fa-exclamation-triangle" data-toggle="tooltip" title="TOUT Supprimer"></span></a>
     </div>
     <div class="all_table_candidature">
     <div class="table_candidature">
@@ -21,7 +21,7 @@
             <th>Modification</th>
         </tr>
         {% for participation in status %}
-            {% if participation.participation.importance == "Normal" %}
+            {% if participation.participation.importance == "Normal" and participation.confirmation != "Archivée" %}
                 <tr class="table-warning">
                     <td>{{ participation.utilisateur.username }}</td>
                     <td>{{ participation.participation.nomParticipation }}</td>
@@ -40,6 +40,43 @@
         {% endfor %}
     </table>
     </div>
+    </div>
+    <br><br>
+
+    <div class="admin_titre_and_btn">
+        <h2 class="all_titre_admin">Liste participation des membres en retard</h2>
+    </div>
+    <div class="all_table_candidature">
+        <div class="table_candidature">
+            <table class="table">
+                <tr class="thead-light">
+                    <th>Nom Utilisateur</th>
+                    <th>Participations</th>
+                    <th>Status Participation</th>
+                    <th>Modification</th>
+                </tr>
+                {% for participation in status %}
+                    {% if participation.participation.importance == "Normal" %}
+                    {% if participation.confirmation != "Archivée" and date(participation.participation.dateFin) < date() and participation.confirmation != "Validée" %}
+                        <tr class="table-danger">
+                            <td>{{ participation.utilisateur.username }}</td>
+                            <td>{{ participation.participation.nomParticipation }}</td>
+                            <td>{{ participation.confirmation }}</td>
+                            {% if participation.confirmation == "En cours" %}
+                                <td><a href="{{ path('removal_admin_confirm_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer"></span></a>
+                                    <a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
+                            {% elseif participation.confirmation == "Validée" %}
+                                <td>Confirmation déjà envoyée !
+                                    <a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
+                            {% else %}
+                                <td><a href="{{ path('removal_admin_delete_one_status', {'statusID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a></td>
+                            {% endif %}
+                        </tr>
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </table>
+        </div>
     </div>
     <br><br>
 {% endblock %}
