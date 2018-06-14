@@ -2,10 +2,20 @@
 {
   padding-top: 50px;
   width: 1900px;
-  display: flex;
+  /*display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 1;
+  z-index: 1;*/
+}
+#removalDescription
+{
+  width: 100%;
+  background: url('../images/background.png') no-repeat center;
+  background-size: cover;
+  color: white;
+  text-align: center;
+  padding-top: 200px;
+  padding-bottom: 200px;
 }
 #removalDown
 {
@@ -104,19 +114,12 @@
 }
 #removal-recruitement
 {
-  margin-bottom: 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  background: rgba(35,27,22,0.9);
   padding: 10px;
 }
 #removal-description
 {
-  background: rgba(35,27,22,0.9);
-  padding: 10px;
+  width: 40%;
+  margin: auto;
   text-align: justify;
 }
 .icon_class{
@@ -131,4 +134,9 @@
   background: -webkit-linear-gradient(#ffe400, #fc7904);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.removal-content
+{
+  display: flex;
+  justify-content: center;
 }
