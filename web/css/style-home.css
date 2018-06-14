@@ -1,7 +1,6 @@
 .container-fluid
 {
   padding: 0;
-  padding-top: 50px;
   width: 1900px;
   background-color: #231b16;
 }
@@ -14,6 +13,12 @@
   text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
+  margin-bottom: 25px;
+}
+.removal-content
+{
+  display: flex;
+  justify-content: center;
 }
 #removalDown
 {
@@ -28,14 +33,13 @@
 .table
 {
   border: 1px solid #212529;
-  background: rgba(23,14,9,0.9);
+  background-color: #170e09;
 }
 #removal-CarouselNews
 {
   width: 50%;
-  margin-left: 50px;
+  margin-top: 44px;
   margin-right: 50px;
-  margin-top: 37px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -97,14 +101,32 @@
 {
   width: 300px;
 }
-.rotate
-{
-  transform: rotate(360deg);
-  transition: .5s;
+.loader {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #fc7904;
+  width: 30px;
+  height: 30px;
+  margin: auto;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 #removal-recruitement
 {
-  padding: 10px;
+  width: 200px;
+  margin: auto;
+  margin-top: 50px;
+  border: 1px solid #fc7904;
+  background-color: rgba(252,121,4,0.1);
+}
+#removal-recruitement:hover
+{
+  background-color: rgba(252,121,4,0.2);
 }
 #removal-description
 {
@@ -124,9 +146,4 @@
   background: -webkit-linear-gradient(#ffe400, #fc7904);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-.removal-content
-{
-  display: flex;
-  justify-content: center;
 }
