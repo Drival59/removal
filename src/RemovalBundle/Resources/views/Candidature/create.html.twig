@@ -1,11 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <br>
+    <div class="titre_candidature">
+    <h2>Vous faites presque partie de la famille Removal !</h2>
+    </div>
     <br><br>
+    <br>
     <div class="all_form_candidature">
 <div class="form_candidature">
     {{ form_start(form) }}
     {{ form_errors(form) }}
+    <div class="form_candidature_first">
     <div class="form-group">
         {{ form_label(form.pseudo) }}
         {{ form_widget(form.pseudo) }}
@@ -26,6 +32,8 @@
     {{ form_label(form.armurerie) }}
     {{ form_widget(form.armurerie) }}
     </div>
+    </div>
+    <div class="form_candidature_first">
     <div class="form-group">
     {{ form_label(form.discord) }}
     {{ form_widget(form.discord) }}
@@ -45,6 +53,7 @@
     <div class="form-group">
     {{ form_rest(form) }}
     {{ form_end(form) }}
+    </div>
     </div>
 </div>
     </div>
