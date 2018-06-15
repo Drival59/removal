@@ -26,10 +26,21 @@ hr
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 form
 {
   width: 50%;
+}
+.btn-outer
+{
+  width: 50%;
+  margin: auto;
+}
+#Addcomments
+{
+  resize: none;
+  height: 150px;
 }
 .comments
 {

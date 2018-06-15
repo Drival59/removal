@@ -48,7 +48,10 @@ class Comment
     private $dateComment;
 
 
-
+    public function __construct()
+    {
+      $this->dateComment = new \Datetime();
+    }
     /**
      * Get id
      *

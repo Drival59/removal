@@ -2,18 +2,40 @@
 
 namespace RemovalBundle\Controller;
 
+use RemovalBundle\Entity\Comment;
+use RemovalBundle\Form\CommentType;
+
+use Symfony\Component\HttpFoundation\Request;
+
 class NewController extends MasterController
 {
-  public function readAction($newsUrl)
+  public function readAction($newsUrl, Request $request)
   {
     $em = $this->getDoctrine()->getManager();
     $new = $em->getRepository('RemovalBundle:News')->findOneByUrl($newsUrl);
-    $comments = $em->getRepository('RemovalBundle:Comment')->findByNews($new);
+    $comments = $em->getRepository('RemovalBundle:Comment')->myFindAll($new);
+    $newComment = new Comment;
+    $formComment = $this->createForm(CommentType::class, $newComment);
+    $formComment->handleRequest($request);
     $user = $this->getUser();
+
+    if ($request->isMethod('POST')) {
+      $newComment->setUtilisateur($user);
+      $newComment->setNews($new);
+      $em->persist($newComment);
+      $em->flush();
+      $this->addFlash('notice', 'Votre commentaire a bien été ajouté.');
+      return $this->redirectToRoute('removal_news_read', array(
+        'newsUrl' => $new->getUrl(),
+      ));
+    }
+
+
     return $this->render('@Removal/New/index.html.twig', array(
       'new' => $new,
       'comments' => $comments,
       'user' => $user,
+      'formComment' => $formComment->createView(),
     ));
   }
 

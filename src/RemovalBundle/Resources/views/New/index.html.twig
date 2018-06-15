@@ -14,20 +14,33 @@
 
     <div class="writeComment" style="text-align:center">
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    <form>
+      {{ form_start(formComment) }}
+      {{ form_errors(formComment) }}
       <div class="form-group">
-        <label>Laissez un commentaire :</label>
-        <textarea class="form-control" id="comments" required></textarea>
-        <small id="emailHelp" class="form-text text-muted">255 caractères maxi.</small>
+        {{ form_label(formComment.content) }}
+        {{ form_widget(formComment.content) }}
+        {{ form_errors(formComment.content) }}
       </div>
-      <button type="submit" class="btn btn-removal">Envoyer</button>
-    </form>
+      <div class="btn-outer">
+        {{ form_widget(formComment.save) }}
+      </div>
+      {{ form_rest(formComment) }}
+      {{ form_end(formComment) }}
+
     {% else %}
       Il faut être connecter pour écrire un commentaire.
     {% endif %}
     </div>
     <div class="comments">
-      <h2>Commentaires ({{comments|length}})</h2>
+      <h2>Commentaires ({{comments|length}})</h2><br />
+      {% for message in app.flashes('notice') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      {% endfor %}
       {% for comment in comments %}
         <div class="commentContent">
           <div class="avatar"></div>
