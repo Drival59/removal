@@ -1,45 +1,77 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
 <br>
 <h2 class="titre_all_candidature">Les candidatures archivées</h2><br>
-<div class="all_table_candidature">
-    <div class="table_candidature">
-        <table class="table">
-            <tr class="thead-light">
-                <th>Personnage</th>
-                <th>Membre</th>
-                <th>Adresse mail</th>
-                <th>BattleTag</th>
-                <th>Classe</th>
-                <th>Spécialisation</th>
-                <th>Armurerie</th>
-                <th>Discord ?</th>
-                <th>Parrain ?</th>
-                <th>Disponibilité</th>
-                <th>Commentaires</th>
-                <th>Status</th>
-            </tr>
-            {% for candidature in candidatures %}
-                {% if candidature.status == "Candidature archivée" %}
-                    <tr class="table-success">
-                        <td>{{ candidature.pseudo }}</td>
-                        <td>{{ candidature.utilisateur }}</td>
-                        <td>{{ candidature.utilisateur.email }}</td>
-                        <td>{{ candidature.battletag }}</td>
-                        <td>{{ candidature.classe }}</td>
-                        <td>{{ candidature.specialisation }}</td>
-                        <td><a href="{{ candidature.armurerie }}" target="_blank">Armurerie</a></td>
-                        <td>{{ candidature.discord }}</td>
-                        <td>{{ candidature.joueurReference }}</td>
-                        <td>{{ candidature.disponibilite|date('d-m-Y H:i:s') }}</td>
-                        <td>{{ candidature.description }}</td>
-                        <td>{{ candidature.status }}</td>
-                    </tr>
-                {% endif %}
-            {% endfor %}
-        </table>
-    </div>
-</div>
+    {% for candidature in candidatures %}
+        {% if candidature.status == "Candidature archivée" %}
+            <div class="all_content_candidature_read">
+                <div class="content_candidature_info">
+                    <div class="in_content_candidature_info">
+                        <div class="candidature_info">
+                            <div class="info">
+                                <p class="info_candidature">Personnage : </p>
+                                <p class="info_twig">{{ candidature.pseudo }}</p>
+                            </div>
+                            <div class="info">
+                                <p class="info_candidature">Classe : </p>
+                                <p class="info_twig">{{ candidature.classe }}</p>
+                            </div>
+                            <div class="info">
+                                <p class="info_candidature">Spécialisation : </p>
+                                <p class="info_twig">{{ candidature.specialisation }}</p>
+                            </div>
+                            <div class="info">
+                                <a href="{{ candidature.armurerie }}">Armurerie</a>
+                            </div>
+                        </div>
+                        <div class="candidature_info">
+                            <div class="info">
+                                <p class="info_candidature">Membre : </p>
+                                <p class="info_twig">{{ candidature.utilisateur }}</p>
+                            </div>
+                            <div class="info">
+                                <p class="info_candidature">BattleTag : </p>
+                                <p class="info_twig">{{ candidature.battletag }}</p>
+                            </div>
+                            <div class="info">
+                                <p class="info_candidature">Email : </p>
+                                <p class="info_twig">{{ candidature.utilisateur.email }}</p>
+                            </div>
+                        </div>
+                        <div class="candidature_info">
+                            <div class="info">
+                                <p class="info_candidature">Discord ? : </p>
+                                <p class="info_twig">{{ candidature.discord }}</p>
+                            </div>
+                            <div class="info">
+                                <p class="info_candidature">Parrain ? : </p>
+                                <p class="info_twig">{{ candidature.joueurReference }}</p>
+                            </div>
+                            <div class="info">
+                                <p class="info_candidature">Disponibilité ? : </p>
+                                <p class="info_twig">{{ candidature.disponibilite|date('d-m-Y H:i:s') }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br><br>
+                    <div class="in_content_candidature_comment">
+                        <p>{{ candidature.description }}</p>
+                    </div>
+                </div>
+                <div class="content_candidature_status">
+                    {% if candidature.status == "new" %}
+                        <a href="{{ path('removal_candidature_update_status', {'candidatureID' : candidature.id}) }}"> <span class="fas fa-archive" data-toggle="tooltip" title="Archiver la candidature ?"></span></a>
+                    {% else %}
+                        <p>{{ candidature.status }}</p>
+                    {% endif %}
+                </div>
+            </div><br>
+        {% endif %}
+    {% endfor %}
 {% endblock %}
 

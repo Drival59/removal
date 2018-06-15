@@ -32,9 +32,6 @@
     </table>
     </div>
     </div>
-    {% if is_granted('ROLE_ADMIN') %}
-    <a href="{{ path('removal_joueur_create') }}"> <span><button>Créer un joueur</button></span></a>
-    {% endif %}
 {% endblock %}
 
 {% block javascripts %}

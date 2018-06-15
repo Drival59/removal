@@ -225,3 +225,87 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+
+/* ESSAIS NEW CSS VUE CANDIDATURE */
+
+.all_content_candidature_read{
+    width: 100%;
+    max-width: 1900px;
+    display: flex;
+    background-color: green;
+    justify-content: center;
+}
+
+.content_candidature_info{
+    flex: 5;
+    background-color: #170e09;
+}
+.in_content_candidature_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.info{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.info p{
+    margin-left: 1%;
+}
+
+.info_candidature{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.info_twig{
+    color: white;
+}
+
+.candidature_info{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.in_content_candidature_comment{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: justify;
+    padding: 0% 5% 0% 5%;
+    color: white;
+}
+
+.content_candidature_status{
+    flex: 1;
+    background-color: #170e09;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.content_candidature_status p{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+}
+
+.content_candidature_status a span{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 40px;
+}
