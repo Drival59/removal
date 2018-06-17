@@ -58,7 +58,6 @@
 
 .table_participation{
     width: 90%;
-    /*background-color: grey;*/
 }
 
 .all_participation{
@@ -70,7 +69,6 @@
 }
 
 .titre_gestion{
-    /*margin-left: 5%;*/
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -142,15 +140,10 @@
     background-color: lightcoral;
 }
 
-.archive_span{
-    /*margin-left: 5%;*/
-}
-
 .archive{
     text-decoration: none;
     color: #fd9a31;
     font-size: 25px;
-    /*margin-left: 5%;*/
 }
 
 .archive:hover{

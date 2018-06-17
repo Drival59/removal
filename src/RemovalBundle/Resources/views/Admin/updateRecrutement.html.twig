@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-home.css') }}">
+{% endblock %}
+
 {% block body %}
     <div class="menu">
         <a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a>
@@ -7,5 +11,9 @@
         <a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a>
     </div>
     <br>
-{{ form(form) }}
+    <div class="all_admin_read">
+    <div class="admin_read_update">
+        {{ form(form) }}
+    </div>
+    </div>
 {% endblock %}

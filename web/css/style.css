@@ -35,7 +35,6 @@ th, td
     color: #0088CC;
     margin-left: 2%;
 }
-
 .removalBanner
 {
   height: 294px;
@@ -84,18 +83,15 @@ th, td
     align-items: center;
     justify-content: center;
 }
-
 .titre_all_personnages{
     margin-left: 20%;
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .table_all_participation{
     width: 100%;
 }
-
 .all_participation_read{
     width: 100%;
     display: flex;
@@ -103,7 +99,6 @@ th, td
     align-items: center;
     justify-content: center;
 }
-
 .titre_all_participation{
     margin-left: 5%;
     background: -webkit-linear-gradient(#ffe400, #fc7904);
@@ -114,7 +109,6 @@ th, td
 .table_candidature{
     width: 90%;
 }
-
 .all_table_candidature{
     width: 100%;
     display: flex;
@@ -122,28 +116,23 @@ th, td
     align-items: center;
     justify-content: center;
 }
-
 .titre_all_candidature{
     margin-left: 5%;
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .all_titre_admin{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .admin_titre_and_btn{
     display: flex;
 }
-
 .admin_titre_and_btn h2{
     margin-left: 5%;
 }
-
 .admin_titre_and_btn a{
     margin-left: 3%;
     font-size: 30px;
@@ -154,7 +143,6 @@ th, td
     display: flex;
     justify-content: center;
 }
-
 .form_candidature{
     width: 100%;
     max-width: 1700px;
@@ -162,7 +150,6 @@ th, td
     /*flex-direction: column;*/
     justify-content: center;
 }
-
 .form_candidature form{
     width: 100%;
     display: flex;
@@ -183,45 +170,60 @@ th, td
     align-items: center;
     justify-content: center;
 }
-
 .form-group{
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-
 .form-group label{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 20px;
 }
-
 .form-group legend{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-size: 20px;
 }
-
 .title_creation_personnage{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .compo_form{
     color: white;
 }
-
-/*.archive{*/
-    /*margin-left: 5%;*/
-    /*text-decoration: none;*/
-    /*font-size: 25px;*/
-    /*color: #fd9a31;*/
-/*}*/
-/**/
-/*.archive:hover{*/
-    /*color: #0088CC;*/
-    /*text-decoration: none;*/
-/*}*/
+.admin_read{
+    width: 100%;
+    max-width: 1900px;
+}
+.admin_read_recruit{
+    width: 100%;
+    max-width: 1900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.admin_read_update{
+    width: 50%;
+    max-width: 1900px;
+}
+.all_admin_read{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.personnage_read{
+    width: 100%;
+    max-width: 1900px;
+}
+.all_personnage_read{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
