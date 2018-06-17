@@ -326,3 +326,12 @@
     align-items: center;
     justify-content: center;
 }
+.roster_read{
+    width: 100%;
+    max-width: 1900px;
+}
+.all_roster_read{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

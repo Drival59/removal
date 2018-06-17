@@ -235,3 +235,12 @@ th, td
     align-items: center;
     justify-content: center;
 }
+.personnage_update{
+    width: 20%;
+    max-width: 1900px;
+}
+.all_personnage_update{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
