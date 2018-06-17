@@ -23,7 +23,7 @@
             <th>Modification</th>
         </tr>
         {% for participation in status %}
-            {% if participation.participation.importance == "Normal" and participation.confirmation != "Archivée" %}
+            {% if participation.participation.importance == "Normal" and participation.confirmation != "Archivée" and date(participation.participation.dateFin) > date() %}
                 <tr class="table-warning">
                     <td>{{ participation.utilisateur.username }}</td>
                     <td>{{ participation.participation.nomParticipation }}</td>
