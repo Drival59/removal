@@ -6,6 +6,8 @@
 
 {% block body %}
     <br>
+    <div class="all_gestion_read">
+    <div class="gestion_read">
     <h2 class="titre_gestion">Vos participations archivées : </h2>
     <br>
     {% for participation in status %}
@@ -80,5 +82,6 @@
             {% endif %}
         {% endif %}
     {% endfor %}
-
+    </div>
+    </div>
 {% endblock %}
