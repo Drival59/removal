@@ -309,3 +309,15 @@
     -webkit-text-fill-color: transparent;
     font-size: 40px;
 }
+
+.candidature_read{
+    width: 100%;
+    max-width: 1900px;
+}
+
+.all_candidature_read{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

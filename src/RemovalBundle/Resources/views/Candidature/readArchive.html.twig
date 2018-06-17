@@ -6,6 +6,8 @@
 
 {% block body %}
 <br>
+<div class="all_candidature_read">
+    <div class="candidature_read">
 <h2 class="titre_all_candidature">Les candidatures archivées</h2><br>
     {% for candidature in candidatures %}
         {% if candidature.status == "Candidature archivée" %}
@@ -73,5 +75,7 @@
             </div><br>
         {% endif %}
     {% endfor %}
+    </div>
+</div>
 {% endblock %}
 

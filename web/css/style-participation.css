@@ -1,0 +1,23 @@
+.all_form_participation{
+    width: 100%;
+    max-width: 1800px;
+}
+
+.form-group{
+    width: 20%;
+    margin: 1%;
+}
+
+.form_participation form{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.participation_create{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

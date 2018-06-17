@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-participation.css') }}">
+{% endblock %}
+
 {% block body %}
     <br>
+    <div class="participation_create">
+    <div class="all_form_participation">
+    <div class="form_participation_table">
     <table class="table">
         <tr class="thead-light">
             <th>Plantes</th>
@@ -80,10 +87,13 @@
             <td class="compo_form"></td>
             <td class="compo_form"></td>
         </tr>
-    </table><br><br>
+    </table>
+    </div>
+    </div>
+        <br><br>
 
-    <div class="all_form_candidature">
-    <div class="form_candidature">
+    <div class="all_form_participation">
+    <div class="form_participation">
         {{ form_start(form) }}
         {{ form_errors(form) }}
         <div class="form-group">
@@ -184,6 +194,7 @@
         </div>
         {{ form_rest(form) }}
         {{ form_end(form) }}
+    </div>
     </div>
     </div>
 {% endblock %}
