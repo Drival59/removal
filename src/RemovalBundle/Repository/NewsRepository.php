@@ -20,6 +20,16 @@ class NewsRepository extends \Doctrine\ORM\EntityRepository
       ->getResult()
     ;
   }
+  public function newsInCarousel()
+  {
+    $qb = $this->createQueryBuilder('n');
+    $qb->where('n.inCarousel = 1');
+    $qb->orderBy('n.dateNews', 'DESC');
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
   public function showMoreNews($fn)
   {
     $qb = $this->createQueryBuilder('n');

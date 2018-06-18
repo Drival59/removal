@@ -16,6 +16,7 @@ class HomeController extends MasterController
         $em = $this->getDoctrine()->getManager();
 
         $news = $em->getRepository('RemovalBundle:News')->myFindAll();
+        $newsInCarousel = $em->getRepository('RemovalBundle:News')->newsInCarousel();
         $raidsInProgress = $em->getRepository('RemovalBundle:Raid')->findByInProgress(1);
         $bossdowns = $em->getRepository('RemovalBundle:Bossdown')->findByRaid($raidsInProgress);
         $comments = $em->getRepository('RemovalBundle:Comment')->findAll();
@@ -26,6 +27,7 @@ class HomeController extends MasterController
           'bossdowns' => $bossdowns,
           'comments' => $comments,
           'recrutement' => $recrutement,
+          'newsInCarousel' => $newsInCarousel,
         ));
     }
 
