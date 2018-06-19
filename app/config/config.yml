@@ -82,6 +82,9 @@ fos_user:
 
 kms_froala_editor:
     language: "fr"
-    toolbarInline: true
+    toolbarInline: false
+    includeJQuery: true
+    includeFontAwesome: true
+    includeCSS: true
     tableColors: [ "#FFFFFF", "#FF0000" ]
     saveParams: { "id" : "myEditorField" }

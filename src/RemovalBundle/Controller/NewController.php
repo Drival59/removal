@@ -3,8 +3,10 @@
 namespace RemovalBundle\Controller;
 
 use RemovalBundle\Entity\Comment;
+use RemovalBundle\Entity\News;
 use RemovalBundle\Form\CommentType;
 
+use RemovalBundle\Form\NewsType;
 use Symfony\Component\HttpFoundation\Request;
 
 class NewController extends MasterController
@@ -52,7 +54,24 @@ class NewController extends MasterController
 
   public function createAction(Request $request)
   {
-    return $this->render('@Removal/New/create.html.twig');
+      $new = new News();
+
+      $em = $this->getDoctrine()->getManager();
+
+      $form = $this->createForm(NewsType::class, $new);
+      $form->handleRequest($request);
+
+      if ($form->isSubmitted() && $form->isValid())
+      {
+          $em->persist($new);
+          $em->flush();
+
+          return $this->redirectToRoute('removal_homepage');
+      }
+
+      return $this->render('@Removal/New/create.html.twig', [
+          'form' => $form->createView(), 'new' => $new
+      ]);
   }
 
 }

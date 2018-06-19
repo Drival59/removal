@@ -2,6 +2,7 @@
 
 namespace RemovalBundle\Form;
 
+use KMS\FroalaEditorBundle\Form\Type\FroalaEditorType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,7 +22,7 @@ class NewsType extends AbstractType
         $builder
           ->add('title', TextType::class)
           ->add('description', TextType::class)
-          ->add('content', TextareaType::class, array(
+          ->add('content', FroalaEditorType::class, array(
             'required' => false))
           ->add('inCarousel', CheckboxType::class, array(
             'label' => "Cochez si vous voulez l'actualité dans le caroussel",
@@ -29,7 +30,10 @@ class NewsType extends AbstractType
           ->add('imageUrl', FileType::class)
           ->add('save', SubmitType::class);
 
-    }/**
+    }
+
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
