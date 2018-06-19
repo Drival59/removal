@@ -63,6 +63,9 @@ class NewController extends MasterController
 
       if ($form->isSubmitted() && $form->isValid())
       {
+          $user = $this->getUser();
+          $new->setUrl(str_replace(' ','-',$new->getTitle()));
+          $new->setUtilisateur($user);
           $em->persist($new);
           $em->flush();
 

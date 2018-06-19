@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  *
  * @ORM\Table(name="news")
  * @ORM\Entity(repositoryClass="RemovalBundle\Repository\NewsRepository")
- * @UniqueEntity(fields="titre", message="Un article existe déjà avec ce titre.")
+ * @UniqueEntity(fields="title", message="Un article existe déjà avec ce titre.")
  */
 class News
 {
@@ -27,7 +27,7 @@ class News
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
      */
     private $title;
 
@@ -85,6 +85,10 @@ class News
      */
     private $utilisateur;
 
+    public function __construct()
+    {
+      $this->dateNews = new \Datetime();
+    }
 
     /**
      * Get id
