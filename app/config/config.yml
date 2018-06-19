@@ -32,7 +32,7 @@ framework:
     php_errors:
         log: true
     templating:
-        engines: ['twig']
+        engines: ['twig', 'php']
 
 # Twig Configuration
 twig:
@@ -79,3 +79,9 @@ fos_user:
     from_email:
         address: removal@removal.com
         sender_name: webmaster@removal.com
+
+kms_froala_editor:
+    language: "fr"
+    toolbarInline: true
+    tableColors: [ "#FFFFFF", "#FF0000" ]
+    saveParams: { "id" : "myEditorField" }

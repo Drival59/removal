@@ -50,4 +50,9 @@ class NewController extends MasterController
     ));
   }
 
+  public function createAction(Request $request)
+  {
+    return $this->render('@Removal/New/create.html.twig');
+  }
+
 }
