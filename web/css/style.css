@@ -244,3 +244,28 @@ th, td
     align-items: center;
     justify-content: center;
 }
+
+
+/* css formulaire login */
+
+.all_login{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+}
+.login label{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.titre_login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
