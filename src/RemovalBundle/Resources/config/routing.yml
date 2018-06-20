@@ -147,7 +147,7 @@ removal_candidature_read_archive:
     defaults: { _controller: RemovalBundle:Candidature:readArchive }
 
 removal_candidature_create:
-    path:     /candidature/create
+    path:     /user/candidature/create
     defaults: { _controller: RemovalBundle:Candidature:create }
 
 removal_candidature_update_status:
