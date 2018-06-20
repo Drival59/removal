@@ -94,6 +94,32 @@ class AdminController extends MasterController
         ]);
 
     }
+
+    public function newStatusSbAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $status = new Status();
+
+        $users = $em->getRepository('RemovalBundle:User')->findAll();
+        $participations = $em->getRepository('RemovalBundle:Participation')->findAll();
+
+        $form = $this->createForm(StatusType::class, $status);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em->persist($status);
+            $em->flush();
+
+            return $this->redirectToRoute('removal_sb_read');
+        }
+
+        return $this->render('@Removal/Status/create.html.twig', [
+            'form' => $form->createView(), 'participations' => $participations, 'users' => $users
+        ]);
+
+    }
     
 
     public function deleteAllAction()

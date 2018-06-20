@@ -36,15 +36,15 @@ removal_joueur_read_all:
 
 
 removal_participation_create:
-    path:     /admin/participation/create
+    path:     /sb/participation/create
     defaults: { _controller: RemovalBundle:Participation:create }
 
 removal_participation_read:
-    path:     /admin/participation
+    path:     /sb/participation
     defaults: { _controller: RemovalBundle:Participation:read }
 
 removal_participation_update:
-    path:     /admin/participation/update/{participationID}
+    path:     /sb/participation/update/{participationID}
     defaults: { _controller: RemovalBundle:Participation:update }
 
 removal_participation_delete:
@@ -79,19 +79,19 @@ removal_admin_confirm_one_status:
     defaults: { _controller: RemovalBundle:Admin:confirmationParticipation }
 
 removal_admin_create_recrutement:
-    path:     /admin/recrutement/create
+    path:     /sb/recrutement/create
     defaults: { _controller: RemovalBundle:Recrutement:create }
 
 removal_admin_read_recrutement:
-    path:     /admin/recrutement
+    path:     /sb/recrutement
     defaults: { _controller: RemovalBundle:Recrutement:read }
 
 removal_admin_update_recrutement:
-    path:     /admin/recrutement/{recrutementID}
+    path:     /sb/recrutement/{recrutementID}
     defaults: { _controller: RemovalBundle:Recrutement:update }
 
 removal_admin_delete_recrutement:
-    path:     /admin/recrutement/delete/{recrutementID}
+    path:     /sb/recrutement/delete/{recrutementID}
     defaults: { _controller: RemovalBundle:Recrutement:delete }
 
 
@@ -112,6 +112,10 @@ removal_gestion_status:
 removal_gestion_status_create:
     path:     /admin/status/create
     defaults: { _controller: RemovalBundle:Admin:newStatus }
+
+removal_gestion_status_create_sb:
+    path:     /sb/status/create
+    defaults: { _controller: RemovalBundle:Admin:newStatusSb }
 
 removal_gestion_status_archive:
     path:     /guilde/status/archive/{participationID}
@@ -149,3 +153,7 @@ removal_candidature_create:
 removal_candidature_update_status:
     path:     /sb/candidature/status/{candidatureID}
     defaults: { _controller: RemovalBundle:Candidature:update }
+
+removal_sb_read:
+    path:     /sb
+    defaults: { _controller: RemovalBundle:Sb:read }

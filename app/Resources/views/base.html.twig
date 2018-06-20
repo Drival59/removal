@@ -35,10 +35,9 @@
                     <a href="{{ path('fos_user_registration_register') }}">Se créer un compte</a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
-                    <a href="{{ path('removal_candidature_read') }}">voir les candidatures</a>
+                    <a href="{{ path('removal_sb_read') }}">Contrôle SB</a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('removal_participation_read') }}">Participations</a>
                     <a href="{{ path('removal_admin_read_all_users') }}">Admin</a>
                     <a href="{{ path('removal_hotel_read') }}">Hotel</a>
                 {% endif %}
