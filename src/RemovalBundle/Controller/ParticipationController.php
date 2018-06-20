@@ -11,6 +11,7 @@ namespace RemovalBundle\Controller;
 
 use RemovalBundle\Entity\Participation;
 use RemovalBundle\Form\ParticipationType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
 class ParticipationController extends MasterController
@@ -27,8 +28,7 @@ class ParticipationController extends MasterController
             $em = $this->getDoctrine()->getManager();
             $em->persist($participation);
             $em->flush();
-
-            return $this->redirectToRoute('removal_participation_read');
+            $this->addFlash('notice', 'Votre participation a bien été ajouté.');
         }
 
         return $this->render('@Removal/Participation/create.html.twig', [
@@ -80,6 +80,7 @@ class ParticipationController extends MasterController
 
         $em->remove($participation);
         $em->flush();
+        $this->addFlash('notice', 'Votre participation a bien été supprimée.');
 
         return $this->redirectToRoute('removal_participation_read');
     }

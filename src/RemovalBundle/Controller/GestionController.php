@@ -55,6 +55,7 @@ class GestionController extends MasterController
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
+        $this->addFlash('notice', 'Votre participation a bien été Envoyée !');
 
         return $this->redirectToRoute('removal_gestion_read');
     }
@@ -69,6 +70,7 @@ class GestionController extends MasterController
 
         $em = $this->getDoctrine()->getManager();
         $em->flush();
+        $this->addFlash('notice', 'Votre participation a bien été archivée !');
 
         return $this->redirectToRoute('removal_gestion_read');
     }

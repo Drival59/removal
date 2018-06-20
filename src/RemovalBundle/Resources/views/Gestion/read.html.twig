@@ -8,6 +8,14 @@
     <br>
     <div class="all_gestion_read">
     <div class="gestion_read">
+        {% for message in app.flashes('notice') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
     <div class="titre_gestion_personnage">
     <h2 class="h2">Vos personnages</h2><a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau personnage ! ATTENTION de bien respecter l'orthographe du nom de votre personnage!"></span></a><br>
     </div>
