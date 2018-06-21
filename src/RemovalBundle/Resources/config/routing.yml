@@ -10,6 +10,10 @@ removal_news_read:
     path: /news/{newsUrl}
     defaults: {_controller: RemovalBundle:New:read }
 
+removal_moreComment:
+    path: /news/{newsUrl}/moreComments/fc={fc}
+    defaults: { _controller: RemovalBundle:Comment:more }
+
 removal_news_create:
     path: /news/create/
     defaults: { _controller: RemovalBundle:New:create }

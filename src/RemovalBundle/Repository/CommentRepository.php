@@ -22,4 +22,19 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
       ->getResult()
     ;
   }
+
+  public function showMoreComments($new, $fc)
+  {
+    $qb = $this->createQueryBuilder('c');
+    $qb->where('c.news = :new');
+    $qb->orderBy('c.dateComment', 'DESC');
+    $qb->setParameter('new', $new);
+    $qb->setFirstResult($fc);
+    $qb->setMaxResults(10);
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
+
 }

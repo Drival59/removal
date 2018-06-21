@@ -32,7 +32,7 @@
     {% endif %}
     </div>
     <div class="comments">
-      <h2>Commentaires ({{comments|length}})</h2><br />
+      <h2>Commentaires ({{allComments|length}})</h2><br />
       {% for message in app.flashes('notice') %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ message }}
@@ -50,6 +50,16 @@
           </div>
         </div>
       {% endfor %}
+      {% if allComments|length > 10 %}
+        <div class="btn-outer" style="margin-top:50px;">
+          <button id="moreComments" type="button" class="btn btn-removal btn-lg">Afficher plus de commentaires</button>
+        </div>
+      {% endif %}
     </div>
   </div>
+{% endblock %}
+
+{% block javascripts %}
+  <script> var url = "{{newsUrl}}"; </script>
+  <script src="{{ asset('js/removal-news.js')}}"></script>
 {% endblock %}

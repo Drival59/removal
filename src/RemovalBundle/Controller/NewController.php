@@ -16,6 +16,7 @@ class NewController extends MasterController
     $em = $this->getDoctrine()->getManager();
     $new = $em->getRepository('RemovalBundle:News')->findOneByUrl($newsUrl);
     $comments = $em->getRepository('RemovalBundle:Comment')->myFindAll($new);
+    $allComments = $em->getRepository('RemovalBundle:Comment')->findByNews($new);
     $newComment = new Comment;
     $formComment = $this->createForm(CommentType::class, $newComment);
     $formComment->handleRequest($request);
@@ -38,6 +39,8 @@ class NewController extends MasterController
       'comments' => $comments,
       'user' => $user,
       'formComment' => $formComment->createView(),
+      'allComments' => $allComments,
+      'newsUrl' => $newsUrl,
     ));
   }
 

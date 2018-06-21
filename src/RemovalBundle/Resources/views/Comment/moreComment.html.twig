@@ -1,0 +1,9 @@
+{% for moreComment in moreComments %}
+  <div class="commentContent">
+    <div class="avatar"></div>
+    <div class="commentDescription">
+      <p>{{ moreComment.utilisateur.username }} à écrit ce commentaire le {{moreComment.dateComment|date('d/m/Y à H:i')}}</p><hr />
+      <p>{{ moreComment.content}}</p>
+    </div>
+  </div>
+{% endfor %}
