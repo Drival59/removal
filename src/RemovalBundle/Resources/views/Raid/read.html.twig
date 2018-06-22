@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+{% for raid in raids %}
+    <p style="color: white">{{ raid.name }}</p>
+{% endfor %}
+
+{% endblock %}

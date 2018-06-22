@@ -2,6 +2,12 @@
 
 namespace RemovalBundle\Controller;
 
+use RemovalBundle\Entity\Bossdown;
+use RemovalBundle\Entity\Raid;
+use RemovalBundle\Form\BossdownType;
+use RemovalBundle\Form\RaidType;
+use Symfony\Component\HttpFoundation\Request;
+
 class SbController extends MasterController
 {
     public function readAction()
@@ -14,6 +20,71 @@ class SbController extends MasterController
         return $this->render('@Removal/Sb/read.html.twig', [
             'users' => $users,
             'status' => $status
+        ]);
+    }
+
+    public function readRaidAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $raids = $em->getRepository('RemovalBundle:Raid')->findAll();
+
+        return $this->render('@Removal/Raid/read.html.twig', [
+            'raids' => $raids
+        ]);
+    }
+
+    public function readBossAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $boss = $em->getRepository('RemovalBundle:Bossdown')->findAll();
+
+        return $this->render('@Removal/Bossdown/read.html.twig', [
+            'boss' => $boss
+        ]);
+    }
+
+    public function createRaidAction(Request $request)
+    {
+        $raid = new Raid();
+
+        $form = $this->createForm(RaidType::class, $raid);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($raid);
+            $em->flush();
+
+            return $this->redirectToRoute('removal_sb_raid_read');
+        }
+
+        return $this->render('@Removal/Raid/createRaid.html.twig', [
+            'form' => $form->createView(), 'raid' => $raid
+        ]);
+    }
+
+    public function createBossAction(Request $request)
+    {
+        $boss = new Bossdown();
+
+        $form = $this->createForm(BossdownType::class, $boss);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $boss->setImageUrl('eonar.png');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($boss);
+            $em->flush();
+
+            return $this->redirectToRoute('removal_sb_boss_read');
+        }
+
+        return $this->render('@Removal/Bossdown/create.html.twig', [
+            'form' => $form->createView(), 'boss' => $boss
         ]);
     }
 }

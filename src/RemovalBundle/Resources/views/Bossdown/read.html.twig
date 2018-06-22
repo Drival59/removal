@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    {% for boss in boss %}
+        <p style="color: white">{{ boss.name }}</p>
+    {% endfor %}
+
+{% endblock %}

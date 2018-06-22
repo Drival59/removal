@@ -161,3 +161,20 @@ removal_candidature_update_status:
 removal_sb_read:
     path:     /sb
     defaults: { _controller: RemovalBundle:Sb:read }
+
+
+removal_sb_raid_read:
+    path:     /sb/raid/read
+    defaults: { _controller: RemovalBundle:Sb:readRaid }
+
+removal_sb_raid_create:
+    path:     /sb/raid/create
+    defaults: { _controller: RemovalBundle:Sb:createRaid }
+
+removal_sb_boss_create:
+    path:     /sb/boss/create
+    defaults: { _controller: RemovalBundle:Sb:createBoss }
+
+removal_sb_boss_read:
+    path:     /sb/boss/read
+    defaults: { _controller: RemovalBundle:Sb:readBoss }
