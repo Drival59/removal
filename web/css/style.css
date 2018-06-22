@@ -244,9 +244,7 @@ th, td
     align-items: center;
     justify-content: center;
 }
-
 /* css loader news et comments */
-
 .loader {
   border: 2px solid #f3f3f3;
   border-radius: 50%;
@@ -265,9 +263,7 @@ th, td
 {
   display: none;
 }
-
 /* css formulaire login */
-
 .all_login{
     width: 100%;
     display: flex;
@@ -280,11 +276,37 @@ th, td
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .titre_login{
     display: flex;
     align-items: center;
     justify-content: center;
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.all_register{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.register {
+    width: 25%;
+    max-width: 700px;
+}
+.all_confirmation{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.confirmation {
+    max-width: 700px;
+    height: 200px;
+}
+.confirmation p{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

@@ -1,0 +1,21 @@
+{% extends '@Removal/layout.html.twig' %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2 class="titre_login">Votre compte à bien été activé !</h2>
+{% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+    <br><br><br><br>
+    <div class="all_confirmation">
+    <div class="confirmation">
+    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+    {% if targetUrl %}
+        <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
+    {% endif %}
+    </div>
+    </div>
+{% endblock fos_user_content %}

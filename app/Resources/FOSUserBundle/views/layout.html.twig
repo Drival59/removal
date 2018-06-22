@@ -1,11 +1,5 @@
 {% extends 'RemovalBundle::layout.html.twig' %}
 
-{% block body %}
-    <br>
-    <br>
-    <h2 class="titre_login">Connexion</h2>
-{% endblock %}
-
 {% block content %}
     <div>
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
@@ -25,11 +19,7 @@
             </div>
         {% endfor %}
     {% endfor %}
-    <br>
-    <div class="all_login">
-    <div class="login">
+
         {% block fos_user_content %}
         {% endblock fos_user_content %}
-    </div>
-    </div>
 {% endblock content %}

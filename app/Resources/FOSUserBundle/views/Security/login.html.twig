@@ -1,0 +1,16 @@
+{% extends '@Removal/layout.html.twig' %}
+
+{% block body %}
+    <br>
+    <br>
+    <h2 class="titre_login">Connexion</h2>
+{% endblock %}
+
+{% block fos_user_content %}
+<br>
+<div class="all_login">
+    <div class="login">
+            {{ include('@FOSUser/Security/login_content.html.twig') }}
+    </div>
+</div>
+{% endblock fos_user_content %}
