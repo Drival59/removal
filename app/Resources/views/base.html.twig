@@ -37,7 +37,7 @@
                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
                     <ul style="margin: 0;">
                         <li class="dropdown"><a data-toggle="dropdown" href="#">ContrôleSB<span class="caret"></span></a>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu" style="background-color: #231b16">
                                 <li style="width: 300px"><a href="{{ path('removal_sb_read') }}">Accueil</a></li>
                                 <li><a href="{{ path('removal_participation_read') }}">Participations</a></li>
                                 <li><a href="{{ path('removal_gestion_status_create_sb') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a></li>
@@ -50,7 +50,7 @@
                 {% if is_granted('ROLE_ADMIN') %}
                         <ul style="margin: 0">
                             <li class="dropdown"><a data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="background-color: #231b16">
                                     <li style="width: 300px"><a href="{{ path('removal_admin_read_all_users') }}">Accueil</a></li>
                                     <li><a href="{{ path('removal_participation_read') }}">Participations</a></li>
                                     <li><a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a></li>
@@ -64,7 +64,6 @@
                                 </ul>
                             </li>
                         </ul>
-                    {#<a href="{{ path('removal_hotel_read') }}">Hotel</a>#}
                 {% endif %}
             </div>
           </div>
