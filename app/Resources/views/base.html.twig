@@ -38,8 +38,23 @@
                     <a href="{{ path('removal_sb_read') }}">Contrôle SB</a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
-                    <a href="{{ path('removal_admin_read_all_users') }}">Admin</a>
-                    <a href="{{ path('removal_hotel_read') }}">Hotel</a>
+                        <ul style="margin: 0">
+                            <li class="dropdown"><a data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li style="width: 300px"><a href="{{ path('removal_admin_read_all_users') }}">Accueil</a></li>
+                                    <li><a href="{{ path('removal_participation_read') }}">Participations</a></li>
+                                    <li><a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a></li>
+                                    <li><a href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a></li>
+                                    <li><a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a></li>
+                                    <li><a href="{{ path('removal_candidature_read') }}">voir les candidatures</a></li>
+                                    <li><a href="{{ path('removal_sb_raid_create') }}">Création raid</a></li>
+                                    <li><a href="{{ path('removal_sb_raid_read') }}">Voir les raids</a></li>
+                                    <li><a href="{{ path('removal_sb_boss_create') }}">Création de boss</a></li>
+                                    <li><a href="{{ path('removal_sb_boss_read') }}">Voir les boss</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    {#<a href="{{ path('removal_hotel_read') }}">Hotel</a>#}
                 {% endif %}
             </div>
           </div>

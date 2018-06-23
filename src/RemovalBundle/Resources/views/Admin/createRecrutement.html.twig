@@ -1,13 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {% if is_granted('ROLE_ADMIN') %}
-    <div class="menu">
-        <a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a>
-        <a href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a>
-        <a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a>
-    </div>
-    {% endif %}
     <br>
 {{ form(form) }}
 {% endblock %}
