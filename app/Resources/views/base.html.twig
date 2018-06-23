@@ -35,7 +35,17 @@
                     <a href="{{ path('fos_user_registration_register') }}">Se créer un compte</a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
-                    <a href="{{ path('removal_sb_read') }}">Contrôle SB</a>
+                    <ul style="margin: 0;">
+                        <li class="dropdown"><a data-toggle="dropdown" href="#">ContrôleSB<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li style="width: 300px"><a href="{{ path('removal_sb_read') }}">Accueil</a></li>
+                                <li><a href="{{ path('removal_participation_read') }}">Participations</a></li>
+                                <li><a href="{{ path('removal_gestion_status_create_sb') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a></li>
+                                <li><a href="{{ path('removal_candidature_read') }}">voir les candidatures</a></li>
+                                <li><a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') %}
                         <ul style="margin: 0">

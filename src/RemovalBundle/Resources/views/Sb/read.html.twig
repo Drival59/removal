@@ -1,12 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<div class="menu">
-    <a href="{{ path('removal_participation_read') }}">Participations</a>
-    <a href="{{ path('removal_gestion_status_create_sb') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a>
-    <a href="{{ path('removal_candidature_read') }}">voir les candidatures</a>
-    <a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a>
-</div>
 <br><br>
     <div class="admin_titre_and_btn">
         <h2 class="all_titre_admin">Liste participation des membres en retard</h2>
