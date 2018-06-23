@@ -21,7 +21,7 @@ class JoueurType extends AbstractType
         ]);
 
         $builder->add('classe', ChoiceType::class, [
-            'label' => 'Classe du joueur',
+            'label' => 'Classe du personnage',
             'choices' => array(
                 'Chasseurs' => 'Chasseurs',
                 'Prêtre' => 'Prêtre',
@@ -39,7 +39,7 @@ class JoueurType extends AbstractType
         ]);
 
         $builder->add('specialisation', ChoiceType::class, [
-            'label' => 'Spécialisation du joueur',
+            'label' => 'Spécialisation du personnage',
             'choices' => array(
                 'Chasseurs' => array(
                     'Maîtrise des bêtes' => 'Maîtrise des bêtes',

@@ -382,3 +382,19 @@ th, td
 .boss_submit{
     margin-top: 4%;
 }
+/* CSS message d'erreur */
+.msg_erreur{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 50px;
+}
+
+.div_msg_erreur{
+    width: 100%;
+    max-width: 1900px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
