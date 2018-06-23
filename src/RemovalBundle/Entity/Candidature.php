@@ -3,6 +3,7 @@
 namespace RemovalBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Candidature
@@ -25,6 +26,7 @@ class Candidature
      * @var string
      *
      * @ORM\Column(name="pseudo", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $pseudo;
 
@@ -46,6 +48,7 @@ class Candidature
      * @var string
      *
      * @ORM\Column(name="battletag", type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $battletag;
 
@@ -53,6 +56,7 @@ class Candidature
      * @var string
      *
      * @ORM\Column(name="armurerie", type="text")
+     * @Assert\NotBlank()
      */
     private $armurerie;
 

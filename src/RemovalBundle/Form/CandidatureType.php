@@ -22,6 +22,7 @@ class CandidatureType extends AbstractType
 
         $builder->add('classe', ChoiceType::class, [
             'label' => 'Classe du personnage',
+            'required' => true,
             'choices' => array(
                 'Chasseurs' => 'Chasseurs',
                 'Prêtre' => 'Prêtre',
@@ -105,15 +106,18 @@ class CandidatureType extends AbstractType
         ]);
 
         $builder->add('battletag', TextType::class, [
-            'label' => 'Entrez votre BattleTag'
+            'label' => 'Entrez votre BattleTag',
+            'required' => true,
         ]);
 
         $builder->add('armurerie', TextType::class, [
-            'label' => 'Copier coller votre lien armurerie'
+            'label' => 'Copier coller votre lien armurerie',
+            'required' => true,
         ]);
 
         $builder->add('discord', ChoiceType::class, [
             'label' => 'Avez vous discord ?',
+            'required' => true,
             'choices' => array(
                 'Oui' => 'Oui',
                 'Non' => 'Non'
