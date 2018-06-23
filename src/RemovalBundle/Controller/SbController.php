@@ -87,4 +87,41 @@ class SbController extends MasterController
             'form' => $form->createView(), 'boss' => $boss
         ]);
     }
+
+    public function updateRaidAction(Request $request, $raidID)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $raid = $em->getRepository('RemovalBundle:Raid')->find($raidID);
+
+        if ($raid === null)
+        {
+            return $this->createNotFoundException();
+        }
+
+        $form = $this->createForm(RaidType::class, $raid);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em->flush();
+
+            return $this->redirectToRoute('removal_sb_raid_read');
+        }
+
+        return $this->render('@Removal/Raid/update.html.twig', array(
+            'form' => $form->createView()));
+    }
+
+    public function deleteRaidAction($raidID)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $raid = $em->getRepository('RemovalBundle:Raid')->find($raidID);
+
+        $em->remove($raid);
+        $em->flush();
+
+        return $this->redirectToRoute('removal_sb_raid_read');
+    }
 }

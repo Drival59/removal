@@ -3,7 +3,6 @@
 namespace RemovalBundle\Form;
 
 use RemovalBundle\Entity\Bossdown;
-use RemovalBundle\Entity\Raid;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -47,7 +46,7 @@ class BossdownType extends AbstractType
 //        ]);
 
         $builder->add('save', SubmitType::class, [
-            'label' => 'Envoyé'
+            'label' => 'Envoyer'
         ]);
     }
 

@@ -2,12 +2,9 @@
 
 namespace RemovalBundle\Form;
 
-use Doctrine\DBAL\Types\BooleanType;
 use RemovalBundle\Entity\Raid;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -27,7 +24,7 @@ class RaidType extends AbstractType
         ]);
 
         $builder->add('save', SubmitType::class, [
-            'label' => 'Envoyé'
+            'label' => 'Envoyer'
         ]);
     }
 

@@ -171,6 +171,14 @@ removal_sb_raid_create:
     path:     /sb/raid/create
     defaults: { _controller: RemovalBundle:Sb:createRaid }
 
+removal_sb_raid_update:
+    path:     /sb/raid/update/{raidID}
+    defaults: { _controller: RemovalBundle:Sb:updateRaid }
+
+removal_sb_raid_delete:
+    path:     /sb/raid/delete/{raidID}
+    defaults: { _controller: RemovalBundle:Sb:deleteRaid }
+
 removal_sb_boss_create:
     path:     /sb/boss/create
     defaults: { _controller: RemovalBundle:Sb:createBoss }

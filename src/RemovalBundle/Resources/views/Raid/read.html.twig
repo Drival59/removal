@@ -10,7 +10,11 @@
     {% endif %}
     <br>
 {% for raid in raids %}
+    <div class="read_raid" style="display: flex">
     <p style="color: white">{{ raid.name }}</p>
+        <a style="margin-left: 2%" href="{{ path('removal_sb_raid_update', {'raidID' : raid.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+        <a style="margin-left: 2%" href="{{ path('removal_sb_raid_delete', {'raidID' : raid.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+    </div>
 {% endfor %}
 
 {% endblock %}
