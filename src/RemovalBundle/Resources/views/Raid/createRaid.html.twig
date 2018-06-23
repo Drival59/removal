@@ -1,5 +1,27 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-{{ form(form) }}
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="menu">
+            <a href="{{ path('removal_sb_raid_read') }}">Voir les raids</a>
+            <a href="{{ path('removal_sb_boss_create') }}">Création de boss</a>
+            <a href="{{ path('removal_sb_boss_read') }}">Voir les boss</a>
+        </div>
+    {% endif %}
+    <br>
+<div class="all_form_raid">
+    <div class="form_raid">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        {{ form_label(form.inProgress) }}
+        {{ form_widget(form.inProgress) }}
+        <div class="raid_submit">
+        {{ form_rest(form) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+</div>
+
 {% endblock %}

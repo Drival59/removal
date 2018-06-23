@@ -1,7 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-
+    {% if is_granted('ROLE_ADMIN') %}
+        <div class="menu">
+            <a href="{{ path('removal_sb_raid_read') }}">Voir les raids</a>
+            <a href="{{ path('removal_sb_boss_create') }}">Création de boss</a>
+            <a href="{{ path('removal_sb_boss_read') }}">Voir les boss</a>
+        </div>
+    {% endif %}
+    <br>
     {% for boss in boss %}
         <p style="color: white">{{ boss.name }}</p>
     {% endfor %}

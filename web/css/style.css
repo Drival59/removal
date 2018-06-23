@@ -338,3 +338,47 @@ th, td
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* FORM CREATE RAID */
+
+.all_form_raid{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form_raid{
+    width: 25%;
+    max-width: 500px;
+    margin: 1%;
+}
+.form_raid label{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.raid_submit{
+    margin-top: 4%;
+}
+
+/* FORM CREATE BOSS */
+
+.all_form_boss{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form_boss{
+    width: 25%;
+    max-width: 500px;
+    margin: 1%;
+}
+.form_boss label{
+    background: -webkit-linear-gradient(#ffe400, #fc7904);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.boss_submit{
+    margin-top: 4%;
+}
