@@ -69,6 +69,14 @@ class NewController extends MasterController
           $user = $this->getUser();
           $new->setUrl(str_replace(' ','-',$new->getTitle()));
           $new->setUtilisateur($user);
+          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+          $file = $new->getImageUrl();
+          $fileName = md5(uniqid().'.'.$file->guessExtension());
+          $file->move(
+            $this->getParameter('news_images_directory'),
+            $fileName
+          );
+          $new->setImageUrl($fileName);
           $em->persist($new);
           $em->flush();
 

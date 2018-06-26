@@ -80,6 +80,12 @@ th, td
 {
   background-color: rgba(252,121,4,0.2);
 }
+.removal-backform
+{
+  background-color: #170e09;
+  padding: 50px;
+  border-radius: 10px;
+}
 .tablelisteperso{
     width: 60%;
     color: white;

@@ -5,7 +5,7 @@ $( "#moreComments" ).click(function() {
   $('#moreComments').prop('disabled', true);
   $.ajax({
             type: 'GET',
-            url: url + '/moreComments/fc=' + firstCommentsToLoad,
+            url: urlNews + '/moreComments/fc=' + firstCommentsToLoad,
             success: function(data) {
               $('.btn-outer').before(data);
               if (data.length != 0)

@@ -50,6 +50,14 @@
           </a>
         </div>
 
+        {% if is_granted('ROLE_SB') %}
+          <div class="btn-removal-left">
+            <div class="btn-outer" style="margin-top: 50px;">
+              <a href="{{ path('removal_news_create')}}"><button id="createNews" type="button" class="btn btn-removal btn-lg">Creer une actualité</button></a>
+            </div>
+          </div>
+        {% endif %}
+
         {% for new in news %}
 
             <div class="removalNews">
@@ -74,6 +82,16 @@
               <i>Écrit par <a href="{{ path('removal_joueur_read_all', {'joueurID' : new.utilisateur.id}) }}">{{ new.utilisateur.username }}</a> le {{ new.dateNews|date('d/m/Y à H:i') }}</i>
               <hr />
               <p>{{ new.description }}</p>
+              {% if is_granted('ROLE_SB') %}
+                <div class="admin_news">
+                  <div class="admin_newsIcons">
+                    <i class="far fa-edit"></i>
+                  </div>
+                  <div class="admin_newsIcons">
+                    <i class="fas fa-trash"></i>
+                  </div>
+                </div>
+              {% endif %}
             </div>
           </div>
 

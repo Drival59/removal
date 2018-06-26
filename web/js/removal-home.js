@@ -7,13 +7,13 @@ $( "#moreNews" ).click(function() {
             type: 'GET',
             url: 'moreNews/fn=' + firstNewsToLoad,
             success: function(data) {
-              $('.btn-outer').before(data);
+              $('.btn-outer:last').before(data);
               if (data.length != 0)
               {
                 $('#moreNews').prop('disabled', false);
                 $('#moreNews').html('Afficher plus d\'actualités');
               } else {
-                $('.btn-outer').toggleClass('hidden');
+                $('.btn-outer:last').toggleClass('hidden');
               }
                },
             error: function() {

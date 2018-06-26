@@ -8,7 +8,8 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
-
+    news_images_directory: '%kernel.project_dir%/web/images/news'
+    
 framework:
     #esi: ~
     translator: { fallbacks: ['%locale%'] }

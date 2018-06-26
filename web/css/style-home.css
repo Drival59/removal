@@ -55,6 +55,12 @@
   justify-content: center;
   align-items: center;
 }
+.btn-removal-left
+{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
 .removalNews
 {
   margin-top: 50px;
@@ -79,6 +85,9 @@
   width: 100%;
   padding: 5px;
   color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 .removalNewsContent h3
 {
@@ -95,6 +104,7 @@
   width: 100%;
   margin-bottom: 5px;
   margin-top: 5px;
+  background-color: white;
 }
 .removalNewsContent h3 a
 {
@@ -102,6 +112,23 @@
   background: -webkit-linear-gradient(#ffe400, #fc7904);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+.admin_news
+{
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-bottom: 10px;
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.admin_newsIcons
+{
+  width:30px;
+  text-align:center;
+  cursor: pointer;
 }
 #moreNews
 {
