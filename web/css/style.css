@@ -404,3 +404,16 @@ th, td
     align-items: center;
     justify-content: center;
 }
+@media all and (max-width: 1024px)
+{
+  .removalBanner
+  {
+    height: 80px;
+    background-size: cover;
+  }
+  .removalfooter
+  {
+      height: 100px;
+      background-size: cover;
+  }
+}

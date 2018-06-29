@@ -15,6 +15,12 @@
   padding-bottom: 200px;
   margin-bottom: 25px;
 }
+#removal-description
+{
+  width: 30%;
+  margin: auto;
+  text-align: justify;
+}
 .removal-content
 {
   display: flex;
@@ -146,12 +152,6 @@
 {
   background-color: rgba(252,121,4,0.2);
 }
-#removal-description
-{
-  width: 30%;
-  margin: auto;
-  text-align: justify;
-}
 .icon_class{
   width: 80%;
 }
@@ -164,4 +164,42 @@
   background: -webkit-linear-gradient(#ffe400, #fc7904);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+@media all and (max-width: 1024px)
+{
+    .container-fluid
+    {
+        width: auto;
+    }
+    #removalDescription
+    {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    #removal-description
+    {
+      width: 95%;
+      margin: auto;
+      text-align: justify;
+      font-size: 0.9em;
+    }
+    .removal-content
+    {
+      flex-direction: column;
+    }
+    #removal-CarouselNews
+    {
+      width: 95%;
+      margin: auto;
+    }
+    .removalNewsImg
+    {
+      display: none;
+    }
+    #removalDown
+    {
+      width: 100%;
+      margin: auto;
+      margin-top: 50px;
+    }
 }
