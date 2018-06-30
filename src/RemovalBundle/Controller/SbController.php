@@ -88,6 +88,43 @@ class SbController extends MasterController
         ]);
     }
 
+    public function deleteBossAction($bossID)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $boss = $em->getRepository('RemovalBundle:Bossdown')->find($bossID);
+
+        $em->remove($boss);
+        $em->flush();
+
+        return $this->redirectToRoute('removal_sb_boss_read');
+    }
+
+    public function updateBossAction(Request $request, $bossID)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $boss = $em->getRepository('RemovalBundle:Raid')->find($bossID);
+
+        if ($boss === null)
+        {
+            return $this->createNotFoundException();
+        }
+
+        $form = $this->createForm(RaidType::class, $boss);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em->flush();
+
+            return $this->redirectToRoute('removal_sb_boss_read');
+        }
+
+        return $this->render('@Removal/Bossdown/update.html.twig', array(
+            'form' => $form->createView()));
+    }
+
     public function updateRaidAction(Request $request, $raidID)
     {
         $em = $this->getDoctrine()->getManager();

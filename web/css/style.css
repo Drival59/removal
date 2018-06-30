@@ -344,9 +344,7 @@ th, td
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 /* FORM CREATE RAID */
-
 .all_form_raid{
     width: 100%;
     display: flex;
@@ -357,6 +355,7 @@ th, td
     width: 25%;
     max-width: 500px;
     margin: 1%;
+    height: 300px;
 }
 .form_raid label{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
@@ -366,9 +365,7 @@ th, td
 .raid_submit{
     margin-top: 4%;
 }
-
 /* FORM CREATE BOSS */
-
 .all_form_boss{
     width: 100%;
     display: flex;
@@ -395,7 +392,6 @@ th, td
     -webkit-text-fill-color: transparent;
     font-size: 50px;
 }
-
 .div_msg_erreur{
     width: 100%;
     max-width: 1900px;
@@ -417,3 +413,62 @@ th, td
       background-size: cover;
   }
 }
+/* CSS vue raid read */
+.all_raid{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+.read_raid{
+    display: flex;
+    width: 100%;
+    max-width: 1800px;
+}
+.all_boss{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.all_boss_content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 1800px;
+}
+.all_boss_update{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.boss_update{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: 300px;
+    max-width: 500px;
+}
+.all_raid_update{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.raid_update{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 30%;
+    height: 300px;
+    max-width: 500px;
+}
+

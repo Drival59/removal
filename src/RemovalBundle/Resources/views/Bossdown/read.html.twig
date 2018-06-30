@@ -1,9 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <br>
+    <br><br>
+    <div class="all_boss">
+        <div class="all_boss_content">
     {% for boss in boss %}
+        <div style="display: flex">
         <p style="color: white">{{ boss.name }}</p>
+        <a style="margin-left: 2%" href="{{ path('removal_sb_boss_update', {'bossID' : boss.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+        <a style="margin-left: 2%" href="{{ path('removal_sb_boss_delete', {'bossID' : boss.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+        </div>
     {% endfor %}
-
+        </div>
+    </div>
 {% endblock %}

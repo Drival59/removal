@@ -186,3 +186,11 @@ removal_sb_boss_create:
 removal_sb_boss_read:
     path:     /sb/boss/read
     defaults: { _controller: RemovalBundle:Sb:readBoss }
+
+removal_sb_boss_delete:
+    path:     /sb/boss/delete/{bossID}
+    defaults: { _controller: RemovalBundle:Sb:deleteBoss }
+
+removal_sb_boss_update:
+    path:     /sb/boss/update/{bossID}
+    defaults: { _controller: RemovalBundle:Sb:updateBoss }
