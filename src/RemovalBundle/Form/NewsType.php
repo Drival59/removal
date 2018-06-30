@@ -29,7 +29,7 @@ class NewsType extends AbstractType
             'label' => "Cochez si vous voulez l'actualité dans le caroussel",
             'required' => false))
           ->add('imageUrl', FileType::class,['label'=>'Image de la news'])
-          ->add('save', SubmitType::class);
+          ->add('save', SubmitType::class,['label'=>'Envoyer la news']);
 
     }
 
