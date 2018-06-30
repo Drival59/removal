@@ -17,10 +17,14 @@ th, td
     display: flex;
     width: 100%;
     max-width: 1900px;
-    height: 60px;
+    min-height: 60px;
     background-color: #231b16;
     align-items: center;
     justify-content: center;
+}
+#removal-navBar
+{
+  height: 100%;
 }
 .menu a
 {
@@ -471,4 +475,3 @@ th, td
     height: 300px;
     max-width: 500px;
 }
-

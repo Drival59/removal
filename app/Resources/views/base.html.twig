@@ -19,57 +19,78 @@
     <body>
       <header>
         <div class="removalBanner"></div>
-          <div class="all_menu">
-            <div class="menu">
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+        <div class="all_menu">
+
+          <div class="menu">
+            <nav class="navbar navbar-expand-lg" id="removal-navBar">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="color: black;">
+                <i class="fas fa-bars"></i>
               </button>
-                <a href="{{ path('removal_homepage') }}">Accueil</a>
-                <a href="{{ path('removal_roster_read') }}">Roster</a>
-                <a href="{{ path('removal_candidature_create') }}">Postuler</a>
-                {% if is_granted('ROLE_GUILDE') %}
-                    <a href="{{ path('removal_joueur_read') }}">Les personnages</a>
-                    <a href="{{ path('removal_gestion_read') }}">Gestions</a>
-                {% endif %}
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
-                {% else %}
-                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
-                    <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
-                {% endif %}
-                {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
-                    <ul style="margin: 0;">
-                        <li class="dropdown" style="list-style-type: none"><a data-toggle="dropdown" href="#">ContrôleSB<span class="caret"></span></a>
-                            <ul class="dropdown-menu" style="background-color: #231b16">
-                                <li style="width: 300px"><a href="{{ path('removal_sb_read') }}">Accueil</a></li>
-                                <li><a href="{{ path('removal_participation_read') }}">Participations</a></li>
-                                <li><a href="{{ path('removal_gestion_status_create_sb') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a></li>
-                                <li><a href="{{ path('removal_candidature_read') }}">voir les candidatures</a></li>
-                                <li><a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
-                        <ul style="margin: 0">
-                            <li class="dropdown" style="list-style-type: none"><a data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
-                                <ul class="dropdown-menu" style="background-color: #231b16">
-                                    <li style="width: 300px"><a href="{{ path('removal_admin_read_all_users') }}">Accueil</a></li>
-                                    <li><a href="{{ path('removal_participation_read') }}">Participations</a></li>
-                                    <li><a href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a></li>
-                                    <li><a href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a></li>
-                                    <li><a href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a></li>
-                                    <li><a href="{{ path('removal_candidature_read') }}">voir les candidatures</a></li>
-                                    <li><a href="{{ path('removal_sb_raid_create') }}">Création raid</a></li>
-                                    <li><a href="{{ path('removal_sb_raid_read') }}">Voir les raids</a></li>
-                                    <li><a href="{{ path('removal_sb_boss_create') }}">Création de boss</a></li>
-                                    <li><a href="{{ path('removal_sb_boss_read') }}">Voir les boss</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                {% endif %}
-            </div>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('removal_homepage') }}">Accueil</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('removal_roster_read') }}">Roster</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ path('removal_candidature_create') }}">Postuler</a>
+                  </li>
+                  {% if is_granted('ROLE_GUILDE') %}
+                    <li class="nav-item">
+                      <a class="nav-link"href="{{ path('removal_joueur_read') }}">Les personnages</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ path('removal_gestion_read') }}">Gestions</a>
+                    </li>
+                  {% endif %}
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item">
+                      <a class="nav-link"href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+                    </li>
+                  {% else %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
+                    </li>
+                  {% endif %}
+                  {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false">ContrôleSB<span class="caret"></span></a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('removal_sb_read') }}">Accueil</a>
+                        <a class="dropdown-item" href="{{ path('removal_participation_read') }}">Participations</a>
+                        <a class="dropdown-item" href="{{ path('removal_gestion_status_create_sb') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a>
+                        <a class="dropdown-item" href="{{ path('removal_candidature_read') }}">voir les candidatures</a>
+                        <a class="dropdown-item" href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a>
+                      </div>
+                    </li>
+                  {% endif %}
+                  {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" role="button" href="#" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown" href="#">Administration<span class="caret"></span></a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ path('removal_admin_read_all_users') }}">Accueil</a>
+                        <a class="dropdown-item" href="{{ path('removal_participation_read') }}">Participations</a>
+                        <a class="dropdown-item" href="{{ path('removal_gestion_status_create') }}" data-toggle="tooltip" title="Création nouveau status & assigner participation aux membres"> <span class="fas fa-pencil-alt"></span>Assigner participations</a>
+                        <a class="dropdown-item" href="{{ path('removal_admin_liste_membre') }}">Liste des membres</a>
+                        <a class="dropdown-item" href="{{ path('removal_admin_read_recrutement') }}">Panel recrutement</a>
+                        <a class="dropdown-item" href="{{ path('removal_candidature_read') }}">voir les candidatures</a>
+                        <a class="dropdown-item" href="{{ path('removal_sb_raid_create') }}">Création raid</a>
+                        <a class="dropdown-item" href="{{ path('removal_sb_raid_read') }}">Voir les raids</a>
+                        <a class="dropdown-item" href="{{ path('removal_sb_boss_create') }}">Création de boss</a>
+                        <a class="dropdown-item" href="{{ path('removal_sb_boss_read') }}">Voir les boss</a>
+                      </div>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+            </nav>
           </div>
+        </div>
       </header>
 
       <div class="removal-body">
