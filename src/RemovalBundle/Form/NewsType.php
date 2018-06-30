@@ -20,14 +20,15 @@ class NewsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-          ->add('title', TextType::class)
-          ->add('description', TextType::class)
+          ->add('title', TextType::class,['label'=>'Titre'])
+          ->add('description', TextType::class,['label'=>'Description *max 255 caractères*'])
           ->add('content', FroalaEditorType::class, array(
-            'required' => false))
+            'required' => false,
+              'label'=>'Contenu de la news'))
           ->add('inCarousel', CheckboxType::class, array(
             'label' => "Cochez si vous voulez l'actualité dans le caroussel",
             'required' => false))
-          ->add('imageUrl', FileType::class)
+          ->add('imageUrl', FileType::class,['label'=>'Image de la news'])
           ->add('save', SubmitType::class);
 
     }
