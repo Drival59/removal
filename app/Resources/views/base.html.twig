@@ -32,10 +32,10 @@
                     <a href="{{ path('removal_gestion_read') }}">Gestions</a>
                 {% endif %}
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a>
+                    <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
                 {% else %}
-                    <a href="{{ path('fos_user_security_login') }}">Se connecter</a>
-                    <a href="{{ path('fos_user_registration_register') }}">Se créer un compte</a>
+                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                    <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
                 {% endif %}
                 {% if is_granted('ROLE_ADMIN') or is_granted('ROLE_SB') %}
                     <ul style="margin: 0;">
