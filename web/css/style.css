@@ -16,7 +16,6 @@ th, td
 {
     display: flex;
     width: 100%;
-    max-width: 1900px;
     min-height: 60px;
     background-color: #231b16;
     align-items: center;
@@ -26,19 +25,23 @@ th, td
 {
   height: 100%;
 }
+#hamburger
+{
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .menu a
 {
     text-decoration: none;
     font-size: 25px;
     color: #fd9a31;
-    margin-left: 2%;
 }
 .menu a:hover
 {
     text-decoration: none;
     font-size: 25px;
     color: #0088CC;
-    margin-left: 2%;
 }
 .all_menu{
     width: 100%;
@@ -415,6 +418,10 @@ th, td
   {
       height: 100px;
       background-size: cover;
+  }
+  .menu
+  {
+      justify-content: flex-start;
   }
 }
 /* CSS vue raid read */
