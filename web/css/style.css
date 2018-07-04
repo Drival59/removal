@@ -415,7 +415,7 @@ th, td
     align-items: center;
     justify-content: center;
 }
-@media all and (max-width: 1024px)
+@media all and (max-width: 768px)
 {
   .removalBanner
   {
@@ -424,12 +424,16 @@ th, td
   }
   .removalfooter
   {
-      height: 100px;
-      background-size: cover;
+    height: 100px;
+    background-size: cover;
   }
   .menu
   {
-      justify-content: flex-start;
+    justify-content: flex-start;
+  }
+  .menu a, .menu a:hover
+  {
+    font-size: 1em;
   }
 }
 /* CSS vue raid read */

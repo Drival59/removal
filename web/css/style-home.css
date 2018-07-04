@@ -61,6 +61,10 @@
   justify-content: center;
   align-items: center;
 }
+#removal-carousel, .carousel-item
+{
+  height: 600px;
+}
 .btn-removal-left
 {
   width: 100%;
@@ -165,7 +169,24 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-@media all and (max-width: 1024px)
+
+/** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
+
+
+/** ========== LITTLE DESKTOP SCREEN ========== **/
+@media all and (max-width: 1200px)
+{
+
+}
+
+/** ========== PADS ========== **/
+@media all and (max-width: 992px)
+{
+
+}
+
+/** ========== MOBILE ========== **/
+@media all and (max-width: 768px)
 {
     .container-fluid
     {
@@ -201,5 +222,13 @@
       width: 100%;
       margin: auto;
       margin-top: 50px;
+    }
+    .thead-dark, td
+    {
+      font-size: 0.8em;
+    }
+    #removal-carousel, .carousel-item
+    {
+      height: auto;
     }
 }

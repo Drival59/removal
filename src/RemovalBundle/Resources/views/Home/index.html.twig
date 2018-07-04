@@ -18,7 +18,7 @@
     <div class="removal-content">
 
       <div id="removal-CarouselNews">
-        <div id="removal-carousel" class="carousel slide w-100" data-ride="carousel" style="height:600px;">
+        <div id="removal-carousel" class="carousel slide w-100" data-ride="carousel">
           <ol class="carousel-indicators">
           {% for newInCarousel in newsInCarousel %}
             <li data-target="#removal-carousel" data-slide-to="{{loop.index - 1}}"
@@ -29,7 +29,7 @@
           </ol>
           <div class="carousel-inner">
             {% for newInCarousel in newsInCarousel %}
-              <div class="carousel-item {% if loop.index - 1 == 0 %}active{% endif %}" style="height:600px">
+              <div class="carousel-item {% if loop.index - 1 == 0 %}active{% endif %}">
                 <img class="d-block w-100 h-100" src="{{ asset('images/news/' ~ newInCarousel.imageUrl) }}" alt="{{newInCarousel.title}}" />
                 <div class="carousel-caption d-none d-md-block">
                   <h3>{{newInCarousel.title}}</h3>
@@ -108,7 +108,7 @@
             <h4 class="recrutement">{{ raidInProgress.name }}</h4>
             <thead class="thead-dark">
               <tr>
-                <th>Boss</th>
+                <th style="min-width:90px;">Boss</th>
                 <th>NM</th>
                 <th>HM</th>
                 <th>MM</th>
@@ -117,7 +117,7 @@
             {% for bossdown in bossdowns %}
               {% if bossdown.raid.id == raidInProgress.id %}
                 <tr>
-                  <td><img src="{{ asset('images/boss/' ~ bossdown.imageUrl) }}" alt="{{ bossdown.name }}" title="{{ bossdown.name }}" width="60px" height="30px"/></td>
+                  <td><img class="bosses-icons" src="{{ asset('images/boss/' ~ bossdown.imageUrl) }}" alt="{{ bossdown.name }}" title="{{ bossdown.name }}" width="60px" height="30px"/></td>
                   <td>
                     {% if bossdown.nm == 1 %}
                       <i class="fas fa-check"></i>
@@ -152,11 +152,11 @@
             <p class="recrutement">Recrutement</p>
           </tr>
           <tr>
-            <th>Icon</th>
+            <th style="text-align:left">Icon</th>
             <th>Classe</th>
             <th>Niveau</th>
               {% if is_granted('ROLE_ADMIN') %}
-                <th>Modification</th>
+                <th style="text-align:right">Action</th>
               {% endif %}
           </tr>
           </thead>
