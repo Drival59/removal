@@ -104,14 +104,14 @@ class SbController extends MasterController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $boss = $em->getRepository('RemovalBundle:Raid')->find($bossID);
+        $boss = $em->getRepository('RemovalBundle:Bossdown')->find($bossID);
 
         if ($boss === null)
         {
             return $this->createNotFoundException();
         }
 
-        $form = $this->createForm(RaidType::class, $boss);
+        $form = $this->createForm(BossdownType::class, $boss);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
