@@ -172,63 +172,83 @@
 
 /** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
 
+/** ========== BIG DEKSTOP SCREEN ========== **/
+@media all and (max-width: 1900px)
+{
+  .container-fluid
+  {
+      width: auto;
+  }
+  #removalDescription
+  {
+    padding-top: 175px;
+    padding-bottom: 175px;
+  }
+
+}
 
 /** ========== LITTLE DESKTOP SCREEN ========== **/
 @media all and (max-width: 1200px)
 {
-
+  #removalDescription
+  {
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  #removal-description
+  {
+    width: 50%;
+  }
 }
 
 /** ========== PADS ========== **/
-@media all and (max-width: 992px)
+@media all and (max-width: 1024px)
 {
-
+  #removalDescription
+  {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  #removal-CarouselNews
+  {
+    width: 95%;
+    margin: auto;
+  }
+  .removal-content
+  {
+    flex-direction: column;
+  }
+  #removalDown
+  {
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+  }
 }
 
 /** ========== MOBILE ========== **/
 @media all and (max-width: 768px)
 {
-    .container-fluid
-    {
-        width: auto;
-    }
-    #removalDescription
-    {
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
-    #removal-description
-    {
-      width: 95%;
-      margin: auto;
-      text-align: justify;
-      font-size: 0.9em;
-    }
-    .removal-content
-    {
-      flex-direction: column;
-    }
-    #removal-CarouselNews
-    {
-      width: 95%;
-      margin: auto;
-    }
-    .removalNewsImg
-    {
-      display: none;
-    }
-    #removalDown
-    {
-      width: 100%;
-      margin: auto;
-      margin-top: 50px;
-    }
-    .thead-dark, td
-    {
-      font-size: 0.8em;
-    }
-    #removal-carousel, .carousel-item
-    {
-      height: auto;
-    }
+  #removalDescription
+  {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  #removal-description
+  {
+    width: 95%;
+    font-size: 0.9em;
+  }
+  .removalNewsImg
+  {
+    display: none;
+  }
+  .thead-dark, td
+  {
+    font-size: 0.8em;
+  }
+  #removal-carousel, .carousel-item
+  {
+    height: 250px;
+  }
 }

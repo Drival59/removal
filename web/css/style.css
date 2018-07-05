@@ -415,6 +415,30 @@ th, td
     align-items: center;
     justify-content: center;
 }
+/** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
+
+/** ========== BIG DEKSTOP SCREEN ========== **/
+@media all and (max-width: 1900px)
+{
+
+}
+
+/** ========== LITTLE DESKTOP SCREEN ========== **/
+@media all and (max-width: 1200px)
+{
+
+}
+
+/** ========== PADS ========== **/
+@media all and (max-width: 1024px)
+{
+  .menu a, .menu a:hover
+  {
+    font-size: 1.1em;
+  }
+}
+
+/** ========== MOBILE ========== **/
 @media all and (max-width: 768px)
 {
   .removalBanner
@@ -436,6 +460,8 @@ th, td
     font-size: 1em;
   }
 }
+
+
 /* CSS vue raid read */
 .all_raid{
     display: flex;
