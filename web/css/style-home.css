@@ -130,15 +130,18 @@
   justify-content: flex-end;
   align-items: flex-end;
   margin-bottom: 10px;
-  background: -webkit-linear-gradient(#ffe400, #fc7904);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 .admin_newsIcons
 {
   width:30px;
   text-align:center;
   cursor: pointer;
+}
+.fa-edit, .fa-trash
+{
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #moreNews
 {
@@ -223,6 +226,10 @@
     width: 100%;
     margin: auto;
     margin-top: 50px;
+  }
+  #removal-carousel, .carousel-item
+  {
+    height: 400px;
   }
 }
 

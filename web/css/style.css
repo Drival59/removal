@@ -72,6 +72,8 @@ th, td
 .removalfooter
 {
     height: 283px;
+    max-width: 1900px;
+    margin: auto;
     background: url('../images/footer.png') no-repeat center;
 }
 .btn-removal
@@ -420,13 +422,20 @@ th, td
 /** ========== BIG DEKSTOP SCREEN ========== **/
 @media all and (max-width: 1900px)
 {
-
+  .removalfooter
+  {
+    background-size: cover;
+    height: 200px;
+  }
 }
 
 /** ========== LITTLE DESKTOP SCREEN ========== **/
 @media all and (max-width: 1200px)
 {
-
+  .removalfooter
+  {
+    height: 175px;
+  }
 }
 
 /** ========== PADS ========== **/
@@ -436,6 +445,15 @@ th, td
   {
     font-size: 1.1em;
   }
+  .removalBanner
+  {
+    height: 150px;
+    background-size: cover;
+  }
+  .removalfooter
+  {
+    height: 150px;
+  }
 }
 
 /** ========== MOBILE ========== **/
@@ -443,13 +461,11 @@ th, td
 {
   .removalBanner
   {
-    height: 80px;
-    background-size: cover;
+    height: 110px;
   }
   .removalfooter
   {
-    height: 100px;
-    background-size: cover;
+    height: 60px;
   }
   .menu
   {
