@@ -425,7 +425,6 @@ th, td
   .removalfooter
   {
     background-size: cover;
-    height: 200px;
   }
 }
 
@@ -434,7 +433,7 @@ th, td
 {
   .removalfooter
   {
-    height: 175px;
+    height: 180px;
   }
 }
 
@@ -452,7 +451,7 @@ th, td
   }
   .removalfooter
   {
-    height: 150px;
+    height: 152px;
   }
 }
 
@@ -465,7 +464,7 @@ th, td
   }
   .removalfooter
   {
-    height: 60px;
+    height: 114px;
   }
   .menu
   {
@@ -474,6 +473,15 @@ th, td
   .menu a, .menu a:hover
   {
     font-size: 1em;
+  }
+}
+
+/** ========== MOBILE PORTRAIT ========== **/
+@media all and (max-width: 375px)
+{
+  .removalfooter
+  {
+    height: 55px;
   }
 }
 
