@@ -63,7 +63,7 @@
 }
 #removal-carousel, .carousel-item
 {
-  height: 600px;
+  height: 700px;
 }
 .btn-removal-left
 {
@@ -200,6 +200,10 @@
   {
     width: 50%;
   }
+  #removal-carousel, .carousel-item
+  {
+    height: 500px;
+  }
 }
 
 /** ========== PADS ========== **/
@@ -252,6 +256,11 @@
   {
     font-size: 0.8em;
   }
+}
+
+/** ========== MOBILE PORTRAIT ========== **/
+@media all and (max-width: 375px)
+{
   #removal-carousel, .carousel-item
   {
     height: 250px;
