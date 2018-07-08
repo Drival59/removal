@@ -60,3 +60,4 @@ security:
         - { path: ^/admin/, role: ROLE_ADMIN }
         - { path: ^/guilde/, role: ROLE_GUILDE }
         - { path: ^/sb/, role: ROLE_SB }
+        - { path: ^/news/, role: ROLE_SB }

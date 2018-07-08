@@ -88,4 +88,16 @@ class NewController extends MasterController
       ]);
   }
 
+  public function deleteAction($newsUrl)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $user = $this->getUser();
+    $new = $em->getRepository('RemovalBundle:News')->findOneByUrl($newsUrl);
+    if ($new != null) {
+      $em->remove($new);
+      $em->flush();
+    }
+    return $this->redirectToRoute('removal_homepage');
+  }
+
 }

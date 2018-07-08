@@ -88,7 +88,7 @@
                     <i class="far fa-edit"></i>
                   </div>
                   <div class="admin_newsIcons">
-                    <i class="fas fa-trash"></i>
+                    <a href="{{ path('removal_news_delete', {'newsUrl' : new.url}) }}"><i class="fas fa-trash"></i></a>
                   </div>
                 </div>
               {% endif %}
