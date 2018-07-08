@@ -74,7 +74,8 @@ th, td
     height: 283px;
     max-width: 1900px;
     margin: auto;
-    background: url('../images/footer.png') no-repeat center;
+    background: url('../images/footer.png') no-repeat bottom;
+    background-size: contain;
 }
 .btn-removal
 {
@@ -422,10 +423,7 @@ th, td
 /** ========== BIG DEKSTOP SCREEN ========== **/
 @media all and (max-width: 1900px)
 {
-  .removalfooter
-  {
-    background-size: cover;
-  }
+  
 }
 
 /** ========== LITTLE DESKTOP SCREEN ========== **/
