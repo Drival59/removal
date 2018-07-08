@@ -28,10 +28,10 @@ hr
   align-items: center;
   margin-bottom: 50px;
 }
-form
+/*form
 {
   width: 50%;
-}
+}*/
 .btn-outer
 {
   width: 50%;
@@ -61,4 +61,31 @@ form
 .commentDescription
 {
   width: 80%;
+}
+
+
+/** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
+
+/** ========== BIG DEKSTOP SCREEN ========== **/
+@media all and (max-width: 1900px)
+{
+
+}
+
+/** ========== LITTLE DESKTOP SCREEN ========== **/
+@media all and (max-width: 1200px)
+{
+
+}
+
+/** ========== PADS ========== **/
+@media all and (max-width: 1024px)
+{
+
+}
+
+/** ========== MOBILE ========== **/
+@media all and (max-width: 768px)
+{
+
 }

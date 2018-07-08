@@ -9,7 +9,7 @@ imports:
 parameters:
     locale: fr
     news_images_directory: '%kernel.project_dir%/web/images/news'
-    
+
 framework:
     #esi: ~
     translator: { fallbacks: ['%locale%'] }
@@ -83,9 +83,10 @@ fos_user:
 
 kms_froala_editor:
     language: "fr"
+    height: 500
     toolbarInline: false
     includeJQuery: true
     includeFontAwesome: true
     includeCSS: true
     tableColors: [ "#FFFFFF", "#FF0000" ]
-    saveParams: { "id" : "myEditorField" }
+    
