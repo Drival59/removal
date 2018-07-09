@@ -84,7 +84,7 @@ class NewController extends MasterController
       }
 
       return $this->render('@Removal/New/create.html.twig', [
-          'form' => $form->createView(), 'new' => $new
+          'form' => $form->createView(),
       ]);
   }
 
@@ -98,6 +98,43 @@ class NewController extends MasterController
       $em->flush();
     }
     return $this->redirectToRoute('removal_homepage');
+  }
+
+  public function editAction(Request $request, $newsUrl)
+  {
+    $em = $this->getDoctrine()->getManager();
+    $new = $em->getRepository('RemovalBundle:News')->findOneByUrl($newsUrl);
+    $newsImage = $new->getImageUrl();
+    $new->setImageUrl(null);
+    $form = $this->createForm(NewsType::class, $new);
+    $form->handleRequest($request);
+    $user = $this->getUser();
+
+    if ($form->isSubmitted())
+    {
+        $new->setUrl(str_replace(' ','-',$new->getTitle()));
+        $new->setUtilisateur($user);
+        if ($new->getImageUrl() != null) {
+          /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+          $file = $new->getImageUrl();
+          $fileName = md5(uniqid().'.'.$file->guessExtension());
+          $file->move(
+            $this->getParameter('news_images_directory'),
+            $fileName
+          );
+          $new->setImageUrl($fileName);
+        } else {
+          $new->setImageUrl($newsImage);
+        }
+        $em->merge($new);
+        $em->flush();
+        return $this->redirectToRoute('removal_homepage');
+    }
+
+    return $this->render('@Removal/New/edit.html.twig', [
+        'form' => $form->createView(), 'new' => $new
+    ]);
+
   }
 
 }

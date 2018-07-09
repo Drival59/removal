@@ -18,10 +18,14 @@ removal_news_create:
     path: /news/create/
     defaults: { _controller: RemovalBundle:New:create }
 
+removal_news_edit:
+    path: /news/edit/{newsUrl}
+    defaults: { _controller: RemovalBundle:New:edit }
+
 removal_news_delete:
     path: /news/delete/{newsUrl}
     defaults: { _controller: RemovalBundle:New:delete }
-    
+
 removal_joueur_create:
     path:     /guilde/joueur/create
     defaults: { _controller: RemovalBundle:Joueur:create }

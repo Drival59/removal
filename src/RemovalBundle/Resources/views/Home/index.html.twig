@@ -85,7 +85,7 @@
               {% if is_granted('ROLE_SB') %}
                 <div class="admin_news">
                   <div class="admin_newsIcons">
-                    <i class="far fa-edit"></i>
+                    <a href="{{ path('removal_news_edit', {'newsUrl' : new.url}) }}"><i class="far fa-edit"></i></a>
                   </div>
                   <div class="admin_newsIcons">
                     <a href="{{ path('removal_news_delete', {'newsUrl' : new.url}) }}"><i class="fas fa-trash"></i></a>
