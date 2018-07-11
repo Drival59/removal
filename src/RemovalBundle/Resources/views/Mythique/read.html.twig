@@ -1,0 +1,133 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
+{% block body %}
+    {% for message in app.flashes('notice') %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+        <br>
+        <div class="all_candidature_read">
+            <div class="candidature_read">
+                <div class="all_titre_gestion">
+                    <div class="div_titre_gestion_participation_normal">
+                        <div class="titre_gestion_participation_normal">
+                            <h2 class="titre_all_candidature">Groupe disponible</h2>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <a href="{{ path('removal_user_groupe_create') }}"><button>Créer un groupe</button></a>
+                    <a href="{{ path('removal_user_groupe_gestion') }}"><button>Gérer ses groupes</button></a>
+                </div>
+                <br>
+    {% for groupe in groupes %}
+        {% set count = 0 %}
+                        <div class="all_content_candidature_read">
+                            <div class="content_candidature_info">
+                                <div class="in_content_candidature_info">
+                                    <div class="candidature_info">
+                                        <div class="info">
+                                            <p class="info_candidature">Nom du groupe : </p>
+                                            <p class="info_twig" style="font-size: 25px">{{ groupe.nom }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Chef du groupe : </p>
+                                            <p class="info_twig">{{ groupe.chefDuGroupe }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Contact : </p>
+                                            <p class="info_twig">{{ groupe.battletag }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Faction : </p>
+                                            <p class="info_twig">{{ groupe.faction }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="candidature_info">
+                                        <div class="info">
+                                            <p class="info_candidature">Ilvl demandé : </p>
+                                            <p class="info_twig">{{ groupe.ilvl }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Conso obligatoire ? : </p>
+                                            <p class="info_twig">{{ groupe.consommable }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Niveau de skill : </p>
+                                            <p class="info_twig">{{ groupe.skill }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Style de groupe : </p>
+                                            <p class="info_twig">{{ groupe.styleDeGroupe }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="candidature_info">
+                                        <div class="info">
+                                            <p class="info_candidature">Vocal obligatoire ? : </p>
+                                            <p class="info_twig">{{ groupe.discord }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Objectifs : </p>
+                                            <p class="info_twig">{{ groupe.styleDeGroupe }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Disponibilité ? : </p>
+                                            <p class="info_twig">{{ groupe.tempsDeJeu }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Status du groupe : </p>
+                                            <p class="info_twig">{{ groupe.status }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="candidature_info">
+                                        <div class="info">
+                                            <p class="info_candidature">Dps 1 : </p>
+                                            <p class="info_twig" style="font-size: 20px">{{ groupe.dps1 }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Dps 2 : </p>
+                                            <p class="info_twig" style="font-size: 20px">{{ groupe.dps2 }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Dps 3 : </p>
+                                            <p class="info_twig" style="font-size: 20px">{{ groupe.dps3 }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Tank : </p>
+                                            <p class="info_twig" style="font-size: 20px">{{ groupe.tank }}</p>
+                                        </div>
+                                        <div class="info">
+                                            <p class="info_candidature">Heal : </p>
+                                            <p class="info_twig" style="font-size: 20px">{{ groupe.heal }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br><br>
+                                <div class="in_content_candidature_comment">
+                                    <p>{{ groupe.description }}</p>
+                                </div>
+                            </div>
+                            <div class="content_candidature_status">
+                                {% for users in groupe.participants %}
+                                    {% if user == users.user.id and count == 0 %}
+                                        <p>Déjà inscris</p>
+                                        {% set count = count + 1 %}
+                                    {% endif %}
+                                {% endfor %}
+                                {% if count == 0 %}
+                                    <a href="{{ path('removal_user_groupe_inscription', {'groupeID' : groupe.id}) }}"> <span class="far fa-handshake" data-toggle="tooltip" title="S'inscrire !"></span></a>
+                                {% endif %}
+                            </div>
+                        </div><br><br>
+                {% endfor %}
+            </div>
+        </div>
+{% endblock %}

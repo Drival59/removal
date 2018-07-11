@@ -202,3 +202,29 @@ removal_sb_boss_delete:
 removal_sb_boss_update:
     path:     /sb/boss/update/{bossID}
     defaults: { _controller: RemovalBundle:Sb:updateBoss }
+
+
+
+removal_user_groupe_create:
+    path:     /mythique/create
+    defaults: { _controller: RemovalBundle:Mythique:create }
+
+removal_user_groupe_read:
+    path:     /mythique
+    defaults: { _controller: RemovalBundle:Mythique:read }
+
+removal_user_groupe_inscription:
+    path:     /mythique/inscription/{groupeID}
+    defaults: { _controller: RemovalBundle:Mythique:inscription }
+
+removal_user_groupe_update:
+    path:     /mythique/update/{groupeID}
+    defaults: { _controller: RemovalBundle:Mythique:update }
+
+removal_user_groupe_delete:
+    path:     /mythique/delete/{groupeID}
+    defaults: { _controller: RemovalBundle:Mythique:delete }
+
+removal_user_groupe_gestion:
+    path:     /mythique/gestion
+    defaults: { _controller: RemovalBundle:Mythique:gestionRead }

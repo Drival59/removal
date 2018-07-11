@@ -25,10 +25,6 @@ class StatusType extends AbstractType
             )
         ]);
 
-//        $builder->add('participation', IntegerType::class, [
-//            'cl'
-//        ]);
-
         $builder->add('participation', EntityType::class,
             array( 'class' => 'RemovalBundle\Entity\Participation',
                 'choice_label' => 'nomParticipation',

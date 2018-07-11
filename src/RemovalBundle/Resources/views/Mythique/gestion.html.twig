@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% for groupe in groupes %}
+        {#{{ dump(groupe) }}#}
+            {% if user == groupe.user.id %}
+                <p>coucou</p>
+            {% endif %}
+    {% endfor %}
+{% endblock %}

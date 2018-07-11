@@ -545,3 +545,9 @@ th, td
     height: 300px;
     max-width: 500px;
 }
+
+/* CSS groupe mythique read */
+
+.groupe_mythique_read p{
+    color: white;
+}

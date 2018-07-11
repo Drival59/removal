@@ -53,6 +53,54 @@ class User extends BaseUser
     private $candidature;
 
     /**
+     * @var
+     * @ORM\OneToMany(targetEntity="RemovalBundle\Entity\Mythique", mappedBy="user")
+     */
+    private $groupe;
+
+    /**
+     * @var
+     * @ORM\OneToMany(targetEntity="RemovalBundle\Entity\Participants", mappedBy="user")
+     */
+    private $participants;
+
+    /**
+     * @return mixed
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    /**
+     * @param mixed $participants
+     */
+    public function setParticipants($participants)
+    {
+        $this->participants[] = $participants;
+    }
+
+
+
+    /**
+     * @return mixed
+     */
+    public function getGroupe()
+    {
+        return $this->groupe;
+    }
+
+    /**
+     * @param Mythique $groupe
+     */
+    public function setGroupe(Mythique $groupe)
+    {
+        $this->groupe[] = $groupe;
+    }
+
+
+
+    /**
      * @return mixed
      */
     public function getCandidature()
@@ -94,6 +142,8 @@ class User extends BaseUser
         $this->joueurs = new ArrayCollection();
         $this->candidature = new ArrayCollection();
         $this->status = new ArrayCollection();
+        $this->groupe = new ArrayCollection();
+        $this->participants = new ArrayCollection();
     }
 
     /**
