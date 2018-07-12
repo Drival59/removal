@@ -5,6 +5,7 @@ namespace RemovalBundle\Controller;
 use RemovalBundle\Entity\Mythique;
 use RemovalBundle\Entity\Participants;
 use RemovalBundle\Form\MythiqueType;
+use RemovalBundle\Form\ParticipantsType;
 use Symfony\Component\HttpFoundation\Request;
 
 class MythiqueController extends MasterController
@@ -36,6 +37,7 @@ class MythiqueController extends MasterController
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
+            $groupe->setUser($this->getUser());
             $em->persist($groupe);
             $em->flush();
 
@@ -80,7 +82,7 @@ class MythiqueController extends MasterController
         return $this->redirectToRoute('removal_user_groupe_read');
     }
 
-    public function inscriptionAction($groupeID)
+    public function inscriptionAction(Request $request, $groupeID)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -89,14 +91,24 @@ class MythiqueController extends MasterController
         $user = $this->getUser();
         $groupe = $em->getRepository('RemovalBundle:Mythique')->find($groupeID);
 
-        $participant->setGroupe($groupe);
-        $participant->setUser($user);
+        $form = $this->createForm(ParticipantsType::class, $participant);
+        $form->handleRequest($request);
 
-        $em->persist($participant);
-        $em->flush();
-        $this->addFlash('notice', 'Votre inscription a bien été Envoyée !');
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $participant->setGroupe($groupe);
+            $participant->setUser($user);
+            $em->persist($participant);
+            $em->flush();
+            $this->addFlash('notice', 'Votre inscription a bien été Envoyée !');
 
-        return $this->redirectToRoute('removal_user_groupe_read');
+            return $this->redirectToRoute('removal_user_groupe_read');
+        }
+
+        return $this->render('@Removal/Mythique/inscription.html.twig', [
+            'form' => $form->createView(), 'participant' => $participant
+        ]);
+
     }
 
     public function gestionReadAction()
@@ -111,6 +123,16 @@ class MythiqueController extends MasterController
         return $this->render('@Removal/Mythique/gestion.html.twig', [
             'groupes' => $groupes,
             'user' => $user
+        ]);
+    }
+
+    public function readCandidatureAction($groupeID)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $candidatures = $em->getRepository('RemovalBundle:Participants')->findByGroupe($groupeID);
+
+        return $this->render('@Removal/Mythique/readCandidature.html.twig', [
+            'candidatures' => $candidatures
         ]);
     }
 }

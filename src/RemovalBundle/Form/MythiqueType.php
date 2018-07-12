@@ -293,7 +293,6 @@ class MythiqueType extends AbstractType
                     'Ouvert' => 'Ouvert'
                 )
             ])
-            ->add('user')
             ->add('faction', ChoiceType::class, [
                 'label' => 'Quelle faction ?',
                 'choices' => array(

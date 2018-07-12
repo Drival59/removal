@@ -10,4 +10,11 @@ namespace RemovalBundle\Repository;
  */
 class ParticipantsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findByGroupe($groupeID)
+    {
+        $qb = $this->createQueryBuilder('u')->leftJoin('u.groupe', 'g')->addSelect('g')->where('g.id = :id');
+        $qb->setParameter('id', $groupeID);
+
+        return $qb->getQuery()->getResult();
+    }
 }

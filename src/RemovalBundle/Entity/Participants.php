@@ -37,6 +37,116 @@ class Participants
     private $groupe;
 
     /**
+     * @var string
+     * @ORM\Column(name="nompersonnage", type="string", length=255, nullable=false, unique=false)
+     */
+    private $nompersonnage;
+
+    /**
+     * @var string
+     * @ORM\Column(name="battletag", type="string", length=255, nullable=false, unique=false)
+     */
+    private $battletag;
+
+    /**
+     * @var string
+     * @ORM\Column(name="classe", type="string", length=255, nullable=false, unique=false)
+     */
+    private $classe;
+
+    /**
+     * @var string
+     * @ORM\Column(name="specialisation", type="string", length=255, nullable=false, unique=false)
+     */
+    private $specialisation;
+
+    /**
+     * @var string
+     * @ORM\Column(name="message", type="text", nullable=true, unique=false)
+     */
+    private $message;
+
+    /**
+     * @return string
+     */
+    public function getNompersonnage()
+    {
+        return $this->nompersonnage;
+    }
+
+    /**
+     * @param string $nompersonnage
+     */
+    public function setNompersonnage($nompersonnage)
+    {
+        $this->nompersonnage = $nompersonnage;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBattletag()
+    {
+        return $this->battletag;
+    }
+
+    /**
+     * @param string $battletag
+     */
+    public function setBattletag($battletag)
+    {
+        $this->battletag = $battletag;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClasse()
+    {
+        return $this->classe;
+    }
+
+    /**
+     * @param string $classe
+     */
+    public function setClasse($classe)
+    {
+        $this->classe = $classe;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSpecialisation()
+    {
+        return $this->specialisation;
+    }
+
+    /**
+     * @param string $specialisation
+     */
+    public function setSpecialisation($specialisation)
+    {
+        $this->specialisation = $specialisation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->message = $message;
+    }
+
+    /**
      * @return mixed
      */
     public function getUser()

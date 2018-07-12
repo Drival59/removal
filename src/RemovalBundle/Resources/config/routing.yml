@@ -228,3 +228,7 @@ removal_user_groupe_delete:
 removal_user_groupe_gestion:
     path:     /mythique/gestion
     defaults: { _controller: RemovalBundle:Mythique:gestionRead }
+
+removal_user_groupe_readCandidature:
+    path:     /mythique/gestion/candidature/{groupeID}
+    defaults: { _controller: RemovalBundle:Mythique:readCandidature }
