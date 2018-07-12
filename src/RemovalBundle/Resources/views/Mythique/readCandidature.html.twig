@@ -3,7 +3,6 @@
 {% block body %}
     <p style="color: white">Candidatures disponibles :</p>
     {% for candidature in candidatures %}
-        {{ dump(candidature) }}
         <p style="color: white">Pseudo : {{ candidature.nompersonnage }}</p>
         <p style="color: white">BattleTag : {{ candidature.battletag }}</p>
         <p style="color: white">Classe : {{ candidature.classe }}</p>

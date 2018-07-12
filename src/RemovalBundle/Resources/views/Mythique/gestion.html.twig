@@ -22,8 +22,8 @@
                             <p class="pseudo"><a href="{{ path('removal_user_groupe_readCandidature', {'groupeID' : groupe.id }) }}" data-toggle="tooltip" title="Voir les candidatures">{{ groupe.nom }}</a></p>
                             <p class="classe">Ilvl demandé : {{ groupe.ilvl }}</p>
                             <div class="modif">
-                                    <a href="{{ path('removal_user_groupe_update', {'groupeID' : groupe.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                                    <a href="{{ path('removal_user_groupe_delete', {'groupeID' : groupe.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                                <a href="{{ path('removal_user_groupe_update', {'groupeID' : groupe.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                                <a href="{{ path('removal_user_groupe_delete', {'groupeID' : groupe.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
                             </div>
                         </div>
                     {% endif %}
