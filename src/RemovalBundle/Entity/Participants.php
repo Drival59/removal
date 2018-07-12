@@ -67,6 +67,28 @@ class Participants
     private $message;
 
     /**
+     * @var string
+     * @ORM\Column(name="status", type="string", length=255, nullable=false, unique=false)
+     */
+    private $status;
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+    }
+
+    /**
      * @return string
      */
     public function getNompersonnage()

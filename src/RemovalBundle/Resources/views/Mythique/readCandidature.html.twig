@@ -3,11 +3,19 @@
 {% block body %}
     <p style="color: white">Candidatures disponibles :</p>
     {% for candidature in candidatures %}
-        {#{{ dump(candidature) }}#}
+        {{ dump(candidature) }}
         <p style="color: white">Pseudo : {{ candidature.nompersonnage }}</p>
         <p style="color: white">BattleTag : {{ candidature.battletag }}</p>
         <p style="color: white">Classe : {{ candidature.classe }}</p>
         <p style="color: white">Spécialisation : {{ candidature.specialisation }}</p>
-        <p style="color: white">Message : {{ candidature.message }}</p><br><br>
+        <p style="color: white">Message : {{ candidature.message }}</p>
+        <p style="color: white">Status du joueur : {{ candidature.status }}</p>
+        {% if candidature.status == "En attente" %}
+            <a href="{{ path('removal_user_groupe_updateInscription', {'participantID' : candidature.id}) }}"><button type="button">Valider</button></a>
+            <a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>
+            {% elseif candidature.status == "Validé" %}
+                <a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>
+        {% endif %}
+        <br><br>
     {% endfor %}
 {% endblock %}

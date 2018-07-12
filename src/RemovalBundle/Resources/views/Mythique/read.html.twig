@@ -118,7 +118,7 @@
                             <div class="content_candidature_status">
                                 {% for users in groupe.participants %}
                                     {% if user == users.user.id and count == 0 %}
-                                        <p>Déjà inscris</p>
+                                        <p>Déjà inscrit</p>
                                         {% set count = count + 1 %}
                                     {% endif %}
                                 {% endfor %}

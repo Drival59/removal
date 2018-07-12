@@ -221,6 +221,18 @@ removal_user_groupe_update:
     path:     /mythique/update/{groupeID}
     defaults: { _controller: RemovalBundle:Mythique:update }
 
+removal_user_groupe_valideInscription:
+    path:     /mythique/valide/{participantID}
+    defaults: { _controller: RemovalBundle:Mythique:ValideInscription }
+
+removal_user_groupe_updateInscription:
+    path:     /mythique/updateinscription/{participantID}
+    defaults: { _controller: RemovalBundle:Mythique:updateInscription }
+
+removal_user_groupe_refusInscription:
+    path:     /mythique/refus/{participantID}
+    defaults: { _controller: RemovalBundle:Mythique:RefusInscription }
+
 removal_user_groupe_delete:
     path:     /mythique/delete/{groupeID}
     defaults: { _controller: RemovalBundle:Mythique:delete }
