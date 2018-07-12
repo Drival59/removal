@@ -157,18 +157,21 @@ class MythiqueController extends MasterController
 
         $participant = $em->getRepository('RemovalBundle:Participants')->find($participantID);
         $groupe = $participant->getGroupe();
-        if ($participant->getSpecialisation() == "TANK")
+        if ($participant->getStatus() != "En attente")
         {
-            $groupe->settank("Ouvert");
-        }elseif ($participant->getSpecialisation() == "HEAL")
-        {
-            $groupe->setheal("Ouvert");
-        }elseif ($participant->getSpecialisation() == "DPS CAC")
-        {
-            $groupe->setdps1("Ouvert");
-        }elseif ($participant->getSpecialisation() == "DPS DISTANT")
-        {
-            $groupe->setdps1("Ouvert");
+            if ($participant->getSpecialisation() == "TANK")
+            {
+                $groupe->settank("Ouvert");
+            }elseif ($participant->getSpecialisation() == "HEAL")
+            {
+                $groupe->setheal("Ouvert");
+            }elseif ($participant->getSpecialisation() == "DPS CAC")
+            {
+                $groupe->setdps1("Ouvert");
+            }elseif ($participant->getSpecialisation() == "DPS DISTANT")
+            {
+                $groupe->setdps1("Ouvert");
+            }
         }
 
         $em->remove($participant);
