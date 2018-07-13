@@ -4,6 +4,7 @@ namespace RemovalBundle\Controller;
 
 use RemovalBundle\Entity\Mythique;
 use RemovalBundle\Entity\Participants;
+use RemovalBundle\Form\FilterMythiqueType;
 use RemovalBundle\Form\MythiqueType;
 use RemovalBundle\Form\ParticipantsType;
 use Symfony\Component\HttpFoundation\Request;
@@ -11,18 +12,37 @@ use Symfony\Component\HttpFoundation\Request;
 class MythiqueController extends MasterController
 {
 
-    public function readAction()
+    public function readAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $groupes = $em->getRepository('RemovalBundle:Mythique')->findAll();
+        $mythiques = $em->getRepository('RemovalBundle:Mythique')->findAll();
         $participants = $em->getRepository('RemovalBundle:Participants')->findAll();
         $user = $this->getUser()->getId();
 
+        $mythique = new Mythique();
+
+        $form = $this->createForm(FilterMythiqueType::class, $mythique);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $objectif = $form->get('objectif')->getNormData();
+            $requete = $form->get('skill')->getNormData();
+            $mythiques = $em->getRepository('RemovalBundle:Mythique')->FindByFilter($requete, $objectif);
+            return $this->render('@Removal/Mythique/read.html.twig', [
+                'mythiques' => $mythiques,
+                'form' => $form->createView(),
+                'participants' => $participants,
+                'user' => $user,
+            ]);
+        }
+
         return $this->render('@Removal/Mythique/read.html.twig', [
-            'groupes' => $groupes,
             'participants' => $participants,
-            'user' => $user
+            'user' => $user,
+            'mythiques' => $mythiques,
+            'form' => $form->createView()
         ]);
     }
 

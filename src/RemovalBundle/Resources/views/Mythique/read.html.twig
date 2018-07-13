@@ -13,6 +13,7 @@
             </button>
         </div>
     {% endfor %}
+    {{ form(form) }}
         <br>
         <div class="all_candidature_read">
             <div class="candidature_read">
@@ -28,7 +29,7 @@
                     <a href="{{ path('removal_user_groupe_gestion') }}"><button>Gérer ses groupes</button></a>
                 </div>
                 <br>
-    {% for groupe in groupes %}
+    {% for groupe in mythiques %}
         {% set count = 0 %}
                         <div class="all_content_candidature_read">
                             <div class="content_candidature_info">

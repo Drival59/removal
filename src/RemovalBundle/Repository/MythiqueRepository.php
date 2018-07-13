@@ -10,4 +10,12 @@ namespace RemovalBundle\Repository;
  */
 class MythiqueRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function FindByFilter($filter, $objectif)
+    {
+        $qb = $this->createQueryBuilder('m')->where('m.skill = :skill')->andWhere('m.objectif = :objectif');
+        $qb->setParameter('skill', $filter);
+        $qb->setParameter('objectif', $objectif);
+
+        return $qb->getQuery()->getResult();
+    }
 }
