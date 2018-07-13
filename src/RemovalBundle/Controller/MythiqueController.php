@@ -165,12 +165,15 @@ class MythiqueController extends MasterController
             }elseif ($participant->getSpecialisation() == "HEAL")
             {
                 $groupe->setheal("Ouvert");
-            }elseif ($participant->getSpecialisation() == "DPS CAC")
+            }elseif ($participant->getSpecialisation() != "DPS CAC" || $participant->getSpecialisation() != "DPS DISTANT" && $groupe->getdps1() == $participant->getNompersonnage())
             {
                 $groupe->setdps1("Ouvert");
-            }elseif ($participant->getSpecialisation() == "DPS DISTANT")
+            }elseif ($participant->getSpecialisation() != "DPS CAC" || $participant->getSpecialisation() != "DPS DISTANT" && $groupe->getdps2() == $participant->getNompersonnage())
             {
-                $groupe->setdps1("Ouvert");
+                $groupe->setdps2("Ouvert");
+            }elseif ($participant->getSpecialisation() != "DPS CAC" || $participant->getSpecialisation() != "DPS DISTANT" && $groupe->getdps3() == $participant->getNompersonnage())
+            {
+                $groupe->setdps3("Ouvert");
             }
         }
 

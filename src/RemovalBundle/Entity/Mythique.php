@@ -154,6 +154,28 @@ class Mythique
     private $faction;
 
     /**
+     * @var string
+     * @ORM\Column(name="objectif", type="string", length=255, nullable=true, unique=false)
+     */
+    private $objectif;
+
+    /**
+     * @return string
+     */
+    public function getObjectif()
+    {
+        return $this->objectif;
+    }
+
+    /**
+     * @param string $objectif
+     */
+    public function setObjectif($objectif)
+    {
+        $this->objectif = $objectif;
+    }
+
+    /**
      * @return string
      */
     public function getFaction()

@@ -286,6 +286,15 @@ class MythiqueType extends AbstractType
                     "Pas droit à l'erreur" => "Pas droit à l'erreur"
                 )
             ])
+            ->add('objectif', ChoiceType::class, [
+                'label' => 'Vos objectifs pour ce groupe ?',
+                'choices' => array(
+                    'Timer' => 'Timer',
+                    'Lvlup Key' => 'Lvlup Key',
+                    'Donjon de la semaine' => 'Donjon de la semaine',
+                    'Terminé sans prise de tête' => 'Terminé sans prise de tête'
+                )
+            ])
             ->add('status', ChoiceType::class, [
                 'label' => 'Status du groupe',
                 'choices' => array(
