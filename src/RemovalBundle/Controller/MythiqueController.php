@@ -27,9 +27,10 @@ class MythiqueController extends MasterController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            $faction = $form->get('faction')->getNormData();
             $objectif = $form->get('objectif')->getNormData();
             $requete = $form->get('skill')->getNormData();
-            $mythiques = $em->getRepository('RemovalBundle:Mythique')->FindByFilter($requete, $objectif);
+            $mythiques = $em->getRepository('RemovalBundle:Mythique')->FindByFilter($requete, $objectif, $faction);
             return $this->render('@Removal/Mythique/read.html.twig', [
                 'mythiques' => $mythiques,
                 'form' => $form->createView(),

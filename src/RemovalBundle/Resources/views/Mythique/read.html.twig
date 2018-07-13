@@ -13,9 +13,32 @@
             </button>
         </div>
     {% endfor %}
-    {{ form(form) }}
         <br>
         <div class="all_candidature_read">
+            <div id="form_filter">
+            {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="all_intern_form_filter">
+                    <div class="intern_form_filter">
+                    {{ form_label(form.skill) }}
+                    {{ form_widget(form.skill) }}
+                    </div>
+                    <div class="intern_form_filter">
+                    {{ form_label(form.objectif) }}
+                    {{ form_widget(form.objectif) }}
+                    </div>
+                    <div class="intern_form_filter">
+                    {{ form_label(form.faction) }}
+                    {{ form_widget(form.faction) }}
+                    </div>
+                </div>
+                <br>
+                <div id="button_form_filter">
+                    {{ form_label(form.save) }}
+                    {{ form_widget(form.save) }}
+                </div>
+                {{ form_end(form) }}
+            </div>
             <div class="candidature_read">
                 <div class="all_titre_gestion">
                     <div class="div_titre_gestion_participation_normal">

@@ -24,12 +24,20 @@ class FilterMythiqueType extends AbstractType
         ]);
 
         $builder->add('objectif', ChoiceType::class, [
-            'label' => 'Vos objectifs pour ce groupe ?',
+            'label' => 'Objectif désiré',
             'choices' => array(
                 'Timer' => 'Timer',
                 'Lvlup Key' => 'Lvlup Key',
                 'Donjon de la semaine' => 'Donjon de la semaine',
                 'Terminé sans prise de tête' => 'Terminé sans prise de tête'
+            )
+        ]);
+
+        $builder->add('faction', ChoiceType::class, [
+            'label' => 'Faction désirée',
+            'choices' => array(
+                'Horde' => 'Horde',
+                'Alliance' => 'Alliance'
             )
         ]);
 
