@@ -1,20 +1,56 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
-    <p style="color: white">Candidatures disponibles :</p>
-    {% for candidature in candidatures %}
-        <p style="color: white">Pseudo : {{ candidature.nompersonnage }}</p>
-        <p style="color: white">BattleTag : {{ candidature.battletag }}</p>
-        <p style="color: white">Classe : {{ candidature.classe }}</p>
-        <p style="color: white">Spécialisation : {{ candidature.specialisation }}</p>
-        <p style="color: white">Message : {{ candidature.message }}</p>
-        <p style="color: white">Status du joueur : {{ candidature.status }}</p>
-        {% if candidature.status == "En attente" %}
-            <a href="{{ path('removal_user_groupe_updateInscription', {'participantID' : candidature.id}) }}"><button type="button">Valider</button></a>
-            <a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>
-            {% elseif candidature.status == "Validé" %}
-                <a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>
-        {% endif %}
-        <br><br>
-    {% endfor %}
+    {#<p style="color: white">Candidatures disponibles :</p>#}
+
+    <div class="all_gestion_read">
+        <div class="titre_gestion_personnage">
+            <h2 class="h2">Candidatures disponibles :</h2><br>
+        </div>
+        <div class="gestion_read">
+            <div class="allcontent">
+                {% for candidature in candidatures %}
+                        <div class="personnage">
+                            <p class="pseudo">Pseudo : {{ candidature.nompersonnage }}</p>
+                            <p class="classe">BattleTag : {{ candidature.battletag }}</p>
+                            <p class="classe">Classe : {{ candidature.classe }}</p>
+                            <p class="classe">Spécialisation : {{ candidature.specialisation }}</p>
+                            <p class="message">Message : {{ candidature.message }}</p>
+                            <p class="pseudo">Status du joueur : {{ candidature.status }}</p>
+                            <div class="modif">
+                                {% if candidature.status == "En attente" %}
+                                    <a href="{{ path('removal_user_groupe_updateInscription', {'participantID' : candidature.id}) }}"><button type="button">Valider</button></a>
+                                    <a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>
+                                {% elseif candidature.status == "Validé" %}
+                                    <a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+    {#{% for candidature in candidatures %}#}
+        {#<p style="color: white">Pseudo : {{ candidature.nompersonnage }}</p>#}
+        {#<p style="color: white">BattleTag : {{ candidature.battletag }}</p>#}
+        {#<p style="color: white">Classe : {{ candidature.classe }}</p>#}
+        {#<p style="color: white">Spécialisation : {{ candidature.specialisation }}</p>#}
+        {#<p style="color: white">Message : {{ candidature.message }}</p>#}
+        {#<p style="color: white">Status du joueur : {{ candidature.status }}</p>#}
+        {#{% if candidature.status == "En attente" %}#}
+            {#<a href="{{ path('removal_user_groupe_updateInscription', {'participantID' : candidature.id}) }}"><button type="button">Valider</button></a>#}
+            {#<a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>#}
+            {#{% elseif candidature.status == "Validé" %}#}
+                {#<a href="{{ path('removal_user_groupe_refusInscription', {'participantID' : candidature.id}) }}"><button>Refuser</button></a>#}
+        {#{% endif %}#}
+        {#<br><br>#}
+    {#{% endfor %}#}
 {% endblock %}
