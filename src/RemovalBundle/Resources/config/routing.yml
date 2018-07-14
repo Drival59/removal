@@ -206,41 +206,41 @@ removal_sb_boss_update:
 
 
 removal_user_groupe_create:
-    path:     /mythique/create
+    path:     /user/mythique/create
     defaults: { _controller: RemovalBundle:Mythique:create }
 
 removal_user_groupe_read:
-    path:     /mythique
+    path:     /user/mythique
     defaults: { _controller: RemovalBundle:Mythique:read }
 
 removal_user_groupe_inscription:
-    path:     /mythique/inscription/{groupeID}
+    path:     /user/mythique/inscription/{groupeID}
     defaults: { _controller: RemovalBundle:Mythique:inscription }
 
 removal_user_groupe_update:
-    path:     /mythique/update/{groupeID}
+    path:     /user/mythique/update/{groupeID}
     defaults: { _controller: RemovalBundle:Mythique:update }
 
 removal_user_groupe_valideInscription:
-    path:     /mythique/valide/{participantID}
+    path:     /user/mythique/valide/{participantID}
     defaults: { _controller: RemovalBundle:Mythique:ValideInscription }
 
 removal_user_groupe_updateInscription:
-    path:     /mythique/updateinscription/{participantID}
+    path:     /user/mythique/updateinscription/{participantID}
     defaults: { _controller: RemovalBundle:Mythique:updateInscription }
 
 removal_user_groupe_refusInscription:
-    path:     /mythique/refus/{participantID}
+    path:     /user/mythique/refus/{participantID}
     defaults: { _controller: RemovalBundle:Mythique:RefusInscription }
 
 removal_user_groupe_delete:
-    path:     /mythique/delete/{groupeID}
+    path:     /user/mythique/delete/{groupeID}
     defaults: { _controller: RemovalBundle:Mythique:delete }
 
 removal_user_groupe_gestion:
-    path:     /mythique/gestion
+    path:     /user/mythique/gestion
     defaults: { _controller: RemovalBundle:Mythique:gestionRead }
 
 removal_user_groupe_readCandidature:
-    path:     /mythique/gestion/candidature/{groupeID}
+    path:     /user/mythique/gestion/candidature/{groupeID}
     defaults: { _controller: RemovalBundle:Mythique:readCandidature }
