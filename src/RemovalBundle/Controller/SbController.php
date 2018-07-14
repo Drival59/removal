@@ -75,7 +75,6 @@ class SbController extends MasterController
 
         if ($form->isSubmitted() && $form->isValid())
         {
-            $boss->setImageUrl('eonar.png');
             $em = $this->getDoctrine()->getManager();
             $em->persist($boss);
             $em->flush();
