@@ -292,19 +292,9 @@ th, td
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 200px;
 }
 .login{
-    width: 25%;
-    max-width: 500px;
-}
-.login form{
-    display: flex;
-    flex-direction: column;
-}
-.login_label{
-    display: flex;
-    align-items: center;
+  width: 50%;
 }
 .login_label label{
     margin: 1%;
@@ -333,6 +323,7 @@ th, td
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    padding-top: 50px;
 }
 .all_register{
     width: 100%;
@@ -450,6 +441,9 @@ th, td
   {
     height: 152px;
   }
+  .login{
+    width: 75%;
+  }
 }
 
 /** ========== MOBILE ========== **/
@@ -473,7 +467,10 @@ th, td
   }
   .removal-backform
   {
-    padding: 10px;
+    padding: 20px;
+  }
+  .login{
+    width: 100%;
   }
 }
 
