@@ -137,7 +137,8 @@ class CandidatureType extends AbstractType
         ]);
 
         $builder->add('save', SubmitType::class, [
-            'label' => 'Envoyez votre candidature'
+            'label' => 'Envoyez votre candidature',
+            'attr' => array('class' => 'btn-removal'),
         ]);
     }
 

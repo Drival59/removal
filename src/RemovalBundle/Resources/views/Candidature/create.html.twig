@@ -7,57 +7,61 @@
     </div>
     <br><br>
     <br>
-    <div class="all_form_candidature">
-<div class="form_candidature">
-    {{ form_start(form) }}
-    {{ form_errors(form) }}
-    <div class="form_candidature_first">
+    <div class="container">
+    <div class="removal-backform">
+      <div class="all_form_candidature">
+        <div class="form_candidature">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form_candidature_first">
+          <div class="form-group">
+            {{ form_label(form.pseudo) }}
+            {{ form_widget(form.pseudo) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.classe) }}
+            {{ form_widget(form.classe) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.specialisation) }}
+            {{ form_widget(form.specialisation) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.battletag) }}
+            {{ form_widget(form.battletag) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.armurerie) }}
+            {{ form_widget(form.armurerie) }}
+          </div>
+        </div>
+        <div class="form_candidature_first">
+          <div class="form-group">
+            {{ form_label(form.discord) }}
+            {{ form_widget(form.discord) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.joueurReference) }}
+            {{ form_widget(form.joueurReference) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.disponibilite) }}
+            {{ form_widget(form.disponibilite) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description) }}
+          </div>
+        </div>
+      </div>
+    </div><br />
     <div class="form-group">
-        {{ form_label(form.pseudo) }}
-        {{ form_widget(form.pseudo) }}
+      <div class="btn-outer" style="max-width:300px;margin:auto">
+        {{ form_widget(form.save) }}
+      </div>
+      {{ form_rest(form) }}
+      {{ form_end(form) }}
     </div>
-    <div class="form-group">
-    {{ form_label(form.classe) }}
-    {{ form_widget(form.classe) }}
-    </div>
-    <div class="form-group">
-    {{ form_label(form.specialisation) }}
-    {{ form_widget(form.specialisation) }}
-    </div>
-    <div class="form-group">
-    {{ form_label(form.battletag) }}
-    {{ form_widget(form.battletag) }}
-    </div>
-    <div class="form-group">
-    {{ form_label(form.armurerie) }}
-    {{ form_widget(form.armurerie) }}
-    </div>
-    </div>
-    <div class="form_candidature_first">
-    <div class="form-group">
-    {{ form_label(form.discord) }}
-    {{ form_widget(form.discord) }}
-    </div>
-    <div class="form-group">
-    {{ form_label(form.joueurReference) }}
-    {{ form_widget(form.joueurReference) }}
-    </div>
-    <div class="form-group">
-    {{ form_label(form.disponibilite) }}
-    {{ form_widget(form.disponibilite) }}
-    </div>
-    <div class="form-group">
-    {{ form_label(form.description) }}
-    {{ form_widget(form.description) }}
-    </div>
-    <div class="form-group">
-    {{ form_rest(form) }}
-    {{ form_end(form) }}
-    </div>
-    </div>
+  </div>
 </div>
-    </div>
-
-{#{{ form(form) }}#}
-
 {% endblock %}
