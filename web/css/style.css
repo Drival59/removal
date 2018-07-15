@@ -296,21 +296,6 @@ th, td
 .login{
   width: 50%;
 }
-.login_label label{
-    margin: 1%;
-    flex: 1;
-}
-
-.login_label input{
-    margin: 1%;
-    flex: 1;
-}
-.login_submit{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-top: 2%;
-}
 .login label{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
@@ -323,7 +308,7 @@ th, td
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    padding-top: 50px;
+    padding-top: 20px;
 }
 .all_register{
     width: 100%;
@@ -333,8 +318,7 @@ th, td
     justify-content: center;
 }
 .register {
-    width: 25%;
-    max-width: 700px;
+    width: 50%;
 }
 .all_confirmation{
     width: 100%;
@@ -444,6 +428,9 @@ th, td
   .login{
     width: 75%;
   }
+  .register {
+      width: 75%;
+  }
 }
 
 /** ========== MOBILE ========== **/
@@ -471,6 +458,9 @@ th, td
   }
   .login{
     width: 100%;
+  }
+  .register {
+      width: 100%;
   }
 }
 

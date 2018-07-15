@@ -1,16 +1,17 @@
 {% extends '@Removal/layout.html.twig' %}
 
 {% block body %}
-    <br>
-    <br>
-    <h2 class="titre_login">Création de compte</h2>
+    <h2 class="titre_login">Création de compte</h2><br />
 {% endblock %}
 
 {% block fos_user_content %}
-    <br><br><br><br>
+  <div class="container">
     <div class="all_register">
-        <div class="register">
-    {% include "@FOSUser/Registration/register_content.html.twig" %}
+      <div class="register">
+        <div class="removal-backform">
+          {% include "@FOSUser/Registration/register_content.html.twig" %}
         </div>
+      </div>
     </div>
+  </div>
 {% endblock fos_user_content %}
