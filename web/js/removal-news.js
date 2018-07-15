@@ -7,13 +7,13 @@ $( "#moreComments" ).click(function() {
             type: 'GET',
             url: urlNews + '/moreComments/fc=' + firstCommentsToLoad,
             success: function(data) {
-              $('.btn-outer').before(data);
+              $('.btn-outer:last').before(data);
               if (data.length != 0)
               {
                 $('#moreComments').prop('disabled', false);
                 $('#moreComments').html('Afficher plus de commentaires');
               } else {
-                $('.btn-outer').toggleClass('hidden');
+                $('.btn-outer:last').toggleClass('hidden');
               }
                },
             error: function() {
