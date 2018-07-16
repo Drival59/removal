@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+  <div style="max-width:1900px;margin:auto">
     {% for message in app.flashes('notice') %}
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ message }}
@@ -15,7 +16,7 @@
     {% endfor %}
         <br>
         <div class="all_candidature_read">
-            <div id="form_filter">
+            <div id="form_filter" class="removal-backform">
             {{ form_start(form) }}
                 {{ form_errors(form) }}
                 <div class="all_intern_form_filter">
@@ -33,7 +34,7 @@
                     </div>
                 </div>
                 <br>
-                <div id="button_form_filter">
+                <div class="btn-outer" id="button_form_filter">
                     {{ form_label(form.save) }}
                     {{ form_widget(form.save) }}
                 </div>
@@ -48,8 +49,14 @@
                     </div>
                 </div>
                 <div>
-                    <a href="{{ path('removal_user_groupe_create') }}"><button>Créer un groupe</button></a>
-                    <a href="{{ path('removal_user_groupe_gestion') }}"><button>Gérer ses groupes</button></a>
+                <div id="group-gestion-mythique">
+                  <div class="btn-outer">
+                    <a href="{{ path('removal_user_groupe_create') }}"><button class="btn btn-removal">Créer un groupe</button></a>
+                  </div>
+                  <div class="btn-outer">
+                    <a href="{{ path('removal_user_groupe_gestion') }}"><button class="btn btn-removal">Gérer ses groupes</button></a>
+                  </div>
+                </div>
                 </div>
                 <br>
     {% for groupe in mythiques %}
@@ -136,6 +143,7 @@
                                 </div>
                                 <br><br>
                                 <div class="in_content_candidature_comment">
+                                    <h4>Description :</h4>
                                     <p>{{ groupe.description }}</p>
                                 </div>
                             </div>
@@ -154,6 +162,7 @@
                 {% endfor %}
             </div>
         </div>
+      </div>
 {% endblock %}
 
 {% block javascripts %}

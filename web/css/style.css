@@ -149,7 +149,6 @@ th, td
     justify-content: center;
 }
 .titre_all_candidature{
-    margin-left: 5%;
     background: -webkit-linear-gradient(#ffe400, #fc7904);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

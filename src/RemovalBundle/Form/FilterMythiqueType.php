@@ -42,7 +42,8 @@ class FilterMythiqueType extends AbstractType
         ]);
 
         $builder->add('save', SubmitType::class, [
-            'label' => 'Envoyer'
+            'label' => 'Rechercher',
+            'attr' => array('class' => 'btn-removal'),
         ]);
     }
 

@@ -182,14 +182,6 @@
     display: flex;
     justify-content: space-between;
 }
-
-.titre_gestion_participation_normal h2{
-
-    background: -webkit-linear-gradient(#ffe400, #fc7904);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
 .div_titre_gestion_participation_normal{
     width: 80%;
     display: flex;
@@ -236,9 +228,7 @@
 
 .all_content_candidature_read{
     width: 100%;
-    max-width: 1900px;
     display: flex;
-    background-color: green;
     justify-content: center;
 }
 
@@ -284,14 +274,20 @@
 
 .in_content_candidature_comment{
     width: 100%;
+    color: white;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: justify;
-    padding: 0% 5% 0% 5%;
-    color: white;
+    margin-bottom: 50px;
 }
-
+.in_content_candidature_comment h4
+{
+  background: -webkit-linear-gradient(#ffe400, #fc7904);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .content_candidature_status{
     flex: 1;
     background-color: #170e09;
@@ -347,16 +343,8 @@
     justify-content: center;
 }
 #form_filter{
-    width: 100%;
-    max-width: 1800px;
-    display: flex;
-    flex-direction: column;
-}
-.intern_form_filter{
-    display: flex;
-    flex-direction: column;
-    width: 15%;
-    margin-left: 1%;
+    width: 50%;
+    margin-bottom: 50px;
 }
 .intern_form_filter label{
     background: -webkit-linear-gradient(#ffe400, #fc7904);
@@ -366,8 +354,89 @@
 }
 .all_intern_form_filter{
     display: flex;
+    justify-content: space-around;
 }
 
 #button_form_filter{
-    margin-left: 1%;
+    max-width: 200px;
+    margin: auto;
+}
+#group-gestion-mythique
+{
+  display: flex;
+  width: 30%;
+  margin: auto;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+/** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
+
+/** ========== BIG DEKSTOP SCREEN ========== **/
+@media all and (max-width: 1900px)
+{
+
+}
+
+/** ========== LITTLE DESKTOP SCREEN ========== **/
+@media all and (max-width: 1200px)
+{
+  #form_filter{
+      width: 75%;
+  }
+}
+
+/** ========== PADS ========== **/
+@media all and (max-width: 1024px)
+{
+  #group-gestion-mythique
+  {
+    width: 75%;
+  }
+  .all_content_candidature_read{
+      flex-direction: column;
+  }
+  .content_candidature_status{
+    height: 175px;
+  }
+  .in_content_candidature_comment
+  {
+    margin-bottom: 0;
+  }
+}
+
+/** ========== MOBILE ========== **/
+@media all and (max-width: 768px)
+{
+  #form_filter{
+      width: 100%;
+  }
+  #group-gestion-mythique
+  {
+    width: 60%;
+  }
+  .all_intern_form_filter{
+      flex-direction: column;
+  }
+  .titre_gestion_participation_normal, .div_titre_gestion_participation_normal
+  {
+    width: 100%;
+  }
+  .in_content_candidature_info
+  {
+    flex-direction: column;
+  }
+}
+
+/** ========== MOBILE PORTRAIT ========== **/
+@media all and (max-width: 375px)
+{
+  #group-gestion-mythique
+  {
+    flex-direction: column;
+    height: 100px;
+  }
+  .titre_gestion_participation_normal h2
+  {
+    font-size: 1.7em;
+  }
 }
