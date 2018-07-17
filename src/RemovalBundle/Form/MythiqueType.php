@@ -311,7 +311,8 @@ class MythiqueType extends AbstractType
             ]);
 
         $builder->add('save', SubmitType::class, [
-            'label' => 'Envoyer'
+            'label' => 'Envoyer',
+            'attr' => array('class' => 'btn-removal'),
         ]);
     }
 

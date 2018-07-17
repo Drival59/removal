@@ -369,6 +369,30 @@
   justify-content: space-around;
   margin-top: 30px;
 }
+#all_create_mythique
+{
+  display: flex;
+  justify-content: space-between;
+}
+.create_mythique
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30%;
+}
+.create_mythique hr
+{
+  width: 100%;
+  background-color: #fc7904;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+#btn-create-mythique
+{
+  max-width: 300px;
+  margin: auto;
+}
 /** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
 
 /** ========== BIG DEKSTOP SCREEN ========== **/
@@ -424,6 +448,15 @@
   .in_content_candidature_info
   {
     flex-direction: column;
+  }
+  #all_create_mythique
+  {
+    flex-direction: column;
+  }
+  .create_mythique
+  {
+    width: 100%;
+    margin-bottom: 30px;
   }
 }
 
