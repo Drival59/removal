@@ -1,5 +1,125 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
-    {{ form(form) }}
+<br />
+<div class="container">
+    <div class="title_creation_personnage">
+      <h2>Édition d'un groupe Mythique+</h2>
+    </div>
+    <br>
+    <div class="removal-backform">
+      {{ form_start(form) }}
+      {{ form_errors(form) }}
+      <div id="all_create_mythique">
+        <div class="create_mythique">
+          <h3 class="color-removal">Général :</h3><hr />
+          <div class="form-group">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom) }}
+            {{ form_errors(form.nom) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.description) }}
+            {{ form_widget(form.description, { 'attr': {'rows': '1', 'style' : 'resize:none', 'height' : '1px'} }) }}
+            {{ form_errors(form.description) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.chefDuGroupe) }}
+            {{ form_widget(form.chefDuGroupe) }}
+            {{ form_errors(form.chefDuGroupe) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.discord) }}
+            {{ form_widget(form.discord) }}
+            {{ form_errors(form.discord) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.battletag) }}
+            {{ form_widget(form.battletag) }}
+            {{ form_errors(form.battletag) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.ilvl) }}
+            {{ form_widget(form.ilvl) }}
+            {{ form_errors(form.ilvl) }}
+          </div>
+        </div>
+        <div class="create_mythique">
+          <h3 class="color-removal">Equipe :</h3><hr />
+          <div class="form-group">
+            {{ form_label(form.dps1) }}
+            {{ form_widget(form.dps1) }}
+            {{ form_errors(form.dps1) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.dps2) }}
+            {{ form_widget(form.dps2) }}
+            {{ form_errors(form.dps2) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.dps3) }}
+            {{ form_widget(form.dps3) }}
+            {{ form_errors(form.dps3) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.tank) }}
+            {{ form_widget(form.tank) }}
+            {{ form_errors(form.tank) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.heal) }}
+            {{ form_widget(form.heal) }}
+            {{ form_errors(form.heal) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.skill) }}
+            {{ form_widget(form.skill) }}
+            {{ form_errors(form.skill) }}
+          </div>
+        </div>
+        <div class="create_mythique">
+          <h3 class="color-removal">Utilitaire :</h3><hr />
+          <div class="form-group">
+            {{ form_label(form.consommable) }}
+            {{ form_widget(form.consommable) }}
+            {{ form_errors(form.consommable) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.tempsDeJeu) }}
+            {{ form_widget(form.tempsDeJeu) }}
+            {{ form_errors(form.tempsDeJeu) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.styleDeGroupe) }}
+            {{ form_widget(form.styleDeGroupe) }}
+            {{ form_errors(form.styleDeGroupe) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.objectif) }}
+            {{ form_widget(form.objectif) }}
+            {{ form_errors(form.objectif) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.status) }}
+            {{ form_widget(form.status) }}
+            {{ form_errors(form.status) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.faction) }}
+            {{ form_widget(form.faction) }}
+            {{ form_errors(form.faction) }}
+          </div>
+        </div>
+      </div><br /><br />
+      <div class="btn-outer" id="btn-create-mythique">
+        {{ form_widget(form.save) }}
+      </div>
+      {{ form_rest(form) }}
+      {{ form_end(form) }}
+    </div>
+</div>
 {% endblock %}
