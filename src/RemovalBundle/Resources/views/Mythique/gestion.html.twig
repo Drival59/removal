@@ -23,7 +23,7 @@
                             <p class="classe">Ilvl demandé : {{ groupe.ilvl }}</p>
                             <div class="modif">
                                 <a href="{{ path('removal_user_groupe_update', {'groupeID' : groupe.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                                <a href="{{ path('removal_user_groupe_delete', {'groupeID' : groupe.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
+                                <a href="{{ path('removal_user_groupe_delete', {'groupeID' : groupe.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
                             </div>
                         </div>
                     {% endif %}
@@ -38,9 +38,5 @@
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
         });
-
-        function myFunction() {
-            confirm("Voulez vous vraiment supprimer ?");
-        }
     </script>
 {% endblock %}
