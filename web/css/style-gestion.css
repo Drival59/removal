@@ -205,6 +205,7 @@
 .flex-participation-content
 {
   width: 40%;
+  text-align: center;
 }
 .all_titre_gestion{
     display: flex;
