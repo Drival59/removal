@@ -66,7 +66,6 @@
 .modif a{
     margin: 1%;
 }
-
 .table_participation{
     width: 90%;
 }
@@ -92,13 +91,16 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: #e9ecef;
-    border-bottom: 1px solid black;
     height: 40px;
 }
-
-.date p{
-    margin: 0;
+.date div
+{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
 
 .participation{
@@ -122,18 +124,11 @@
 }
 
 .participation_status span{
-    font-size: 40px;
-}
-
-
-.compo{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    font-size: 30px;
 }
 
 .table_participation_compo{
-    width: 40%;
+    width: 100%;
     background-color: #170e09;
 }
 
@@ -142,7 +137,6 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-
 .debut{
     background-color: lightgreen;
 }
@@ -173,24 +167,21 @@
 }
 
 .titre_gestion_personnage a{
-    margin-left: 2%;
     font-size: 30px;
 }
 
 .titre_gestion_participation_normal{
-    width: 80%;
+    width: 100%;
     display: flex;
     justify-content: space-between;
 }
 .div_titre_gestion_participation_normal{
-    width: 80%;
-    display: flex;
-    justify-content: center;
+    width: 100%;
     background: rgba(35,27,22,0.9);
 }
 
 .titre_gestion_participation_courante{
-    width: 80%;
+    width: 100%;
     background: rgba(35,27,22,0.9);
 }
 
@@ -203,6 +194,19 @@
     font-size: 40px;
 }
 
+.flex-participation
+{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.flex-participation-content
+{
+  width: 40%;
+}
 .all_titre_gestion{
     display: flex;
     justify-content: center;
@@ -426,6 +430,14 @@
   {
     margin-bottom: 0;
   }
+  .flex-participation
+  {
+    flex-direction: column;
+  }
+  .flex-participation-content
+  {
+    width: 100%;
+  }
 }
 
 /** ========== MOBILE ========== **/
@@ -444,6 +456,11 @@
   .titre_gestion_participation_normal, .div_titre_gestion_participation_normal
   {
     width: 100%;
+    flex-direction: column;
+  }
+  .titre_gestion
+  {
+    font-size: 25px;
   }
   .in_content_candidature_info
   {
@@ -458,6 +475,10 @@
     width: 100%;
     margin-bottom: 30px;
   }
+  .flex-participation
+  {
+    width: 100%;
+  }
 }
 
 /** ========== MOBILE PORTRAIT ========== **/
@@ -468,8 +489,10 @@
     flex-direction: column;
     height: 100px;
   }
-  .titre_gestion_participation_normal h2
-  {
-    font-size: 1.7em;
+  .participation{
+      flex-direction: column;
+  }
+  .participation_status{
+    margin-bottom: 50px;
   }
 }

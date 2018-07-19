@@ -1,308 +1,473 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
 {% endblock %}
 
 {% block body %}
-    <br>
-    <div class="all_gestion_read">
+<div class="container-fluid">
+  <br>
+  <div class="all_gestion_read">
     <div class="gestion_read">
-        {% for message in app.flashes('notice') %}
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-        {% endfor %}
-    <div class="titre_gestion_personnage">
-    <h2 class="h2">Vos personnages</h2><a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau personnage ! ATTENTION de bien respecter l'orthographe du nom de votre personnage!"></span></a><br>
-    </div>
-    <div class="allcontent">
-    {% for personnage in personnages %}
+      {% for message in app.flashes('notice') %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+      <div class="titre_gestion_personnage">
+        <h2 class="h2">Vos personnages</h2><a href="{{ path('removal_joueur_create') }}"> <span class="fas fa-plus" data-toggle="tooltip" title="Créer un nouveau personnage ! ATTENTION de bien respecter l'orthographe du nom de votre personnage!"></span></a><br>
+      </div>
+      <div class="allcontent">
+        {% for personnage in personnages %}
         <div class="personnage">
-            <p class="pseudo">{{ personnage.pseudo }}</p>
-            <p class="classe">{{ personnage.classe }}</p>
-            <p><a href="https://worldofwarcraft.com/fr-fr/character/kirin-tor/{{ personnage.pseudo }}" target="_blank"><img class="imgperso" src="{{ asset('images/iconewow.png') }}" alt="icone wow"></a></p>
-            {% if is_granted('ROLE_GUILDE') %}
-                <div class="modif">
+          <p class="pseudo">{{ personnage.pseudo }}</p>
+          <p class="classe">{{ personnage.classe }}</p>
+          <p><a href="https://worldofwarcraft.com/fr-fr/character/kirin-tor/{{ personnage.pseudo }}" target="_blank"><img class="imgperso" src="{{ asset('images/iconewow.png') }}" alt="icone wow"></a></p>
+          {% if is_granted('ROLE_GUILDE') %}
+          <div class="modif">
             <a href="{{ path('removal_joueur_update', {'joueurID' : personnage.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
             <a href="{{ path('removal_joueur_delete', {'joueurID' : personnage.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer" onclick="myFunction()"></span></a>
-                </div>
-            {% endif %}
+          </div>
+          {% endif %}
         </div>
-    {% endfor %}
-    </div><br><br>
-    <div class="all_titre_gestion">
-    <div class="div_titre_gestion_participation_normal">
-    <div class="titre_gestion_participation_normal">
-    <h2 class="titre_gestion">Participation normale : </h2> <span><a class="archive" href="{{ path('removal_gestion_read_archive') }}">Vos archives</a></span>
-    </div>
-    </div>
-    </div>
-    <br>
-        {% for participation in status %}
-            {% if participation.confirmation != "Archivée" %}
-            {% if participation.participation.importance == "Normal" and participation.participation.importance != null and date(participation.participation.dateFin) >= date() %}
-            <div class="all_participation">
+        {% endfor %}
+      </div><br /><br />
+
+      <div class="flex-participation">
+        <div class="flex-participation-content">
+          <div class="all_titre_gestion">
+            <div class="div_titre_gestion_participation_normal">
+              <div class="titre_gestion_participation_normal">
+                <h2 class="titre_gestion">Participation normale : </h2> <span><a class="archive" href="{{ path('removal_gestion_read_archive') }}">Vos archives</a></span>
+              </div>
+            </div>
+          </div>
+          <br>
+          {% for participation in status %}
+          {% if participation.confirmation != "Archivée" %}
+          {% if participation.participation.importance == "Normal" and participation.participation.importance != null and date(participation.participation.dateFin) >= date() %}
+
+          <div class="all_participation">
             <div class="table_participation_compo">
-        <div class="date">
-            <p class="debut">{{ participation.participation.dateDebut|date('d-m-Y') }}</p>
-            <p>{{ participation.participation.nomParticipation }}</p>
-            <p class="fin">{{ participation.participation.dateFin|date('d-m-Y') }}</p>
-        </div>
-        <div class="participation">
-            <div class="content_participation">
-                <div class="compo">
-                    <span>{{ participation.participation.nomCompo1 }}</span><span>{{ participation.participation.nbrCompo1 }}</span>
+              <div class="date">
+                <div class="debut">{{ participation.participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
                 </div>
-                <div class="compo">
-                    <span>{{ participation.participation.nomCompo2 }}</span><span>{{ participation.participation.nbrCompo2 }}</span>
-                </div>
-                <div class="compo">
-                    <span>{{ participation.participation.nomCompo3 }}</span><span>{{ participation.participation.nbrCompo3 }}</span>
-                </div>
-                <div class="compo">
-                    <span>{{ participation.participation.nomCompo4 }}</span><span>{{ participation.participation.nbrCompo4 }}</span>
-                </div>
-                {% if participation.participation.nomCompo5 != null %}
-                    <div class="compo">
-                        <span>{{ participation.participation.nomCompo5 }}</span><span>{{ participation.participation.nbrCompo5 }}</span>
-                    </div>
-                {% endif %}
-                {% if participation.participation.nomCompo6 != null %}
-                    <div class="compo">
-                        <span>{{ participation.participation.nomCompo6 }}</span><span>{{ participation.participation.nbrCompo6 }}</span>
-                    </div>
-                {% endif %}
-                {% if participation.participation.nomCompo7 != null %}
-                    <div class="compo">
-                        <span>{{ participation.participation.nomCompo7 }}</span><span>{{ participation.participation.nbrCompo7 }}</span>
-                    </div>
-                {% endif %}
-                {% if participation.participation.nomCompo8 != null %}
-                    <div class="compo">
-                        <span>{{ participation.participation.nomCompo8 }}</span><span>{{ participation.participation.nbrCompo8 }}</span>
-                    </div>
-                {% endif %}
-                {% if participation.participation.nomCompo9 != null %}
-                    <div class="compo">
-                        <span>{{ participation.participation.nomCompo9 }}</span><span>{{ participation.participation.nbrCompo9 }}</span>
-                    </div>
-                {% endif %}
-                {% if participation.participation.nomCompo10 != null %}
-                    <div class="compo">
-                        <span>{{ participation.participation.nomCompo10 }}</span><span>{{ participation.participation.nbrCompo10 }}</span>
-                    </div>
-                {% endif %}
-            </div>
-            <div class="participation_status">
-                <span>
+                <div class="participation_status">
+                  <span>
                     {% if participation.confirmation == "Pas envoyé" %}
-                        <a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a>
+                    <a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a>
                     {% elseif participation.confirmation == "En cours" %}
-                        {{ participation.confirmation }}
+                    {{ participation.confirmation }}
                     {% else %}
-                        {{ participation.confirmation }}
-                        <a href="{{ path('removal_gestion_status_archive', {'participationID' : participation.id}) }}"> <span class="fas fa-archive" data-toggle="tooltip" title="Archiver votre participation ?"></span></a>
+                    {{ participation.confirmation }}
+                    <a href="{{ path('removal_gestion_status_archive', {'participationID' : participation.id}) }}"> <span class="fas fa-archive" data-toggle="tooltip" title="Archiver votre participation ?"></span></a>
                     {% endif %}
-                </span>
+                  </span>
+                </div>
+              </div>
             </div>
+          </div><br>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+          <br><br>
         </div>
+
+        <div class="flex-participation-content">
+          <div class="all_titre_gestion">
+            <div class="div_titre_gestion_participation_normal">
+              <div class="titre_gestion_participation_normal">
+                <h2 class="titre_gestion">Participation en retard : </h2> <span><a class="archive" href="{{ path('removal_gestion_read_archive') }}">Vos archives</a></span>
+              </div>
             </div>
-            </div><br>
-                {% endif %}
+          </div>
+          <br>
+
+          {% for participation in status %}
+          {% if participation.confirmation != "Archivée" and date(participation.participation.dateFin) < date() %}
+          {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
+          <div class="all_participation">
+            <div class="table_participation_compo">
+              <div class="date">
+                <div class="debut">{{ participation.participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table table-removal-participation">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+                <div class="participation_status">
+                  <span>
+                    {% if participation.confirmation == "Pas envoyé" %}
+                    <a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a>
+                    {% elseif participation.confirmation == "En cours" %}
+                    {{ participation.confirmation }}
+                    {% else %}
+                    {{ participation.confirmation }}
+                    <a href="{{ path('removal_gestion_status_archive', {'participationID' : participation.id}) }}"> <span class="fas fa-archive" data-toggle="tooltip" title="Archiver votre participation ?"></span></a>
+                    {% endif %}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div><br>
+          {% endif %}
+          {% endif %}
+          {% endfor %}
+          <br><br>
+        </div>
+      </div>
+
+      <div class="flex-participation">
+        <div class="flex-participation-content">
+          <div class="all_titre_gestion">
+            <div class="titre_gestion_participation_courante">
+              <h2 class="titre_gestion">Participation courante :</h2>
+            </div>
+          </div>
+          <br>
+
+          {% for participation in status %}
+          {% if participation.participation.importance == "Courant" and participation.participation.importance != null %}
+          <div class="all_participation">
+            <div class="table_participation_compo">
+              <div class="date">
+                <div class="debut">{{ participation.participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table table-removal-participation">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+
+        <br><br>
+        <div class="flex-participation-content">
+          <div class="all_titre_gestion">
+            <div class="titre_gestion_participation_courante">
+              <h2 class="titre_gestion">Participation urgente :</h2>
+            </div>
+          </div>
+          <br />
+
+          {% for participation in status %}
+          {% if participation.participation.importance == "Urgent" and participation.participation.importance != null %}
+          <div class="all_participation">
+            <div class="table_participation_compo">
+              <div class="date">
+                <div class="debut">{{ participation.participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table table-removal-participation">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
             {% endif %}
             {% endfor %}
-    <br><br>
-
-    <div class="all_titre_gestion">
-        <div class="div_titre_gestion_participation_normal">
-            <div class="titre_gestion_participation_normal">
-                <h2 class="titre_gestion">Participation en retard : </h2> <span><a class="archive" href="{{ path('removal_gestion_read_archive') }}">Vos archives</a></span>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <br>
-    {% for participation in status %}
-        {% if participation.confirmation != "Archivée" and date(participation.participation.dateFin) < date() %}
-            {% if participation.participation.importance == "Normal" and participation.participation.importance != null %}
-                <div class="all_participation">
-                    <div class="table_participation_compo">
-                        <div class="date">
-                            <p class="debut">{{ participation.participation.dateDebut|date('d-m-Y') }}</p>
-                            <p>{{ participation.participation.nomParticipation }}</p>
-                            <p class="fin">{{ participation.participation.dateFin|date('d-m-Y') }}</p>
-                        </div>
-                        <div class="participation">
-                            <div class="content_participation">
-                                <div class="compo">
-                                    <span>{{ participation.participation.nomCompo1 }}</span><span>{{ participation.participation.nbrCompo1 }}</span>
-                                </div>
-                                <div class="compo">
-                                    <span>{{ participation.participation.nomCompo2 }}</span><span>{{ participation.participation.nbrCompo2 }}</span>
-                                </div>
-                                <div class="compo">
-                                    <span>{{ participation.participation.nomCompo3 }}</span><span>{{ participation.participation.nbrCompo3 }}</span>
-                                </div>
-                                <div class="compo">
-                                    <span>{{ participation.participation.nomCompo4 }}</span><span>{{ participation.participation.nbrCompo4 }}</span>
-                                </div>
-                                {% if participation.participation.nomCompo5 != null %}
-                                    <div class="compo">
-                                        <span>{{ participation.participation.nomCompo5 }}</span><span>{{ participation.participation.nbrCompo5 }}</span>
-                                    </div>
-                                {% endif %}
-                                {% if participation.participation.nomCompo6 != null %}
-                                    <div class="compo">
-                                        <span>{{ participation.participation.nomCompo6 }}</span><span>{{ participation.participation.nbrCompo6 }}</span>
-                                    </div>
-                                {% endif %}
-                                {% if participation.participation.nomCompo7 != null %}
-                                    <div class="compo">
-                                        <span>{{ participation.participation.nomCompo7 }}</span><span>{{ participation.participation.nbrCompo7 }}</span>
-                                    </div>
-                                {% endif %}
-                                {% if participation.participation.nomCompo8 != null %}
-                                    <div class="compo">
-                                        <span>{{ participation.participation.nomCompo8 }}</span><span>{{ participation.participation.nbrCompo8 }}</span>
-                                    </div>
-                                {% endif %}
-                                {% if participation.participation.nomCompo9 != null %}
-                                    <div class="compo">
-                                        <span>{{ participation.participation.nomCompo9 }}</span><span>{{ participation.participation.nbrCompo9 }}</span>
-                                    </div>
-                                {% endif %}
-                                {% if participation.participation.nomCompo10 != null %}
-                                    <div class="compo">
-                                        <span>{{ participation.participation.nomCompo10 }}</span><span>{{ participation.participation.nbrCompo10 }}</span>
-                                    </div>
-                                {% endif %}
-                            </div>
-                            <div class="participation_status">
-                <span>
-                    {% if participation.confirmation == "Pas envoyé" %}
-                        <a href="{{ path('removal_gestion_status', {'participationID' : participation.id}) }}"> <span class="fas fa-check" data-toggle="tooltip" title="Confirmer votre participation"></span></a>
-                    {% elseif participation.confirmation == "En cours" %}
-                        {{ participation.confirmation }}
-                    {% else %}
-                        {{ participation.confirmation }}
-                        <a href="{{ path('removal_gestion_status_archive', {'participationID' : participation.id}) }}"> <span class="fas fa-archive" data-toggle="tooltip" title="Archiver votre participation ?"></span></a>
-                    {% endif %}
-                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div><br>
-            {% endif %}
-        {% endif %}
-    {% endfor %}
-    <br><br>
-
-
-    <div class="all_titre_gestion">
-    <div class="titre_gestion_participation_courante">
-    <h2 class="titre_gestion">Participation courante :</h2>
-    </div>
-    </div>
-    <br>
-    <div class="all_participation">
-    <div class="table_participation">
-    <table class="table table-hover">
-        <tr class="thead-light">
-            <th>Participation</th>
-            <th>Importance</th>
-            <th>Date Début</th>
-            <th>Date Fin</th>
-            <th>Compo 1</th>
-            <th>Nombre</th>
-            <th>Compo 2</th>
-            <th>Nombre</th>
-            <th>Compo 3</th>
-            <th>Nombre</th>
-            <th>Compo 4</th>
-            <th>Nombre</th>
-        </tr>
-        {% for participation in status %}
-            {% if participation.participation.importance == "Courant" and participation.participation.importance != null %}
-                <tr class="table-warning">
-                    <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
-                    <td>{{ participation.participation.importance }}</td>
-                    <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
-                    <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
-                    <td>{{ participation.participation.nomCompo1 }}</td>
-                    <td>{{ participation.participation.nbrCompo1 }}</td>
-                    <td>{{ participation.participation.nomCompo2 }}</td>
-                    <td>{{ participation.participation.nbrCompo2 }}</td>
-                    <td>{{ participation.participation.nomCompo3 }}</td>
-                    <td>{{ participation.participation.nbrCompo3 }}</td>
-                    <td>{{ participation.participation.nomCompo4 }}</td>
-                    <td>{{ participation.participation.nbrCompo4 }}</td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
-    </div>
-    </div>
-    <br><br>
-    <div class="all_titre_gestion">
-    <div class="titre_gestion_participation_courante">
-    <h2 class="titre_gestion">Participation urgente :</h2>
-    </div>
-    </div>
-    <br>
-    <div class="all_participation">
-    <div class="table_participation">
-    <table class="table table-hover">
-        <tr class="thead-light">
-            <th>Participation</th>
-            <th>Importance</th>
-            <th>Date Début</th>
-            <th>Date Fin</th>
-            <th>Compo 1</th>
-            <th>Nombre</th>
-            <th>Compo 2</th>
-            <th>Nombre</th>
-            <th>Compo 3</th>
-            <th>Nombre</th>
-            <th>Compo 4</th>
-            <th>Nombre</th>
-        </tr>
-        {% for participation in status %}
-            {% if participation.participation.importance == "Urgent" and participation.participation.importance != null %}
-                <tr class="table-warning">
-                    <td><span class="fas fa-arrow-right"></span> {{ participation.participation.nomParticipation }}</td>
-                    <td>{{ participation.participation.importance }}</td>
-                    <td>{{ participation.participation.dateDebut|date('d-m-Y') }}</td>
-                    <td>{{ participation.participation.dateFin|date('d-m-Y') }}</td>
-                    <td>{{ participation.participation.nomCompo1 }}</td>
-                    <td>{{ participation.participation.nbrCompo1 }}</td>
-                    <td>{{ participation.participation.nomCompo2 }}</td>
-                    <td>{{ participation.participation.nbrCompo2 }}</td>
-                    <td>{{ participation.participation.nomCompo3 }}</td>
-                    <td>{{ participation.participation.nbrCompo3 }}</td>
-                    <td>{{ participation.participation.nomCompo4 }}</td>
-                    <td>{{ participation.participation.nbrCompo4 }}</td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
+</div>
 {% endblock %}
 
 
 {% block javascripts %}
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
 
-        function myFunction() {
-            confirm("Voulez vous vraiment supprimer ?");
-        }
-    </script>
+function myFunction() {
+  confirm("Voulez vous vraiment supprimer ?");
+}
+</script>
 {% endblock %}
