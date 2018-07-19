@@ -111,7 +111,6 @@ th, td
   border-radius: 10px;
 }
 .tablelisteperso{
-    width: 60%;
     color: white;
 }
 .all_personnages{
@@ -443,6 +442,10 @@ th, td
   .form_candidature_first{
       width: 100%;
   }
+  .tablelisteperso
+  {
+    width: 80%;
+  }
 }
 
 /** ========== MOBILE ========== **/
@@ -473,6 +476,10 @@ th, td
   }
   .register {
       width: 100%;
+  }
+  .tablelisteperso
+  {
+    width: 100%;
   }
 }
 
