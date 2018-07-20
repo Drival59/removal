@@ -1,177 +1,333 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/style-participation.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style-participation.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
 {% endblock %}
+
 
 {% block body %}
-    <br>
-    <div class="participation_create">
-        <div class="all_form_participation">
-            {% for message in app.flashes('notice') %}
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    {{ message }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<br>
+<div class="container">
+  <div class="participation_create">
+    <div class="all_form_participation">
+      {% for message in app.flashes('notice') %}
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      {% endfor %}
+      {% if is_granted('ROLE_SB') %}
+      <div class="btn-outer" style="max-width:200px;margin-left:2%;">
+        <a href="{{ path('removal_participation_create') }}"> <span><button class="btn btn-removal">Créer une participation</button></span></a>
+      </div>
+      <br>
+      {% endif %}
+      <br>
+      <h2 class="titre_all_participation">Liste des participations normales : </h2><br>
+      <div class="all_participation_read">
+        <div class="table_all_participation">
+          {% for participation in participation %}
+          {% if participation.importance == "Normal" and participation.importance != null %}
+          <div class="all_participation">
+            <div class="table_participation_compo">
+              <div class="date">
+                <div class="debut">{{ participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
                 </div>
-            {% endfor %}
-    {% if is_granted('ROLE_SB') %}
-        <a href="{{ path('removal_participation_create') }}"> <span><button>Créer une participation</button></span></a>
-        <br><br>
-    {% endif %}
-    <br>
-<h2 class="titre_all_participation">Liste des participations normales : </h2><br>
-    <div class="all_participation_read">
-    <div class="table_all_participation">
-<table class="table">
-    <tr class="thead-light">
-        <th>Participation</th>
-        <th>Importance</th>
-        <th>Date Début</th>
-        <th>Date Fin</th>
-        <th>Compo 1</th>
-        <th>Nbr</th>
-        <th>Compo 2</th>
-        <th>Nbr</th>
-        <th>Compo 3</th>
-        <th>Nbr</th>
-        <th>Compo 4</th>
-        <th>Nbr</th>
-        <th>Modification</th>
-    </tr>
-    {% for participation in participation %}
-        {% if participation.importance == "Normal" and participation.importance != null %}
-        <tr class="table-warning">
-            <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
-            <td>{{ participation.importance }}</td>
-            <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
-            <td>{{ participation.dateFin|date('d-m-Y') }}</td>
-            <td>{{ participation.nomCompo1 }}</td>
-            <td>{{ participation.nbrCompo1 }}</td>
-            <td>{{ participation.nomCompo2 }}</td>
-            <td>{{ participation.nbrCompo2 }}</td>
-            <td>{{ participation.nomCompo3 }}</td>
-            <td>{{ participation.nbrCompo3 }}</td>
-            <td>{{ participation.nomCompo4 }}</td>
-            <td>{{ participation.nbrCompo4 }}</td>
-            <td>
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
-            {% endif %}
-            </td>
-        </tr>
-        {% endif %}
-    {% endfor %}
-</table>
-    </div>
-    </div>
-<br><br>
+                {% if is_granted('ROLE_ADMIN') %}
+                <div class="participation_status" style="flex-direction:row;">
+                  <a style="margin-right:5%;" href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                  <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <br><br><br />
 
 
 
-    <h2 class="titre_all_participation">Liste des participations courantes : </h2><br>
-    <div class="all_participation_read">
-    <div class="table_all_participation">
-    <table class="table">
-        <tr class="thead-light">
-            <th>Participation</th>
-            <th>Importance</th>
-            <th>Date Début</th>
-            <th>Date Fin</th>
-            <th>Compo 1</th>
-            <th>Nbr</th>
-            <th>Compo 2</th>
-            <th>Nbr</th>
-            <th>Compo 3</th>
-            <th>Nbr</th>
-            <th>Compo 4</th>
-            <th>Nbr</th>
-            <th>Modification</th>
-        </tr>
-        {% for participation in participation %}
-            {% if participation.importance == "Courant" and participation.importance != null %}
-            <tr class="table-warning">
-                <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
-                <td>{{ participation.importance }}</td>
-                <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
-                <td>{{ participation.dateFin|date('d-m-Y') }}</td>
-                <td>{{ participation.nomCompo1 }}</td>
-                <td>{{ participation.nbrCompo1 }}</td>
-                <td>{{ participation.nomCompo2 }}</td>
-                <td>{{ participation.nbrCompo2 }}</td>
-                <td>{{ participation.nomCompo3 }}</td>
-                <td>{{ participation.nbrCompo3 }}</td>
-                <td>{{ participation.nomCompo4 }}</td>
-                <td>{{ participation.nbrCompo4 }}</td>
-                <td>
-                    {% if is_granted('ROLE_ADMIN') %}
-                        <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                        <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
-                    {% endif %}
-                </td>
-            </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
+      <h2 class="titre_all_participation">Liste des participations courantes : </h2><br>
+      <div class="all_participation_read">
+        <div class="table_all_participation">
+          {% for participation in participation %}
+          {% if participation.importance == "Courant" and participation.importance != null %}
+          <div class="all_participation">
+            <div class="table_participation_compo">
+              <div class="date">
+                <div class="debut">{{ participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                <div class="participation_status" style="flex-direction:row;">
+                  <a style="margin-right:5%;" href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                  <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <br><br><br />
+      <h2 class="titre_all_participation">Liste des participations urgentes : </h2><br>
+      <div class="all_participation_read">
+        <div class="table_all_participation">
+          {% for participation in participation %}
+          {% if participation.importance == "Urgent" and participation.importance != null %}
+          <div class="all_participation">
+            <div class="table_participation_compo">
+              <div class="date">
+                <div class="debut">{{ participation.dateDebut|date('d-m-Y') }}</div>
+                <div class="color-removal">{{ participation.nomParticipation }}</div>
+                <div class="fin">{{ participation.dateFin|date('d-m-Y') }}</div>
+              </div>
+              <div class="participation">
+                <div class="content_participation">
+                  <table class="table">
+                    <thead>
+                      <th scope="col"><span>Composant</span></th>
+                      <th scope="col"><span>Nombre</span></th>
+                    </thead>
+                    <tbody>
+                      {% if participation.nomCompo1 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo1 }}</span></td>
+                        <td><span>{{ participation.nbrCompo1 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo2 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo2 }}</span></td>
+                        <td><span>{{ participation.nbrCompo2 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo3 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo3 }}</span></td>
+                        <td><span>{{ participation.nbrCompo3 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo4 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo4 }}</span></td>
+                        <td><span>{{ participation.nbrCompo4 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo5 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo5 }}</span></td>
+                        <td><span>{{ participation.nbrCompo5 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo6 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo6 }}</span></td>
+                        <td><span>{{ participation.nbrCompo6 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo7 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo7 }}</span></td>
+                        <td><span>{{ participation.nbrCompo7 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo8 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo8 }}</span></td>
+                        <td><span>{{ participation.nbrCompo8 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo9 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo9 }}</span></td>
+                        <td><span>{{ participation.nbrCompo9 }}</span></td>
+                      </tr>
+                      {% endif %}
+                      {% if participation.nomCompo10 != null %}
+                      <tr>
+                        <td><span>{{ participation.nomCompo10 }}</span></td>
+                        <td><span>{{ participation.nbrCompo10 }}</span></td>
+                      </tr>
+                      {% endif %}
+                    </tbody>
+                  </table>
+                </div>
+                {% if is_granted('ROLE_ADMIN') %}
+                <div class="participation_status" style="flex-direction:row;">
+                  <a style="margin-right:5%;" href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
+                  <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <br><br><br />
     </div>
-    </div>
-    <br>
-
-    <h2 class="titre_all_participation">Liste des participations urgentes : </h2><br>
-    <div class="all_participation_read">
-    <div class="table_all_participation">
-    <table class="table">
-        <tr class="thead-light">
-            <th>Participation</th>
-            <th>Importance</th>
-            <th>Date Début</th>
-            <th>Date Fin</th>
-            <th>Compo 1</th>
-            <th>Nbr</th>
-            <th>Compo 2</th>
-            <th>Nbr</th>
-            <th>Compo 3</th>
-            <th>Nbr</th>
-            <th>Compo 4</th>
-            <th>Nbr</th>
-            <th>Modification</th>
-        </tr>
-        {% for participation in participation %}
-            {% if participation.importance == "Urgent" and participation.importance != null %}
-                <tr class="table-warning">
-                    <td><span class="fas fa-arrow-right"></span> {{ participation.nomParticipation }}</td>
-                    <td>{{ participation.importance }}</td>
-                    <td>{{ participation.dateDebut|date('d-m-Y') }}</td>
-                    <td>{{ participation.dateFin|date('d-m-Y') }}</td>
-                    <td>{{ participation.nomCompo1 }}</td>
-                    <td>{{ participation.nbrCompo1 }}</td>
-                    <td>{{ participation.nomCompo2 }}</td>
-                    <td>{{ participation.nbrCompo2 }}</td>
-                    <td>{{ participation.nomCompo3 }}</td>
-                    <td>{{ participation.nbrCompo3 }}</td>
-                    <td>{{ participation.nomCompo4 }}</td>
-                    <td>{{ participation.nbrCompo4 }}</td>
-                    <td>
-                        {% if is_granted('ROLE_ADMIN') %}
-                            <a href="{{ path('removal_participation_update', {'participationID' : participation.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
-                            <a href="{{ path('removal_participation_delete', {'participationID' : participation.id}) }}"> <span class="fas fa-trash-alt" data-toggle="tooltip" title="Supprimer"></span></a>
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
-    </div>
-    </div>
-    </div>
-    </div>
+  </div>
+</div>
 {% endblock %}
 {% block javascripts %}
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>
+<script>
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
 {% endblock %}

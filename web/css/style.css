@@ -128,6 +128,17 @@ th, td
 }
 .table_all_participation{
     width: 100%;
+    background-color: #170e09;
+}
+.table_all_participation span {
+background: -webkit-linear-gradient(#ffe400, #fc7904);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.content_participation_participation{
+    display: flex;
+    justify-content: center;
+    margin: 2%;
 }
 .all_participation_read{
     width: 100%;
