@@ -89,4 +89,4 @@ kms_froala_editor:
     includeFontAwesome: true
     includeCSS: true
     tableColors: [ "#FFFFFF", "#FF0000" ]
-    
+    pluginsDisabled: [" save "]
