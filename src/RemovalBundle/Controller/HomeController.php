@@ -14,7 +14,6 @@ class HomeController extends MasterController
     public function readAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $news = $em->getRepository('RemovalBundle:News')->myFindAll();
         $newsInCarousel = $em->getRepository('RemovalBundle:News')->newsInCarousel();
         $raidsInProgress = $em->getRepository('RemovalBundle:Raid')->findByInProgress(1);
