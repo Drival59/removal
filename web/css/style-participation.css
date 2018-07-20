@@ -1,27 +1,33 @@
+.form_participation_table
+{
+width: 90%;
+margin: auto;
+}
 .all_form_participation{
     width: 100%;
     max-width: 1800px;
 }
-
-.form-group{
-    width: 20%;
-    margin: 1%;
+.removal_participation_create
+{
+  width: 100%;
+  margin: auto;
 }
-
-.form_participation form{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
 .participation_create{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
+.form_participation
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.form-group
+{
+  width: 40%;
+}
 .table th{
     font-size: 12px;
 }
@@ -47,4 +53,41 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+/** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
+
+/** ========== BIG DEKSTOP SCREEN ========== **/
+@media all and (max-width: 1900px)
+{
+
+}
+
+/** ========== LITTLE DESKTOP SCREEN ========== **/
+@media all and (max-width: 1200px)
+{
+
+}
+
+/** ========== PADS ========== **/
+@media all and (max-width: 1024px)
+{
+  .form-group
+  {
+    width: 45%;
+  }
+}
+
+/** ========== MOBILE ========== **/
+@media all and (max-width: 768px)
+{
+  .form-group
+  {
+    width: 100%;
+  }
+}
+
+/** ========== MOBILE PORTRAIT ========== **/
+@media all and (max-width: 375px)
+{
+
 }
