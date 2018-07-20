@@ -26,7 +26,11 @@
     align-items: center;
     margin-top: 2%;
 }
-
+.create_character
+{
+  max-width: 600px;
+  margin: auto;
+}
 .imgperso{
     width: 50px;
     height: 50px;
