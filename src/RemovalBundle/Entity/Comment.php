@@ -23,7 +23,7 @@ class Comment
 
     /**
      * @ORM\ManyToOne(targetEntity="RemovalBundle\Entity\News")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $news;
 
