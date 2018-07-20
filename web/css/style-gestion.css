@@ -167,6 +167,8 @@
 
 .titre_gestion_personnage{
     display: flex;
+    justify-content: space-between;
+    max-width: 300px;
 }
 
 .titre_gestion_personnage a{
