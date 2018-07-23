@@ -55,7 +55,7 @@
                         {{ app.user.username }}
                       </a>
                       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Modifier mon profil</a>
+                        <a class="dropdown-item" href="{{ path('removal_user_edit') }}">Modifier mon profil</a>
                         <a class="dropdown-item" href="{{ path('fos_user_security_logout') }}"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
                       </div>
                     </li>

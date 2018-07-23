@@ -24,7 +24,6 @@ class User extends BaseUser
      */
     protected $id;
 
-
     /**
      * Get id
      *
@@ -66,7 +65,9 @@ class User extends BaseUser
     private $participants;
 
     /**
-     * @ORM\Column(name="avatar", type="string", length=255)
+     * @var string
+     *
+     * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
      * @Assert\File(
      *    mimeTypes={
      *        "image/png",
@@ -75,9 +76,8 @@ class User extends BaseUser
      *        "image/bmp"
      *    }
      * )
-    */
+     */
     private $avatar;
-
 
     /**
      * @return mixed
@@ -246,29 +246,7 @@ class User extends BaseUser
         $this->status->removeElement($status);
     }
 
-    /**
-     * Set avatar
-     *
-     * @param string $avatar
-     *
-     * @return User
-     */
-    public function setAvatar($avatar)
-    {
-        $this->avatar = $avatar;
 
-        return $this;
-    }
-
-    /**
-     * Get avatar
-     *
-     * @return string
-     */
-    public function getAvatar()
-    {
-        return $this->avatar;
-    }
 
     /**
      * Add groupe
@@ -316,5 +294,30 @@ class User extends BaseUser
     public function removeParticipant(\RemovalBundle\Entity\Participants $participant)
     {
         $this->participants->removeElement($participant);
+    }
+
+
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     *
+     * @return User
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
     }
 }

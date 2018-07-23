@@ -2,6 +2,10 @@ removal_homepage:
     path:     /
     defaults: { _controller: RemovalBundle:Home:read }
 
+removal_user_edit:
+    path: /user/edit
+    defaults: { _controller: RemovalBundle:User:edit }
+
 removal_moreNews:
     path: /moreNews/fn={fn}
     defaults: { _controller: RemovalBundle:New:more }

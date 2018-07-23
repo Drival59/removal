@@ -21,7 +21,6 @@ class NewController extends MasterController
     $formComment = $this->createForm(CommentType::class, $newComment);
     $formComment->handleRequest($request);
     $user = $this->getUser();
-
     if ($request->isMethod('POST')) {
       $newComment->setUtilisateur($user);
       $newComment->setNews($new);
