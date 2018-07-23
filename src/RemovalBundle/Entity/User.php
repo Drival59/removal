@@ -65,6 +65,12 @@ class User extends BaseUser
     private $participants;
 
     /**
+     * @ORM\Column(name="avatar", type="string", length=255)
+    */
+    private $avatar;
+
+
+    /**
      * @return mixed
      */
     public function getParticipants()
@@ -144,6 +150,7 @@ class User extends BaseUser
         $this->status = new ArrayCollection();
         $this->groupe = new ArrayCollection();
         $this->participants = new ArrayCollection();
+        $this->avatar = "default_user_removal.png";
     }
 
     /**
@@ -228,5 +235,77 @@ class User extends BaseUser
     public function removeStatus(\RemovalBundle\Entity\Status $status)
     {
         $this->status->removeElement($status);
+    }
+
+    /**
+     * Set avatar
+     *
+     * @param string $avatar
+     *
+     * @return User
+     */
+    public function setAvatar($avatar)
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    /**
+     * Get avatar
+     *
+     * @return string
+     */
+    public function getAvatar()
+    {
+        return $this->avatar;
+    }
+
+    /**
+     * Add groupe
+     *
+     * @param \RemovalBundle\Entity\Mythique $groupe
+     *
+     * @return User
+     */
+    public function addGroupe(\RemovalBundle\Entity\Mythique $groupe)
+    {
+        $this->groupe[] = $groupe;
+
+        return $this;
+    }
+
+    /**
+     * Remove groupe
+     *
+     * @param \RemovalBundle\Entity\Mythique $groupe
+     */
+    public function removeGroupe(\RemovalBundle\Entity\Mythique $groupe)
+    {
+        $this->groupe->removeElement($groupe);
+    }
+
+    /**
+     * Add participant
+     *
+     * @param \RemovalBundle\Entity\Participants $participant
+     *
+     * @return User
+     */
+    public function addParticipant(\RemovalBundle\Entity\Participants $participant)
+    {
+        $this->participants[] = $participant;
+
+        return $this;
+    }
+
+    /**
+     * Remove participant
+     *
+     * @param \RemovalBundle\Entity\Participants $participant
+     */
+    public function removeParticipant(\RemovalBundle\Entity\Participants $participant)
+    {
+        $this->participants->removeElement($participant);
     }
 }

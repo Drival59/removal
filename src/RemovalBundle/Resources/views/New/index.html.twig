@@ -43,7 +43,9 @@
       {% endfor %}
       {% for comment in comments %}
         <div class="commentContent">
-          <div class="avatar"></div>
+          <div class="avatar">
+            <img src="{{ asset('images/avatars/'~ comment.utilisateur.avatar) }}" alt="avatar_joueur" width="150px" height="150px"/>
+          </div>
           <div class="commentDescription">
             <p>{{ comment.utilisateur.username }} à écrit ce commentaire le {{comment.dateComment|date('d/m/Y à H:i')}}</p><hr />
             <p>{{comment.content}}</p>
