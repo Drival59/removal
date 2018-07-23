@@ -7,15 +7,23 @@ class UserController extends MasterController
 {
   public function editAction(Request $request)
   {
-    $user = $this->getUser();
+    return $this->render('@Removal/User/edit.html.twig');
+  }
 
+  public function editpswAction(Request $request)
+  {
+    $user = $this->getUser();
     if ($request->isMethod('POST')) {
       if (password_verify($_POST['old-psw'], $user->getPassword())) {
-        dump("VRAI");
+        if($_POST['new-psw'] == $_POST['confirm-new-psw']) {
+
+        } else {
+          $this->addFlash("errorPsw", "Le mot de passe et sa confirmation ne sont pas identiques");
+        }
       } else {
         $this->addFlash("errorOld", "L'ancien mot de passe est incorrect !");
       }
     }
-    return $this->render('@Removal/User/edit.html.twig');
+    return $this->redirectToRoute('removal_user_edit');
   }
 }

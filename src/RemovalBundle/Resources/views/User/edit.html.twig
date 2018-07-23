@@ -3,8 +3,10 @@
 {% block body %}
   <div class="container"><br />
     <h2 class="color-removal">Modification du profil</h2><br />
+
     <div class="removal-backform">
-      <form action="{{ path('removal_user_edit') }}" method="post" >
+      <h3 class="color-removal">Modifier le mot de passe</h3><br />
+      <form action="{{ path('removal_user_edit_psw') }}" method="post" >
         <div class="form-group">
           <label>Votre ancien mot de passe :</label>
           <input type="password" class="form-control" name="old-psw" required>
@@ -25,15 +27,23 @@
           <label>Confirmer votre nouveau mot de passe :</label>
           <input type="password" class="form-control" name="confirm-new-psw" required>
         </div>
-        <div class="form-group">
-          <label>Choisissez votre avatar :</label>
-          <input type="file" name="avatar" />
-        </div>
+        {% for flash_message in app.session.flashBag.get('errorPsw') %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                {{ flash_message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
         <br />
         <div class="btn-outer mw-ma">
           <button type="submit" class="btn btn-removal">Modifier</button>
         </div>
       </form>
+    </div><br /><br />
+
+    <div class="removal-backform">
+      <h3 class="color-removal">Modifier l'avatar</h3><br />
     </div>
   </div>
 {% endblock %}
