@@ -5,6 +5,7 @@ namespace RemovalBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -66,6 +67,14 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(name="avatar", type="string", length=255)
+     * @Assert\File(
+     *    mimeTypes={
+     *        "image/png",
+     *        "image/jpeg",
+     *        "image/jpg",
+     *        "image/bmp"
+     *    }
+     * )
     */
     private $avatar;
 
