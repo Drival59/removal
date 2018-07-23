@@ -403,6 +403,11 @@ background: -webkit-linear-gradient(#ffe400, #fc7904);
     align-items: center;
     justify-content: center;
 }
+.mw-ma
+{
+  max-width: 200px;
+  margin: auto
+}
 /** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
 
 /** ========== BIG DEKSTOP SCREEN ========== **/

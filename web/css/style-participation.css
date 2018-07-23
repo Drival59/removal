@@ -24,7 +24,7 @@ margin: auto;
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.form-group
+.removal-participation
 {
   width: 40%;
 }
@@ -54,6 +54,11 @@ margin: auto;
     align-items: center;
     justify-content: center;
 }
+.assign_participation
+{
+  max-width: 600px;
+  margin: auto;
+}
 /** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
 
 /** ========== BIG DEKSTOP SCREEN ========== **/
@@ -71,7 +76,7 @@ margin: auto;
 /** ========== PADS ========== **/
 @media all and (max-width: 1024px)
 {
-  .form-group
+  .removal-participation
   {
     width: 45%;
   }
@@ -80,7 +85,7 @@ margin: auto;
 /** ========== MOBILE ========== **/
 @media all and (max-width: 768px)
 {
-  .form-group
+  .removal-participation
   {
     width: 100%;
   }

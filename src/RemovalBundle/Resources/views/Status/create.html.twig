@@ -6,8 +6,10 @@
 
 {% block body %}
     <br>
-    <div class="all_form_status">
-    <div class="status_create">
+  <div class="container">
+  <div class="assign_participation">
+  <div class="removal-backform">
+
     {{ form_start(form) }}
     {{ form_errors(form) }}
     <div class="form-group">
@@ -25,9 +27,13 @@
     <div class="form-group">
         {{ form_label(form.status) }}
         {{ form_widget(form.status) }}
+    </div><br />
+    <div class="btn-outer mw-ma">
+      {{ form_widget(form.save) }}
     </div>
         {{ form_rest(form) }}
         {{ form_end(form) }}
     </div>
-    </div>
+  </div>
+</div>
 {% endblock %}
