@@ -28,7 +28,7 @@ class NewsType extends AbstractType
           ->add('inCarousel', CheckboxType::class, array(
             'label' => "Cochez si vous voulez l'actualité dans le caroussel",
             'required' => false))
-          ->add('imageUrl', FileType::class,['label'=>'Selectionnez l\'image de l\'actualité : (*)'])
+          ->add('imageUrl', FileType::class,['label'=>'Selectionnez l\'image de l\'actualité : (*)', 'attr' => array('class' => 'form-control')])
           ->add('save', SubmitType::class, array(
             'label' => "Créer l'actualité",
             'attr' => array('class' => 'btn-removal'),

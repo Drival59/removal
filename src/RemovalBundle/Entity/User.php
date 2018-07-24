@@ -69,6 +69,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
      * @Assert\File(
+     *    maxSize = "1024k",
      *    mimeTypes={
      *        "image/png",
      *        "image/jpeg",

@@ -6,6 +6,10 @@ removal_user_edit:
     path: /user/edit
     defaults: { _controller: RemovalBundle:User:edit }
 
+removal_user_edit_email:
+    path: /user/edit/email
+    defaults: { _controller: RemovalBundle:User:editemail }
+
 removal_user_edit_psw:
     path: /user/edit/psw
     defaults: { _controller: RemovalBundle:User:editpsw }

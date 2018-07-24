@@ -9,6 +9,7 @@ imports:
 parameters:
     locale: fr
     news_images_directory: '%kernel.project_dir%/web/images/news'
+    avatars_directory: '%kernel.project_dir%/web/images/avatars'
 
 framework:
     #esi: ~

@@ -1,49 +1,140 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+  <link rel="stylesheet" href="{{ asset('css/style-gestion.css') }}">
+{% endblock %}
+
 {% block body %}
   <div class="container"><br />
     <h2 class="color-removal">Modification du profil</h2><br />
+    <div class="removal-edit-user">
 
-    <div class="removal-backform">
-      <h3 class="color-removal">Modifier le mot de passe</h3><br />
-      <form action="{{ path('removal_user_edit_psw') }}" method="post" >
-        <div class="form-group">
-          <label>Votre ancien mot de passe :</label>
-          <input type="password" class="form-control" name="old-psw" required>
-        </div>
-        {% for flash_message in app.session.flashBag.get('errorOld') %}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <div class="removal-backform">
+        <h3 class="color-removal">Modifier l'adresse email</h3><br />
+        {% for flash_message in app.session.flashBag.get('validateEmail') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ flash_message }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>
         {% endfor %}
-        <div class="form-group">
-          <label>Votre nouveau mot de passe :</label>
-          <input type="password" class="form-control" name="new-psw" required>
-        </div>
-        <div class="form-group">
-          <label>Confirmer votre nouveau mot de passe :</label>
-          <input type="password" class="form-control" name="confirm-new-psw" required>
-        </div>
-        {% for flash_message in app.session.flashBag.get('errorPsw') %}
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <form action="{{ path('removal_user_edit_email') }}" method="post" >
+          <div class="form-group">
+            <label>Votre ancienne adresse email :</label>
+            <input type="email" class="form-control" name="old-email" required>
+          </div>
+          {% for flash_message in app.session.flashBag.get('errorOldEmail') %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ flash_message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+          <div class="form-group">
+            <label>Votre nouvelle adresse email :</label>
+            <input type="email" class="form-control" name="new-email" required>
+          </div>
+          <div class="form-group">
+            <label>Confirmer votre nouvelle adresse email :</label>
+            <input type="email" class="form-control" name="confirm-new-email" required>
+          </div>
+          {% for flash_message in app.session.flashBag.get('errorEmail') %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ flash_message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+          {% for flash_message in app.session.flashBag.get('errorCheck') %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ flash_message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+          <br />
+          <div class="btn-outer mw-ma">
+            <button type="submit" class="btn btn-removal">Modifier</button>
+          </div>
+        </form>
+      </div><br /><br />
+
+      <div class="removal-backform">
+        <h3 class="color-removal">Modifier le mot de passe</h3><br />
+        {% for flash_message in app.session.flashBag.get('validatePsw') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
                 {{ flash_message }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
             </div>
         {% endfor %}
+        <form action="{{ path('removal_user_edit_psw') }}" method="post" >
+          <div class="form-group">
+            <label>Votre ancien mot de passe :</label>
+            <input type="password" class="form-control" name="old-psw" required>
+          </div>
+          {% for flash_message in app.session.flashBag.get('errorOldPsw') %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ flash_message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+          <div class="form-group">
+            <label>Votre nouveau mot de passe :</label>
+            <input type="password" class="form-control" name="new-psw" required>
+          </div>
+          <div class="form-group">
+            <label>Confirmer votre nouveau mot de passe :</label>
+            <input type="password" class="form-control" name="confirm-new-psw" required>
+          </div>
+          {% for flash_message in app.session.flashBag.get('errorPsw') %}
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  {{ flash_message }}
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+          {% endfor %}
+          <br />
+          <div class="btn-outer mw-ma">
+            <button type="submit" class="btn btn-removal">Modifier</button>
+          </div>
+        </form>
+      </div><br /><br />
+
+      <div class="removal-backform">
+        <h3 class="color-removal">Modifier l'avatar</h3><br />
+        {% for flash_message in app.session.flashBag.get('validateAvatar') %}
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ flash_message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+        {{ form_start(formAvatar) }}
+        {{ form_errors(formAvatar) }}
+        <div class="form-group">
+          {{ form_label(formAvatar.avatar) }}
+          {{ form_widget(formAvatar.avatar) }}
+        </div>
         <br />
         <div class="btn-outer mw-ma">
-          <button type="submit" class="btn btn-removal">Modifier</button>
+          {{ form_widget(formAvatar.save) }}
         </div>
-      </form>
-    </div><br /><br />
+        {{ form_rest(formAvatar) }}
+        {{ form_end(formAvatar) }}
+      </div>
 
-    <div class="removal-backform">
-      <h3 class="color-removal">Modifier l'avatar</h3><br />
+
+
     </div>
   </div>
 {% endblock %}
