@@ -49,6 +49,12 @@
           <div class="commentDescription">
             <p>{{ comment.utilisateur.username }} à écrit ce commentaire le {{comment.dateComment|date('d/m/Y à H:i')}}</p><hr />
             <p>{{comment.content}}</p>
+            {% if (app.user.username is defined) and ((app.user.username == comment.utilisateur.username) or (is_granted('ROLE_SB'))) %}
+              <div class="btn-gestion-comments color-removal">
+                <a href=""><i class="far fa-edit"></i></a>
+                <a href=""><i class="fas fa-trash"></i></a>
+              </div>
+            {% endif %}
           </div>
         </div>
       {% endfor %}

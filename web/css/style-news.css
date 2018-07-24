@@ -57,8 +57,14 @@ hr
 .commentDescription
 {
   width: 80%;
+  position: relative;
 }
-
+.btn-gestion-comments
+{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
 /** ==================== MEDIA QUERIES RESPONSIVE ==================== **/
 
