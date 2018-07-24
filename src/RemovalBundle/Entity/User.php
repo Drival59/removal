@@ -69,15 +69,15 @@ class User extends BaseUser
      *
      * @ORM\Column(name="avatar", type="string", length=255, nullable=true)
      * @Assert\File(
-     *    groups={""},
-     *    maxSize = "200ko",
+     *    maxSize = "200k",
      *    mimeTypes={
      *        "image/png",
      *        "image/jpeg",
      *        "image/jpg",
      *        "image/bmp"
      *    },
-     *    mimeTypesMessage = "Choisissez le bon format d'image."
+     *    mimeTypesMessage = "Choisissez le bon format d'image.(png,jpeg,jpg,bmp)",
+     *    groups={""}
      * )
      */
     private $avatar;
