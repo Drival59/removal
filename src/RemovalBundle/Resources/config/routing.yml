@@ -27,7 +27,7 @@ removal_moreComment:
     defaults: { _controller: RemovalBundle:Comment:more }
 
 removal_news_create:
-    path: /news/create/
+    path: /sb/news/create/
     defaults: { _controller: RemovalBundle:New:create }
 
 removal_news_edit:
