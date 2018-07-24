@@ -14,6 +14,7 @@ class CommentController extends MasterController
 
     return $this->render('@Removal/Comment/moreComment.html.twig', array(
       'moreComments' => $moreComments,
+      'newsUrl' => $newsUrl
     ));
   }
 
