@@ -8,7 +8,7 @@
       <p>{{ moreComment.content}}</p>
       {% if (app.user.username is defined) and ((app.user.username == moreComment.utilisateur.username) or (is_granted('ROLE_SB'))) %}
         <div class="btn-gestion-comments color-removal">
-          <a href=""><i class="far fa-edit"></i></a>
+          <a href="{{ path('removal_comment_edit', {'newsUrl' : newsUrl, 'commentId' : moreComment.id})}}"><i class="far fa-edit"></i></a>
           <a href="{{ path('removal_comment_delete', {'newsUrl' : newsUrl, 'commentId' : moreComment.id})}}"><i class="fas fa-trash"></i></a>
         </div>
       {% endif %}

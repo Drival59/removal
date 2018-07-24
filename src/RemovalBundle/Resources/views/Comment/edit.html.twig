@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <div class="container"><br />
+    <div style="max-width:600px;margin:auto">
+      <div class="removal-backform">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+          {{ form_label(form.content) }}
+          {{ form_widget(form.content) }}
+          {{ form_errors(form.content) }}
+        </div>
+        <br />
+        <div class="btn-outer mw-ma">
+          {{ form_widget(form.save, {'label' : "Éditer le commentaire "}) }}
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

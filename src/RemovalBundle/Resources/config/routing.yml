@@ -26,6 +26,10 @@ removal_moreComment:
     path: /news/{newsUrl}/moreComments/fc={fc}
     defaults: { _controller: RemovalBundle:Comment:more }
 
+removal_comment_edit:
+    path: /news/{newsUrl}/comment/edit/{commentId}
+    defaults: { _controller: RemovalBundle:Comment:edit }
+
 removal_comment_delete:
     path: /news/{newsUrl}/comment/delete/{commentId}
     defaults: { _controller: RemovalBundle:Comment:delete }
