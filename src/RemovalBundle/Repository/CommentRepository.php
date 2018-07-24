@@ -37,4 +37,17 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
     ;
   }
 
+  public function myFindOneByCommentUser($commentId, $user)
+  {
+    $qb = $this->createQueryBuilder('c');
+    $qb->where('c.id = :commentId');
+    $qb->andWhere('c.utilisateur = :user');
+    $qb->setParameter('commentId', $commentId);
+    $qb->setParameter('user', $user);
+    return $qb
+      ->getQuery()
+      ->getResult()
+    ;
+  }
+
 }
