@@ -77,11 +77,21 @@ hr
 /** ========== PADS ========== **/
 @media all and (max-width: 1024px)
 {
-
+  .comments
+  {
+    width: 100%;
+  }
 }
 
 /** ========== MOBILE ========== **/
 @media all and (max-width: 768px)
 {
-
+  .avatar
+  {
+    display: none;
+  }
+  .commentDescription
+  {
+    width: 100%;
+  }
 }
