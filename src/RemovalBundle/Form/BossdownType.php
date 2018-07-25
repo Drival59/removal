@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -42,12 +43,15 @@ class BossdownType extends AbstractType
             'required' => false
         ]);
 
-        $builder->add('imageUrl', TextType::class, [
-            'label' => 'Image du boss'
+        $builder->add('imageUrl', FileType::class, [
+            'label' => 'Image du boss',
+            'attr' => array('class' => 'form-control'),
+            'data_class' => null,
         ]);
 
         $builder->add('save', SubmitType::class, [
-            'label' => 'Envoyer'
+            'label' => 'Envoyer',
+            'attr' => array('class' => 'btn-removal')
         ]);
     }
 

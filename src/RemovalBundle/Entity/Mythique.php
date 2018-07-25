@@ -144,6 +144,7 @@ class Mythique
     /**
      * @var
      * @ORM\OneToMany(targetEntity="RemovalBundle\Entity\Participants", mappedBy="groupe")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $participants;
 
@@ -619,4 +620,3 @@ class Mythique
         return $this->status;
     }
 }
-

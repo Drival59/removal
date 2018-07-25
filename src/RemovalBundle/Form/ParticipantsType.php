@@ -52,7 +52,8 @@ class ParticipantsType extends AbstractType
                 'label' => 'Message pour le chef du groupe ?'
             ])
         ->add('save', SubmitType::class, [
-            'label' => 'Envoyer'
+            'label' => 'Envoyer',
+            'attr' => array('class' => 'btn-removal'),
         ]);
     }
     /**

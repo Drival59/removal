@@ -1,10 +1,42 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <br><br>
-    <div class="all_boss_update">
-    <div class="boss_update">
-    {{ form(form) }}
+<div class="all_form_boss">
+    <div class="removal-backform">
+    <div class="form_boss">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="form-group">
+          {{ form_label(form.raid) }}
+          {{ form_widget(form.raid) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.name) }}
+        {{ form_widget(form.name) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.nm) }}
+        {{ form_widget(form.nm) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.hm) }}
+        {{ form_widget(form.hm) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.mm) }}
+        {{ form_widget(form.mm) }}
+        </div>
+        <div class="form-group">
+        {{ form_label(form.imageUrl) }}
+        {{ form_widget(form.imageUrl, {'required' : false }) }}
+        </div><br />
+        <div class="btn-outer mw-ma">
+        {{ form_label(form.save) }}
+        {{ form_widget(form.save) }}
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+      </div>
     </div>
-    </div>
+</div>
 {% endblock %}

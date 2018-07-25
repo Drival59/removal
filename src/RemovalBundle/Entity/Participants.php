@@ -32,7 +32,7 @@ class Participants
     /**
      * @var
      * @ORM\ManyToOne(targetEntity="RemovalBundle\Entity\Mythique", inversedBy="participants")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
      */
     private $groupe;
 
@@ -211,4 +211,3 @@ class Participants
         return $this->id;
     }
 }
-

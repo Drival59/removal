@@ -19,6 +19,7 @@
     margin-left: 1%;
     margin-right: 1%;
     margin-top: 2%;
+    padding-bottom: 20px;
 }
 .personnage p{
     display: flex;
@@ -63,7 +64,7 @@
 .modif{
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .modif a{

@@ -75,6 +75,14 @@ class SbController extends MasterController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+            $file = $boss->getImageUrl();
+            $fileName = md5(uniqid().'.'.$file->guessExtension());
+            $file->move(
+              $this->getParameter('bosses_directory'),
+              $fileName
+            );
+            $boss->setImageUrl($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($boss);
             $em->flush();
@@ -104,7 +112,7 @@ class SbController extends MasterController
         $em = $this->getDoctrine()->getManager();
 
         $boss = $em->getRepository('RemovalBundle:Bossdown')->find($bossID);
-
+        $bossImage = $boss->getImageUrl();
         if ($boss === null)
         {
             return $this->createNotFoundException();
@@ -115,8 +123,20 @@ class SbController extends MasterController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            if ($boss->getImageUrl() != null) {
+              /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
+              $file = $boss->getImageUrl();
+              $fileName = md5(uniqid().'.'.$file->guessExtension());
+              $file->move(
+                $this->getParameter('bosses_directory'),
+                $fileName
+              );
+              $boss->setImageUrl($fileName);
+            } else {
+              $boss->setImageUrl($bossImage);
+            }
+            $em->merge($boss);
             $em->flush();
-
             return $this->redirectToRoute('removal_sb_boss_read');
         }
 

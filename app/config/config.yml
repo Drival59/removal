@@ -10,6 +10,7 @@ parameters:
     locale: fr
     news_images_directory: '%kernel.project_dir%/web/images/news'
     avatars_directory: '%kernel.project_dir%/web/images/avatars'
+    bosses_directory: '%kernel.project_dir%/web/images/boss'
 
 framework:
     #esi: ~

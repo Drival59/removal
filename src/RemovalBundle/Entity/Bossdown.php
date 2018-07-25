@@ -60,7 +60,13 @@ class Bossdown
      * @var string
      *
      * @ORM\Column(name="image_url", type="string", length=255)
-     * @Assert\NotBlank()
+     * @Assert\File(
+     *    mimeTypes={
+     *        "image/png",
+     *        "image/jpeg",
+     *        "image/jpg",
+     *        "image/bmp"
+     *    })
      */
     private $imageUrl;
 

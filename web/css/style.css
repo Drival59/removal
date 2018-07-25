@@ -376,7 +376,7 @@ background: -webkit-linear-gradient(#ffe400, #fc7904);
     justify-content: center;
 }
 .form_boss{
-    width: 25%;
+    width: 100%;
     max-width: 500px;
     margin: 1%;
 }

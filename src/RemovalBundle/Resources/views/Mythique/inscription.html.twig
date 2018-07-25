@@ -1,5 +1,43 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ form(form) }}
+    <div class="container"><br />
+      <h2 class="color-removal">Inscription à un groupe mythique</h2><br />
+      <div style="max-width:600px;margin:auto">
+        <div class="removal-backform">
+          {{ form_start(form) }}
+          {{ form_errors(form) }}
+          <div class="form-group">
+            {{ form_label(form.nompersonnage) }}
+            {{ form_widget(form.nompersonnage) }}
+            {{ form_errors(form.nompersonnage) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.battletag) }}
+            {{ form_widget(form.battletag) }}
+            {{ form_errors(form.battletag) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.classe) }}
+            {{ form_widget(form.classe) }}
+            {{ form_errors(form.classe) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.specialisation) }}
+            {{ form_widget(form.specialisation) }}
+            {{ form_errors(form.specialisation) }}
+          </div>
+          <div class="form-group">
+            {{ form_label(form.message) }}
+            {{ form_widget(form.message) }}
+            {{ form_errors(form.message) }}
+          </div><br />
+          <div class="btn-outer mw-ma">
+            {{ form_widget(form.save) }}
+          </div>
+          {{ form_rest(form) }}
+          {{ form_end(form) }}
+        </div>
+      </div>
+    </div>
 {% endblock %}
