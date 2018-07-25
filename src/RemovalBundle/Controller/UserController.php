@@ -11,19 +11,29 @@ class UserController extends MasterController
     $user = $this->getUser();
     $form = $this->createForm(UserType::class, $user);
     $form->handleRequest($request);
-    if ($request->isMethod('POST')) {
+    if ($form->isSubmitted() && $form->isValid()) {
       $em = $this->getDoctrine()->getManager();
       /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
       $file = $user->getAvatar();
       $fileName = md5(uniqid().'.'.$file->guessExtension());
-      $file->move(
-        $this->getParameter('avatars_directory'),
-        $fileName
-      );
-      $user->setAvatar($fileName);
-      $em->merge($user);
-      $em->flush();
-      $this->addFlash("validateAvatar", "Votre avatar a bien été modifié");
+      $taille = filesize($file);
+      $type = $file->guessExtension();
+      if ($type == "jpeg" || $type == "jpg" || $type == "png" || $type == "bmp") {
+        if ($taille <= 195320) {
+          $file->move(
+            $this->getParameter('avatars_directory'),
+            $fileName
+          );
+          $user->setAvatar($fileName);
+          $em->merge($user);
+          $em->flush();
+          $this->addFlash("validateAvatar", "Votre avatar a bien été modifié");
+        } else {
+          $this->addFlash("errorAvatar", "La taille du fichier est trop grande. (max: 200ko)");
+        }
+      } else {
+        $this->addFlash("errorAvatar", "Le type de fichier n'est pas conforme ('jpeg', 'jpg', 'png', 'bmp')");
+      }
       return $this->redirectToRoute('removal_user_edit');
     }
     return $this->render('@Removal/User/edit.html.twig', array(
