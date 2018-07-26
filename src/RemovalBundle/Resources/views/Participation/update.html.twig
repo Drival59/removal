@@ -6,6 +6,7 @@
 
 {% block body %}
     <br>
+    <div class="container">
     <div class="participation_create">
     <div class="all_form_participation">
     <table class="table">
@@ -88,110 +89,119 @@
         </tr>
     </table><br><br>
 
-    <div class="all_form_participation">
+    <div class="removal_participation_create">
+      <div class="removal-backform">
+      <div class="all_form_participation">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
         <div class="form_participation">
-            {{ form_start(form) }}
-            {{ form_errors(form) }}
-            <div class="form-group">
-                {{ form_label(form.nomParticipation) }}
-                {{ form_widget(form.nomParticipation) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.importance) }}
-                {{ form_widget(form.importance) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.dateDebut) }}
-                {{ form_widget(form.dateDebut) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.dateFin) }}
-                {{ form_widget(form.dateFin) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo1) }}
-                {{ form_widget(form.nomCompo1) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo1) }}
-                {{ form_widget(form.nbrCompo1) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo2) }}
-                {{ form_widget(form.nomCompo2) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo2) }}
-                {{ form_widget(form.nbrCompo2) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo3) }}
-                {{ form_widget(form.nomCompo3) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo3) }}
-                {{ form_widget(form.nbrCompo3) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo4) }}
-                {{ form_widget(form.nomCompo4) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo4) }}
-                {{ form_widget(form.nbrCompo4) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo5) }}
-                {{ form_widget(form.nomCompo5) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo5) }}
-                {{ form_widget(form.nbrCompo5) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo6) }}
-                {{ form_widget(form.nomCompo6) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo6) }}
-                {{ form_widget(form.nbrCompo6) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo7) }}
-                {{ form_widget(form.nomCompo7) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo7) }}
-                {{ form_widget(form.nbrCompo7) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo8) }}
-                {{ form_widget(form.nomCompo8) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo8) }}
-                {{ form_widget(form.nbrCompo8) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo9) }}
-                {{ form_widget(form.nomCompo9) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo9) }}
-                {{ form_widget(form.nbrCompo9) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nomCompo10) }}
-                {{ form_widget(form.nomCompo10) }}
-            </div>
-            <div class="form-group">
-                {{ form_label(form.nbrCompo10) }}
-                {{ form_widget(form.nbrCompo10) }}
-            </div>
-            {{ form_rest(form) }}
-            {{ form_end(form) }}
+
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomParticipation) }}
+            {{ form_widget(form.nomParticipation) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.importance) }}
+            {{ form_widget(form.importance) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.dateDebut) }}
+            {{ form_widget(form.dateDebut) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.dateFin) }}
+            {{ form_widget(form.dateFin) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo1) }}
+            {{ form_widget(form.nomCompo1) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo1) }}
+            {{ form_widget(form.nbrCompo1) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo2) }}
+            {{ form_widget(form.nomCompo2) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo2) }}
+            {{ form_widget(form.nbrCompo2) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo3) }}
+            {{ form_widget(form.nomCompo3) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo3) }}
+            {{ form_widget(form.nbrCompo3) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo4) }}
+            {{ form_widget(form.nomCompo4) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo4) }}
+            {{ form_widget(form.nbrCompo4) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo5) }}
+            {{ form_widget(form.nomCompo5) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo5) }}
+            {{ form_widget(form.nbrCompo5) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo6) }}
+            {{ form_widget(form.nomCompo6) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo6) }}
+            {{ form_widget(form.nbrCompo6) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo7) }}
+            {{ form_widget(form.nomCompo7) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo7) }}
+            {{ form_widget(form.nbrCompo7) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo8) }}
+            {{ form_widget(form.nomCompo8) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo8) }}
+            {{ form_widget(form.nbrCompo8) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo9) }}
+            {{ form_widget(form.nomCompo9) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo9) }}
+            {{ form_widget(form.nbrCompo9) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nomCompo10) }}
+            {{ form_widget(form.nomCompo10) }}
+          </div>
+          <div class="form-group removal-participation">
+            {{ form_label(form.nbrCompo10) }}
+            {{ form_widget(form.nbrCompo10) }}
+          </div>
+        </div><br />
+        <div class="btn-outer mw-ma">
+          {{ form_widget(form.save) }}
         </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+      </div>
     </div>
     </div>
     </div>
+    </div>
+  </div>
 {% endblock %}
