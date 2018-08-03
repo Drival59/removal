@@ -6,9 +6,28 @@
 
 {% block body %}
     <br>
-    <div class="all_admin_read">
-    <div class="admin_read_update">
-        {{ form(form) }}
-    </div>
+    <div class="container">
+      <div class="removal-backform" style="max-width:600px;margin:auto">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div class="color-removal" style="font-size:1.3em">
+          {{ form_label(form.image) }}
+        </div>
+        {{ form_widget(form.image) }}<br />
+        <div class="color-removal" style="font-size:1.3em">
+        {{ form_label(form.classe) }}
+        </div>
+        {{ form_widget(form.classe) }}<br />
+        <div class="color-removal" style="font-size:1.3em">
+        {{ form_label(form.niveau) }}
+        </div>
+        {{ form_widget(form.niveau) }}
+        <br />
+        <div class="btn-outer mw-ma">
+          {{ form_widget(form.save) }}
+        </div>
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+      </div>
     </div>
 {% endblock %}

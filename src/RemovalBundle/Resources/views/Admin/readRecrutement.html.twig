@@ -14,7 +14,7 @@
                 <tr>
                     <th>Classe</th>
                     <th>Niveau</th>
-                    {% if is_granted('ROLE_ADMIN') %}
+                    {% if is_granted('ROLE_SB') %}
                     <th>Modification</th>
                     {% endif %}
                 </tr>
@@ -28,7 +28,7 @@
                             <td>
                                 {{ classe.niveau }}
                             </td>
-                            {% if is_granted('ROLE_ADMIN') %}
+                            {% if is_granted('ROLE_SB') %}
                             <td>
                                 <a href="{{ path('removal_admin_update_recrutement', {'recrutementID' : classe.id}) }}"> <span class="fas fa-pencil-alt" data-toggle="tooltip" title="Édition"></span></a>
                             </td>
